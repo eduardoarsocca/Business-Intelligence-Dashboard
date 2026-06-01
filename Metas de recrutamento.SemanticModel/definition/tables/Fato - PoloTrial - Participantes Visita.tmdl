@@ -1,0 +1,277 @@
+table 'Fato - PoloTrial - Participantes Visita'
+	lineageTag: a72f4885-8f77-4e8c-beff-221af9d9a784
+
+	column id
+		dataType: int64
+		formatString: 0
+		lineageTag: 7d2ebffd-2a80-4136-8016-89eaa9e94e22
+		summarizeBy: sum
+		sourceColumn: id
+
+		annotation SummarizationSetBy = Automatic
+
+	column co_protocolo
+		dataType: int64
+		formatString: 0
+		lineageTag: 12c11251-a503-4258-960d-f2f41be34a8d
+		summarizeBy: sum
+		sourceColumn: co_protocolo
+
+		annotation SummarizationSetBy = Automatic
+
+	column co_participante
+		dataType: int64
+		formatString: 0
+		lineageTag: 8fabce92-4e5c-4d22-8d6c-845b0e798062
+		summarizeBy: sum
+		sourceColumn: co_participante
+
+		annotation SummarizationSetBy = Automatic
+
+	column co_visita
+		dataType: int64
+		formatString: 0
+		lineageTag: 919b1c42-75a5-4c08-8ed9-6a97873bcd4b
+		summarizeBy: sum
+		sourceColumn: co_visita
+
+		annotation SummarizationSetBy = Automatic
+
+	column Protocolo
+		dataType: string
+		lineageTag: 8d0dfcc0-f992-4259-9f91-0ec3267566a4
+		summarizeBy: none
+		sourceColumn: Protocolo
+
+		annotation SummarizationSetBy = Automatic
+
+	column Visita
+		dataType: string
+		lineageTag: 6468262e-100e-4683-ac62-e92e7b662805
+		summarizeBy: none
+		sourceColumn: Visita
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Data: Visita realizada'
+		dataType: dateTime
+		formatString: Long Date
+		lineageTag: 58672514-9d36-4475-9a7f-25114c01cf0f
+		summarizeBy: none
+		sourceColumn: Data: Visita realizada
+
+		variation Variation
+			isDefault
+			relationship: bdca1631-201d-4bb1-a8c6-02c48ffdd68f
+			defaultHierarchy: LocalDateTable_776124bf-c567-43c8-aa26-f1d411a37a6f.'Hierarquia de datas'
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column 'Data: Visita'
+		dataType: dateTime
+		formatString: Long Date
+		lineageTag: 91fd1d84-4b81-42a9-8bf1-f9dcb7e9dff6
+		summarizeBy: none
+		sourceColumn: Data: Visita
+
+		variation Variation
+			isDefault
+			relationship: 1b7bf4ef-bf4b-4ab2-a2b9-0ed370fa0a31
+			defaultHierarchy: LocalDateTable_f4334f03-4aa9-41a5-ad4d-788e3921376e.'Hierarquia de datas'
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column 'Nota fistal'
+		dataType: string
+		lineageTag: dff4d9d7-cada-41d7-b1fe-763f22a1ebb5
+		summarizeBy: none
+		sourceColumn: Nota fistal
+
+		annotation SummarizationSetBy = Automatic
+
+	column Local
+		dataType: string
+		lineageTag: 90738ee9-1d11-45aa-8e1c-fa0312897a66
+		summarizeBy: none
+		sourceColumn: Local
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Responsável pela visita'
+		dataType: string
+		lineageTag: 2e89ded7-a666-4504-85df-e9c738b6e6e2
+		summarizeBy: none
+		sourceColumn: Responsável pela visita
+
+		annotation SummarizationSetBy = Automatic
+
+	column id_participante
+		dataType: string
+		lineageTag: f47f6586-8535-49b1-a424-2cea357ac489
+		summarizeBy: none
+		sourceColumn: id_participante
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Status da visita'
+		dataType: string
+		lineageTag: 805da4f6-75e8-4724-ac35-0741f3997a2a
+		summarizeBy: none
+		sourceColumn: Status da visita
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Data: Visita - USA'
+		dataType: string
+		lineageTag: 90037fc3-caa3-4a39-8db8-57fba52651f4
+		summarizeBy: none
+		sourceColumn: Data: Visita - USA
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Valor previsto da visita'
+		dataType: decimal
+		formatString: "R$"\ #,0.###############;-"R$"\ #,0.###############;"R$"\ #,0.###############
+		lineageTag: 7ba235ab-4182-47d7-a6aa-55aaad7cf157
+		summarizeBy: sum
+		sourceColumn: Valor previsto da visita
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"currencyCulture":"pt-BR"}
+
+	column co_moeda
+		dataType: int64
+		formatString: 0
+		lineageTag: 81ef708b-a912-430b-a45c-5eefa5441cc7
+		summarizeBy: sum
+		sourceColumn: co_moeda
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Data: Visita estimada'
+		dataType: dateTime
+		formatString: Long Date
+		lineageTag: 7fcfd810-074f-42b7-b75f-af18d9ee25d9
+		summarizeBy: none
+		sourceColumn: Data: Visita estimada
+
+		variation Variation
+			isDefault
+			relationship: 71014179-1d77-4135-b175-58b93de42533
+			defaultHierarchy: LocalDateTable_f6601e5d-ca66-4237-8e74-11c459e6cc6d.'Hierarquia de datas'
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	partition 'Fato - PoloTrial - Participantes Visita' = m
+		mode: import
+		queryGroup: 'Polotrial - Participantes'
+		source = ```
+				let
+				    Body = "{
+				                ""nome"": """&param_user&""",
+				                ""password"": """&param_senha&"""
+				    }",
+				    getToken = Json.Document(
+				       Web.Contents(
+				           param_api &"/sessions", [
+				               Headers = 
+				               [#"Content-Type"="application/json"],
+				               Content=Text.ToBinary(Body)
+				           ]
+				       )
+				    ),
+				    Token= getToken[token],
+				    AuthToken = "Bearer " & Token,
+				    urlRequest = param_api &"/participante_visita",
+				    results = Json.Document(
+				        Web.Contents(
+				            urlRequest,
+				            [Headers = [Authorization=AuthToken]]
+				        )
+				    ),
+				    #"Convertido para Tabela" = Table.FromList(results, Splitter.SplitByNothing(), null, null, ExtraValues.Error),
+				    #"Column1 Expandido" = Table.ExpandRecordColumn(#"Convertido para Tabela", "Column1", {"id", "co_participante", "co_visita", "nome_tarefa", "data_estimada", "data_realizada", "valor_previsto", "dados_visita", "dados_nota_fiscal", "dados_local", "dados_responsavel", "dados_participante", "dados_status"}, {"id", "co_participante", "co_visita", "nome_tarefa", "data_estimada", "data_realizada", "valor_previsto", "dados_visita", "dados_nota_fiscal", "dados_local", "dados_responsavel", "dados_participante", "dados_status"}),
+				    #"dados_status Expandido" = Table.ExpandRecordColumn(#"Column1 Expandido", "dados_status", {"ds_descricao"}, {"ds_descricao"}),
+				    #"Colunas Renomeadas" = Table.RenameColumns(#"dados_status Expandido",{{"ds_descricao", "Status da visita"}}),
+				    #"dados_participante Expandido" = Table.ExpandRecordColumn(#"Colunas Renomeadas", "dados_participante", {"co_protocolo", "id_participante", "dados_protocolo"}, {"co_protocolo", "id_participante", "dados_protocolo"}),
+				    #"dados_protocolo Expandido" = Table.ExpandRecordColumn(#"dados_participante Expandido", "dados_protocolo", {"apelido_protocolo"}, {"apelido_protocolo"}),
+				    #"Colunas Renomeadas1" = Table.RenameColumns(#"dados_protocolo Expandido",{{"apelido_protocolo", "Protocolo"}, {"nome_tarefa", "Visita"}, {"data_estimada", "Data: Visita estimada"}, {"data_realizada", "Data: Visita realizada"}, {"valor_previsto", "Valor previsto da visita"}}),
+				    #"Valor Substituído" = Table.ReplaceValue(#"Colunas Renomeadas1",".",",",Replacer.ReplaceText,{"Valor previsto da visita"}),
+				    #"Tipo Alterado" = Table.TransformColumnTypes(#"Valor Substituído",{{"Valor previsto da visita", type number}}),
+				    #"dados_responsavel Expandido" = Table.ExpandRecordColumn(#"Tipo Alterado", "dados_responsavel", {"ds_nome"}, {"ds_nome"}),
+				    #"Colunas Renomeadas2" = Table.RenameColumns(#"dados_responsavel Expandido",{{"ds_nome", "Responsável pela visita"}}),
+				    #"Tipo Alterado1" = Table.TransformColumnTypes(#"Colunas Renomeadas2",{{"Responsável pela visita", type text}}),
+				    #"dados_nota_fiscal Expandido" = Table.ExpandRecordColumn(#"Tipo Alterado1", "dados_nota_fiscal", {"codigo_nota_fiscal"}, {"codigo_nota_fiscal"}),
+				    #"Colunas Renomeadas3" = Table.RenameColumns(#"dados_nota_fiscal Expandido",{{"codigo_nota_fiscal", "Nota fistal"}}),
+				    #"dados_local Expandido" = Table.ExpandRecordColumn(#"Colunas Renomeadas3", "dados_local", {"ds_descricao"}, {"ds_descricao"}),
+				    #"Colunas Renomeadas4" = Table.RenameColumns(#"dados_local Expandido",{{"ds_descricao", "Local"}}),
+				    #"Valor Substituído3" = Table.ReplaceValue(#"Colunas Renomeadas4",".000Z","",Replacer.ReplaceText,{"Data: Visita estimada"}),
+				    #"Valor Substituído4" = Table.ReplaceValue(#"Valor Substituído3",".000Z","",Replacer.ReplaceText,{"Data: Visita realizada"}),
+				    #"Tipo Alterado2" = Table.TransformColumnTypes(#"Valor Substituído4",{{"Data: Visita realizada", type datetimezone}, {"Data: Visita estimada", type datetimezone}, {"id", Int64.Type}, {"co_participante", Int64.Type}, {"co_visita", Int64.Type}, {"Status da visita", type text}, {"Protocolo", type text}, {"id_participante", type text}}),
+				    #"Colunas Reordenadas" = Table.ReorderColumns(#"Tipo Alterado2",{"id", "co_protocolo", "co_participante", "co_visita", "Protocolo", "Visita", "Data: Visita estimada", "Data: Visita realizada", "Valor previsto da visita", "Nota fistal", "Local", "Responsável pela visita", "id_participante", "Status da visita"}),
+				    #"Tipo Alterado3" = Table.TransformColumnTypes(#"Colunas Reordenadas",{{"Local", type text}, {"Nota fistal", type text}}),
+				    #"Consultas Mescladas" = Table.NestedJoin(#"Tipo Alterado3", {"co_protocolo"}, #"Dimensão -Polotrial - Protocolo Financeiro", {"co_protocolo"}, "Polotrial - Protocolo Financeiro", JoinKind.LeftOuter),
+				    #"Polotrial - Protocolo Financeiro Expandido" = Table.ExpandTableColumn(#"Consultas Mescladas", "Polotrial - Protocolo Financeiro", {"co_moeda", "Moeda"}, {"Polotrial - Protocolo Financeiro.co_moeda", "Polotrial - Protocolo Financeiro.Moeda"}),
+				    #"Colunas Reordenadas1" = Table.ReorderColumns(#"Polotrial - Protocolo Financeiro Expandido",{"id", "co_protocolo", "co_participante", "co_visita", "Protocolo", "Visita", "Data: Visita estimada", "Data: Visita realizada", "Polotrial - Protocolo Financeiro.co_moeda", "Polotrial - Protocolo Financeiro.Moeda", "Valor previsto da visita", "Nota fistal", "Local", "Responsável pela visita", "id_participante", "Status da visita"}),
+				    #"Colunas Renomeadas5" = Table.RenameColumns(#"Colunas Reordenadas1",{{"Polotrial - Protocolo Financeiro.co_moeda", "co_moeda"}, {"Polotrial - Protocolo Financeiro.Moeda", "Moeda"}}),
+				    #"Colunas Reordenadas2" = Table.ReorderColumns(#"Colunas Renomeadas5",{"id", "co_protocolo", "co_participante", "co_visita", "Protocolo", "Visita", "Data: Visita estimada", "Data: Visita realizada", "co_moeda", "Moeda", "Valor previsto da visita", "Nota fistal", "Local", "Responsável pela visita", "id_participante", "Status da visita"}),
+				    #"Personalização Adicionada" = Table.AddColumn(#"Colunas Reordenadas2", "Personalizar", each [Cotação]*[Valor previsto da visita]),
+				    #"Colunas Reordenadas3" = Table.ReorderColumns(#"Personalização Adicionada",{"id", "co_protocolo", "co_participante", "co_visita", "Protocolo", "Visita", "Data: Visita estimada", "Data: Visita realizada", "co_moeda", "Moeda", "Valor previsto da visita", "Personalizar", "Nota fistal", "Local", "Responsável pela visita", "id_participante", "Status da visita"}),
+				    #"Colunas Renomeadas7" = Table.RenameColumns(#"Colunas Reordenadas3",{{"Personalizar", "Valor previsto com correção atual"}}),
+				    #"Tipo Alterado5" = Table.TransformColumnTypes(#"Colunas Renomeadas7",{{"Valor previsto com correção atual", Currency.Type}}),
+				    #"Coluna Condicional Adicionada" = Table.AddColumn(#"Tipo Alterado5", "Data: Visita", each if [#"Data: Visita realizada"] = null then [#"Data: Visita estimada"] else if [#"Data: Visita realizada"] <> null then [#"Data: Visita realizada"] else [#"Data: Visita estimada"]),
+				    #"Tipo Alterado6" = Table.TransformColumnTypes(#"Coluna Condicional Adicionada",{{"Data: Visita", type datetimezone}}),
+				    #"Colunas Reordenadas4" = Table.ReorderColumns(#"Tipo Alterado6",{"id", "co_protocolo", "co_participante", "co_visita", "Protocolo", "Visita", "Data: Visita estimada", "Data: Visita realizada", "Data: Visita", "co_moeda", "Moeda", "Valor previsto da visita", "Valor previsto com correção atual", "Nota fistal", "Local", "Responsável pela visita", "id_participante", "Status da visita"}),
+				    #"Linhas Classificadas" = Table.Sort(#"Colunas Reordenadas4",{{"id", Order.Descending}}),
+				    #"Coluna Duplicada" = Table.DuplicateColumn(#"Linhas Classificadas", "Data: Visita", "Data: Visita - Copiar"),
+				    #"Tipo Alterado7" = Table.TransformColumnTypes(#"Coluna Duplicada",{{"Data: Visita - Copiar", type date}}),
+				    #"Tipo Alterado com Localidade" = Table.TransformColumnTypes(#"Tipo Alterado7", {{"Data: Visita - Copiar", type text}}, "en-US"),
+				    #"Valor Substituído2" = Table.ReplaceValue(#"Tipo Alterado com Localidade","/","-",Replacer.ReplaceText,{"Data: Visita - Copiar"}),
+				    #"Colunas Renomeadas8" = Table.RenameColumns(#"Valor Substituído2",{{"Data: Visita - Copiar", "Data: Visita - USA"}}),
+				    #"Colunas Reordenadas5" = Table.ReorderColumns(#"Colunas Renomeadas8",{"id", "co_protocolo", "co_participante", "co_visita", "Protocolo", "Visita", "Data: Visita estimada", "Data: Visita realizada", "Data: Visita", "Data: Visita - USA", "co_moeda", "Moeda","Valor previsto da visita", "Valor previsto com correção atual", "Nota fistal", "Local", "Responsável pela visita", "id_participante", "Status da visita"}),
+				    #"Tipo Alterado com Localidade1" = Table.TransformColumnTypes(#"Colunas Reordenadas5", {{"Data: Visita estimada", type text}}, "pt-BR"),
+				    #"Tipo Alterado8" = Table.TransformColumnTypes(#"Tipo Alterado com Localidade1",{{"Data: Visita", type date}}),
+				    #"Colunas Reordenadas6" = Table.ReorderColumns(#"Tipo Alterado8",{"id", "co_protocolo", "co_participante", "co_visita", "Protocolo", "Visita", "Data: Visita estimada", "Data: Visita realizada", "Data: Visita", "Data: Visita - USA", "co_moeda", "Moeda", "Valor previsto da visita", "Valor previsto com correção atual", "Nota fistal", "Local", "Responsável pela visita", "id_participante", "Status da visita"}),
+				    #"Linhas Classificadas1" = Table.Sort(#"Colunas Reordenadas6",{{"Data: Visita", Order.Ascending}}),
+				    #"Tipo Alterado9" = Table.TransformColumnTypes(#"Linhas Classificadas1",{{"Valor previsto da visita", Currency.Type}, {"Moeda", type text}, {"Data: Visita estimada", type datetimezone}}),
+				    #"Colunas Removidas" = Table.RemoveColumns(#"Tipo Alterado9",{"dados_visita"}),
+				    #"Tipo Alterado10" = Table.TransformColumnTypes(#"Colunas Removidas",{{"Data: Visita realizada", type date}, {"Data: Visita estimada", type date}}),
+				    #"Linhas Classificadas2" = Table.Sort(#"Tipo Alterado10",{{"id", Order.Ascending}}),
+				    #"Colunas Removidas1" = Table.RemoveColumns(#"Linhas Classificadas2",{"Moeda"}),
+				    #"Colunas Reordenadas7" = Table.ReorderColumns(#"Colunas Removidas1",{"id", "co_protocolo", "co_participante", "co_visita", "Protocolo", "Visita", "Data: Visita estimada", "Data: Visita realizada", "Data: Visita", "co_moeda", "Valor previsto da visita", "Valor previsto com correção atual", "Nota fistal", "Local", "Responsável pela visita", "id_participante", "Status da visita", "Data: Visita - USA"}),
+				    #"Linhas Filtradas1" = Table.SelectRows(#"Colunas Reordenadas7", each [#"Data: Visita estimada"] <> null),
+				    #"Personalização Adicionada1" = Table.AddColumn(#"Linhas Filtradas1", "Data Visita Corrigida", each let
+				    dataVisita = [#"Data: Visita estimada"],
+				    diaSemana = Date.DayOfWeek(dataVisita, Day.Monday),
+				    feriados = {"2023-01-01", "2023-12-25"},
+				    ehFeriado = List.Contains(feriados, Date.ToText(dataVisita, "yyyy-MM-dd")),
+				    dataCorrigida = if diaSemana >= 5 or ehFeriado then Date.AddDays(dataVisita, - (diaSemana - 4)) else dataVisita
+				in
+				    dataCorrigida),
+				    #"Tipo Alterado11" = Table.TransformColumnTypes(#"Personalização Adicionada1",{{"Data Visita Corrigida", type text}}),
+				    #"Tipo Alterado12" = Table.TransformColumnTypes(#"Tipo Alterado11",{{"Data Visita Corrigida", type date}}),
+				    #"Linhas Classificadas3" = Table.Sort(#"Tipo Alterado12",{{"Data: Visita", Order.Ascending}}),
+				    #"Colunas Reordenadas8" = Table.ReorderColumns(#"Linhas Classificadas3",{"id", "co_protocolo", "co_participante", "co_visita", "Protocolo", "Visita", "Data: Visita estimada", "Data: Visita realizada", "Data: Visita", "Valor previsto com correção atual", "Nota fistal", "Local", "Responsável pela visita", "id_participante", "Status da visita", "Data: Visita - USA", "Valor previsto da visita", "Data Visita Corrigida", "co_moeda"}),
+				    #"Colunas Removidas2" = Table.RemoveColumns(#"Colunas Reordenadas8",{"Data Visita Corrigida"}),
+				    #"Colunas Reordenadas9" = Table.ReorderColumns(#"Colunas Removidas2",{"id", "co_protocolo", "co_participante", "co_visita", "Protocolo", "Visita", "Data: Visita estimada", "Data: Visita realizada", "Data: Visita", "Valor previsto com correção atual", "Nota fistal", "Local", "Responsável pela visita", "id_participante", "Status da visita", "Data: Visita - USA", "Valor previsto da visita", "co_moeda"}),
+				    #"Texto Aparado" = Table.TransformColumns(Table.TransformColumnTypes(#"Colunas Reordenadas9", {{"id", type text}, {"co_protocolo", type text}, {"co_participante", type text}, {"co_visita", type text}, {"Data: Visita estimada", type text}, {"Data: Visita realizada", type text}, {"Data: Visita", type text},  {"Valor previsto com correção atual", type text}, {"Valor previsto da visita", type text}, {"co_moeda", type text}}, "pt-BR"),{{"id", Text.Trim, type text}, {"co_protocolo", Text.Trim, type text}, {"co_participante", Text.Trim, type text}, {"co_visita", Text.Trim, type text}, {"Protocolo", Text.Trim, type text}, {"Visita", Text.Trim, type text}, {"Data: Visita estimada", Text.Trim, type text}, {"Data: Visita realizada", Text.Trim, type text}, {"Data: Visita", Text.Trim, type text}, {"Valor previsto com correção atual", Text.Trim, type text}, {"Nota fistal", Text.Trim, type text}, {"Local", Text.Trim, type text}, {"Responsável pela visita", Text.Trim, type text}, {"id_participante", Text.Trim, type text}, {"Status da visita", Text.Trim, type text}, {"Data: Visita - USA", Text.Trim, type text}, {"co_moeda", Text.Trim, type text}}),
+				    #"Texto Limpo" = Table.TransformColumns(#"Texto Aparado",{{"id", Text.Clean, type text}, {"co_protocolo", Text.Clean, type text}, {"co_participante", Text.Clean, type text}, {"co_visita", Text.Clean, type text}, {"Protocolo", Text.Clean, type text}, {"Visita", Text.Clean, type text}, {"Data: Visita estimada", Text.Clean, type text}, {"Data: Visita realizada", Text.Clean, type text}, {"Data: Visita", Text.Clean, type text}, {"Valor previsto com correção atual", Text.Clean, type text}, {"Nota fistal", Text.Clean, type text}, {"Local", Text.Clean, type text}, {"Responsável pela visita", Text.Clean, type text}, {"id_participante", Text.Clean, type text}, {"Status da visita", Text.Clean, type text}, {"Data: Visita - USA", Text.Clean, type text}, {"Valor previsto da visita", Text.Clean, type text}, {"co_moeda", Text.Clean, type text}}),
+				    #"Tipo Alterado15" = Table.TransformColumnTypes(#"Texto Limpo",{{"id", Int64.Type}, {"co_protocolo", Int64.Type}, {"co_participante", Int64.Type}, {"co_visita", Int64.Type}, {"Data: Visita estimada", type date}, {"Data: Visita realizada", type date}, {"Data: Visita", type date}, {"Valor previsto com correção atual", Currency.Type}, {"Valor previsto da visita", Currency.Type}, {"co_moeda", Int64.Type}}),
+				    #"Linhas Classificadas4" = Table.Sort(#"Tipo Alterado15",{{"Data: Visita estimada", Order.Descending}}),
+				    #"Colunas Reordenadas10" = Table.ReorderColumns(#"Linhas Classificadas4",{"id", "co_protocolo", "co_participante", "co_visita", "Protocolo", "Visita", "Data: Visita realizada", "Data: Visita", "Valor previsto com correção atual", "Nota fistal", "Local", "Responsável pela visita", "id_participante", "Status da visita", "Data: Visita - USA", "Valor previsto da visita", "co_moeda", "Data: Visita estimada"}),
+				    #"Colunas Removidas3" = Table.RemoveColumns(#"Colunas Reordenadas10",{"Valor previsto com correção atual"})
+				in
+				    #"Colunas Removidas3"
+				```
+
+	annotation PBI_NavigationStepName = Navegação
+
+	annotation PBI_ResultType = Table
+

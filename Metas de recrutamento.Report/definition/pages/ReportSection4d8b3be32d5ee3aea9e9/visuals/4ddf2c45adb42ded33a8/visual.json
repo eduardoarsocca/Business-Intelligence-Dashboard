@@ -1,0 +1,350 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.5.0/schema.json",
+  "name": "4ddf2c45adb42ded33a8",
+  "position": {
+    "x": 1097.0181818181818,
+    "y": 0,
+    "z": 11000,
+    "height": 62.836363636363643,
+    "width": 170.18181818181819,
+    "tabOrder": 10000
+  },
+  "visual": {
+    "visualType": "slicer",
+    "query": {
+      "queryState": {
+        "Values": {
+          "projections": [
+            {
+              "field": {
+                "HierarchyLevel": {
+                  "Expression": {
+                    "Hierarchy": {
+                      "Expression": {
+                        "PropertyVariationSource": {
+                          "Expression": {
+                            "SourceRef": {
+                              "Entity": "Fato - Polotrial - Participantes"
+                            }
+                          },
+                          "Name": "Variation",
+                          "Property": "Data: Randomização - Copiar"
+                        }
+                      },
+                      "Hierarchy": "Hierarquia de datas"
+                    }
+                  },
+                  "Level": "Ano"
+                }
+              },
+              "queryRef": "Fato - Polotrial - Participantes.Data: Randomização - Copiar.Variation.Hierarquia de datas.Ano",
+              "nativeQueryRef": "Data: Randomização - Copiar Ano",
+              "active": true
+            }
+          ]
+        }
+      },
+      "sortDefinition": {
+        "sort": [
+          {
+            "field": {
+              "HierarchyLevel": {
+                "Expression": {
+                  "Hierarchy": {
+                    "Expression": {
+                      "PropertyVariationSource": {
+                        "Expression": {
+                          "SourceRef": {
+                            "Entity": "Fato - Polotrial - Participantes"
+                          }
+                        },
+                        "Name": "Variation",
+                        "Property": "Data: Randomização - Copiar"
+                      }
+                    },
+                    "Hierarchy": "Hierarquia de datas"
+                  }
+                },
+                "Level": "Ano"
+              }
+            },
+            "direction": "Descending"
+          }
+        ]
+      }
+    },
+    "objects": {
+      "data": [
+        {
+          "properties": {
+            "mode": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Basic'"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "general": [
+        {
+          "properties": {
+            "orientation": {
+              "expr": {
+                "Literal": {
+                  "Value": "1D"
+                }
+              }
+            },
+            "filter": {
+              "filter": {
+                "Version": 2,
+                "From": [
+                  {
+                    "Name": "l",
+                    "Entity": "LocalDateTable_6908d338-2c66-4217-958b-5f8781442d5a",
+                    "Type": 0
+                  }
+                ],
+                "Where": [
+                  {
+                    "Condition": {
+                      "In": {
+                        "Expressions": [
+                          {
+                            "Column": {
+                              "Expression": {
+                                "SourceRef": {
+                                  "Source": "l"
+                                }
+                              },
+                              "Property": "Ano"
+                            }
+                          }
+                        ],
+                        "Values": [
+                          [
+                            {
+                              "Literal": {
+                                "Value": "2026L"
+                              }
+                            }
+                          ]
+                        ]
+                      }
+                    },
+                    "Annotations": {
+                      "filterExpressionMetadata": {
+                        "expressions": [
+                          {
+                            "HierarchyLevel": {
+                              "Expression": {
+                                "Hierarchy": {
+                                  "Expression": {
+                                    "PropertyVariationSource": {
+                                      "Expression": {
+                                        "SourceRef": {
+                                          "Entity": "Fato - Polotrial - Participantes"
+                                        }
+                                      },
+                                      "Name": "Variation",
+                                      "Property": "Data: Randomização - Copiar"
+                                    }
+                                  },
+                                  "Hierarchy": "Hierarquia de datas"
+                                }
+                              },
+                              "Level": "Ano"
+                            }
+                          }
+                        ],
+                        "decomposedIdentities": {
+                          "values": [
+                            [
+                              {
+                                "0": [
+                                  {
+                                    "Literal": {
+                                      "Value": "2026L"
+                                    }
+                                  }
+                                ]
+                              }
+                            ]
+                          ],
+                          "columns": [
+                            {
+                              "value": {
+                                "Column": {
+                                  "Expression": {
+                                    "SourceRef": {
+                                      "Entity": "LocalDateTable_6908d338-2c66-4217-958b-5f8781442d5a"
+                                    }
+                                  },
+                                  "Property": "Ano"
+                                }
+                              }
+                            }
+                          ]
+                        },
+                        "valueMap": [
+                          {
+                            "0": "2026"
+                          }
+                        ]
+                      }
+                    }
+                  }
+                ]
+              }
+            }
+          }
+        }
+      ],
+      "header": [
+        {
+          "properties": {
+            "fontColor": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "ThemeDataColor": {
+                      "ColorId": 0,
+                      "Percent": 0
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      ]
+    },
+    "visualContainerObjects": {
+      "background": [
+        {
+          "properties": {
+            "transparency": {
+              "expr": {
+                "Literal": {
+                  "Value": "100D"
+                }
+              }
+            }
+          }
+        }
+      ]
+    },
+    "syncGroup": {
+      "groupName": "Ano",
+      "fieldChanges": true,
+      "filterChanges": true
+    },
+    "drillFilterOtherVisuals": true
+  },
+  "filterConfig": {
+    "filters": [
+      {
+        "name": "33ceaf6691fe409b967b",
+        "field": {
+          "HierarchyLevel": {
+            "Expression": {
+              "Hierarchy": {
+                "Expression": {
+                  "PropertyVariationSource": {
+                    "Expression": {
+                      "SourceRef": {
+                        "Entity": "Fato - Polotrial - Participantes"
+                      }
+                    },
+                    "Name": "Variation",
+                    "Property": "Data: Randomização - Copiar"
+                  }
+                },
+                "Hierarchy": "Hierarquia de datas"
+              }
+            },
+            "Level": "Ano"
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "1913c28e9203089d9297",
+        "field": {
+          "HierarchyLevel": {
+            "Expression": {
+              "Hierarchy": {
+                "Expression": {
+                  "PropertyVariationSource": {
+                    "Expression": {
+                      "SourceRef": {
+                        "Entity": "Fato - Polotrial - Participantes"
+                      }
+                    },
+                    "Name": "Variation",
+                    "Property": "Data: Randomização - Copiar"
+                  }
+                },
+                "Hierarchy": "Hierarquia de datas"
+              }
+            },
+            "Level": "Ano"
+          }
+        },
+        "type": "Advanced",
+        "filter": {
+          "Version": 2,
+          "From": [
+            {
+              "Name": "f",
+              "Entity": "Fato - Polotrial - Participantes",
+              "Type": 0
+            }
+          ],
+          "Where": [
+            {
+              "Condition": {
+                "Not": {
+                  "Expression": {
+                    "Comparison": {
+                      "ComparisonKind": 0,
+                      "Left": {
+                        "HierarchyLevel": {
+                          "Expression": {
+                            "Hierarchy": {
+                              "Expression": {
+                                "PropertyVariationSource": {
+                                  "Expression": {
+                                    "SourceRef": {
+                                      "Source": "f"
+                                    }
+                                  },
+                                  "Name": "Variation",
+                                  "Property": "Data: Randomização - Copiar"
+                                }
+                              },
+                              "Hierarchy": "Hierarquia de datas"
+                            }
+                          },
+                          "Level": "Ano"
+                        }
+                      },
+                      "Right": {
+                        "Literal": {
+                          "Value": "null"
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          ]
+        },
+        "howCreated": "User"
+      }
+    ]
+  }
+}

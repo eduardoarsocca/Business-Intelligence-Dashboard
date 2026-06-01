@@ -1,0 +1,162 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/page/2.0.0/schema.json",
+  "name": "ReportSection4d8b3be32d5ee3aea9e9",
+  "displayName": "Metas de Recrutamento - Total",
+  "displayOption": "FitToPage",
+  "height": 720,
+  "width": 1280,
+  "filterConfig": {
+    "filters": [
+      {
+        "name": "385b77256049babb9d1a",
+        "field": {
+          "HierarchyLevel": {
+            "Expression": {
+              "Hierarchy": {
+                "Expression": {
+                  "PropertyVariationSource": {
+                    "Expression": {
+                      "SourceRef": {
+                        "Entity": "Fato - Polotrial - Participantes"
+                      }
+                    },
+                    "Name": "Variation",
+                    "Property": "Data: Randomização - Copiar"
+                  }
+                },
+                "Hierarchy": "Hierarquia de datas"
+              }
+            },
+            "Level": "Mês"
+          }
+        },
+        "type": "Categorical",
+        "howCreated": "User"
+      },
+      {
+        "name": "405d517e6de6a6956aa8",
+        "field": {
+          "HierarchyLevel": {
+            "Expression": {
+              "Hierarchy": {
+                "Expression": {
+                  "PropertyVariationSource": {
+                    "Expression": {
+                      "SourceRef": {
+                        "Entity": "Fato - Polotrial - Participantes"
+                      }
+                    },
+                    "Name": "Variation",
+                    "Property": "Data: Randomização - Copiar"
+                  }
+                },
+                "Hierarchy": "Hierarquia de datas"
+              }
+            },
+            "Level": "Dia"
+          }
+        },
+        "type": "Advanced",
+        "howCreated": "User"
+      }
+    ]
+  },
+  "pageBinding": {
+    "name": "Pod3",
+    "type": "Default",
+    "parameters": [],
+    "acceptsFilterContext": "None"
+  },
+  "objects": {
+    "background": [
+      {
+        "properties": {
+          "image": {
+            "image": {
+              "name": {
+                "expr": {
+                  "Literal": {
+                    "Value": "'Lamina Geral.png'"
+                  }
+                }
+              },
+              "url": {
+                "expr": {
+                  "ResourcePackageItem": {
+                    "PackageName": "RegisteredResources",
+                    "PackageType": 1,
+                    "ItemName": "Lamina_Geral5288159384786997.png"
+                  }
+                }
+              },
+              "scaling": {
+                "expr": {
+                  "Literal": {
+                    "Value": "'Normal'"
+                  }
+                }
+              }
+            }
+          },
+          "transparency": {
+            "expr": {
+              "Literal": {
+                "Value": "0D"
+              }
+            }
+          }
+        }
+      }
+    ],
+    "outspacePane": [
+      {
+        "properties": {
+          "width": {
+            "expr": {
+              "Literal": {
+                "Value": "298L"
+              }
+            }
+          }
+        }
+      }
+    ]
+  },
+  "visualInteractions": [
+    {
+      "source": "1e6c7af23ff6757ad332",
+      "target": "ac76a42ad636df4dc6e7",
+      "type": "DataFilter"
+    },
+    {
+      "source": "1e6c7af23ff6757ad332",
+      "target": "12799aa80b3986795e65",
+      "type": "DataFilter"
+    },
+    {
+      "source": "ac76a42ad636df4dc6e7",
+      "target": "1e6c7af23ff6757ad332",
+      "type": "DataFilter"
+    },
+    {
+      "source": "ac76a42ad636df4dc6e7",
+      "target": "12799aa80b3986795e65",
+      "type": "DataFilter"
+    },
+    {
+      "source": "12799aa80b3986795e65",
+      "target": "1e6c7af23ff6757ad332",
+      "type": "DataFilter"
+    },
+    {
+      "source": "12799aa80b3986795e65",
+      "target": "ac76a42ad636df4dc6e7",
+      "type": "DataFilter"
+    },
+    {
+      "source": "4ddf2c45adb42ded33a8",
+      "target": "ac76a42ad636df4dc6e7",
+      "type": "DataFilter"
+    }
+  ]
+}

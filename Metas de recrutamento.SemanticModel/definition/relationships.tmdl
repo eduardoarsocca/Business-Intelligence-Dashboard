@@ -1,0 +1,175 @@
+relationship b36f113f-b807-4605-a08a-5222c98edbeb
+	joinOnDateBehavior: datePartOnly
+	fromColumn: 'Fato - Polotrial - Participantes'.'Data: Fim do tratamento'
+	toColumn: LocalDateTable_1e1e268a-1bcf-4c9c-8b77-cde31431de8f.Date
+
+relationship 7c9ffd2f-e419-4b74-8454-8af6f528283c
+	joinOnDateBehavior: datePartOnly
+	fromColumn: 'Fato - Polotrial - Participantes'.'Data: Visita estimada'
+	toColumn: LocalDateTable_b77724fa-6af8-49c3-ae01-24a30b87048d.Date
+
+relationship 2a802122-e214-4089-9a3a-c37c4b84a9c9
+	joinOnDateBehavior: datePartOnly
+	fromColumn: 'Fato - Polotrial - Participantes'.'Data: Visita realizada'
+	toColumn: LocalDateTable_6f3d4023-07cb-4bfa-a245-de2e21798925.Date
+
+relationship 1428edd5-e480-41d3-af4c-e22c4d0879f6
+	joinOnDateBehavior: datePartOnly
+	fromColumn: 'Dimensão -Polotrial - Protocolo'.'Data: visita de seleção'
+	toColumn: LocalDateTable_6b50f9a6-738d-470e-8232-122cffb8f02c.Date
+
+relationship 784c1a19-a712-4b27-9a7e-298d1d432e14
+	joinOnDateBehavior: datePartOnly
+	fromColumn: 'Dimensão -Polotrial - Protocolo'.'Data: Estimativa de início do estudo'
+	toColumn: LocalDateTable_8e989ca6-ee1d-4f30-a7aa-d04b7dbb9818.Date
+
+relationship 90935602-0860-43f5-85e2-930821d65aee
+	joinOnDateBehavior: datePartOnly
+	fromColumn: 'Dimensão -Polotrial - Protocolo'.'Data: Finalizaçaõ esperada'
+	toColumn: LocalDateTable_e602ddfe-1724-4fea-b390-1824d0890c95.Date
+
+relationship 36ead315-ab02-43f1-8867-e6cab128363a
+	joinOnDateBehavior: datePartOnly
+	fromColumn: 'Dimensão -Polotrial - Protocolo'.'Data: Início do recrutamento'
+	toColumn: LocalDateTable_c1024b34-b521-448e-9d0d-17221c2dfd5c.Date
+
+relationship 98b2850a-7976-4b8a-92cc-76ff3dd78c06
+	joinOnDateBehavior: datePartOnly
+	fromColumn: 'Dimensão -Polotrial - Protocolo'.'Data: Fim do recrutamento'
+	toColumn: LocalDateTable_95d1b985-0f1b-4e75-aca4-85a918165647.Date
+
+relationship b567b496-e322-4bb4-9707-b2b88989d283
+	joinOnDateBehavior: datePartOnly
+	fromColumn: 'Dimensão -Polotrial - Protocolo'.'Data: aprovação ANVISA'
+	toColumn: LocalDateTable_75eeb6db-f3cd-41ae-8d02-2e69b409cdbf.Date
+
+relationship bae1417a-315d-40f7-a097-83a68e8d209e
+	joinOnDateBehavior: datePartOnly
+	fromColumn: 'Dimensão -Polotrial - Protocolo'.'Data: aprovação CONEP'
+	toColumn: LocalDateTable_661902ad-2640-40c9-aa50-1a17e7c5667c.Date
+
+relationship 15d5f771-9c23-4320-ab1d-c3cf9941d13d
+	joinOnDateBehavior: datePartOnly
+	fromColumn: 'Dimensão -Polotrial - Protocolo'.'Data: aprovação CEP'
+	toColumn: LocalDateTable_463b8a74-eb5d-43c1-96f9-4d995bd9d19a.Date
+
+relationship 40690f84-95c1-470e-a00b-ff2e20cea836
+	joinOnDateBehavior: datePartOnly
+	fromColumn: 'Dimensão -Polotrial - Protocolo'.'Data: ativação do centro'
+	toColumn: LocalDateTable_ed70a1bf-6686-46e9-9375-eb0bf3e73bc1.Date
+
+relationship 37204258-1cf8-434e-8a75-2bb24af02f65
+	joinOnDateBehavior: datePartOnly
+	fromColumn: 'Dimensão -Polotrial - Protocolo'.'Data: finalização esperada'
+	toColumn: LocalDateTable_1c2481ba-824b-4d5f-891a-406991a5a921.Date
+
+relationship 5bc27b67-71e4-45b4-bf83-75e63aff6b93
+	joinOnDateBehavior: datePartOnly
+	fromColumn: 'Dimensão -Polotrial - Protocolo'.'Data: recebimento do feasibility'
+	toColumn: LocalDateTable_8ae74d23-4727-473e-9b1f-e541c2c2f2bd.Date
+
+relationship b1b2df84-4ba8-41ea-8d25-60c7fef2767b
+	joinOnDateBehavior: datePartOnly
+	fromColumn: 'Dimensão -Polotrial - Protocolo'.'Data: resposta do feasibility'
+	toColumn: LocalDateTable_356efcda-996d-490b-acdd-88ecfd447a23.Date
+
+relationship 6ea8542b-53d1-44c6-a1de-26faf1b0c947
+	joinOnDateBehavior: datePartOnly
+	fromColumn: 'Dimensão -Polotrial - Protocolo'.'Data: Aprovação do patrocinador'
+	toColumn: LocalDateTable_26f4eae0-4746-468c-bda6-0bb621241a6d.Date
+
+relationship a60ba95e-350c-4038-9a47-ead790929b2b
+	joinOnDateBehavior: datePartOnly
+	fromColumn: 'Dimensão -Polotrial - Protocolo'.'Data: recebimento do contrato'
+	toColumn: LocalDateTable_7ccd24d7-1f70-4855-b007-fa65ef72096e.Date
+
+relationship e2a74efe-2a25-424c-9e33-dc8f8026d0b0
+	joinOnDateBehavior: datePartOnly
+	fromColumn: 'Dimensão -Polotrial - Protocolo'.'Data: resposta do contrato'
+	toColumn: LocalDateTable_76e52db7-43e7-4494-b51d-8e2dfa9eb38d.Date
+
+relationship d20c5882-72ac-4ee7-a97e-1ab1cd9abb72
+	joinOnDateBehavior: datePartOnly
+	fromColumn: 'Dimensão -Polotrial - Protocolo'.'Data: aprovaçao do contrato'
+	toColumn: LocalDateTable_1fba49ce-bd73-48b1-a682-9c238b46652e.Date
+
+relationship d179e9e2-5bb7-46c5-ba7d-fc73cd6eb52c
+	joinOnDateBehavior: datePartOnly
+	fromColumn: 'Dimensão -Polotrial - Protocolo'.'Data: recebimento orçamento'
+	toColumn: LocalDateTable_87fe90b8-0cbf-44d9-b7bd-7318194ffd44.Date
+
+relationship 62f3f35c-4f3d-4785-9c6c-9b1a44e6deb7
+	joinOnDateBehavior: datePartOnly
+	fromColumn: 'Dimensão -Polotrial - Protocolo'.'Data: Resposta orçamento'
+	toColumn: LocalDateTable_81b8dfd9-8aa7-4fce-819a-760668ddb135.Date
+
+relationship eb13ea2d-8ddb-477e-8abf-6d098cba5caa
+	joinOnDateBehavior: datePartOnly
+	fromColumn: 'Dimensão -Polotrial - Protocolo'.'Data: Aprovação orçamento'
+	toColumn: LocalDateTable_57527193-23b0-4473-88fe-609cac0417ce.Date
+
+relationship 2c0c8e18-7a20-420e-b22d-2ad7f4671cbb
+	joinOnDateBehavior: datePartOnly
+	fromColumn: 'Dimensão -Polotrial - Protocolo'.'Data: Recebimento pct regulatório'
+	toColumn: LocalDateTable_ba511fa7-a9f4-4bf0-946c-84a8c48cfcd7.Date
+
+relationship f83a9f19-b717-4913-9a7d-488e57b9f9aa
+	joinOnDateBehavior: datePartOnly
+	fromColumn: 'Dimensão -Polotrial - Protocolo'.'Data: Sumissão pct regulatório'
+	toColumn: LocalDateTable_7a055d24-37b3-4dbd-8c61-27bdfa4cdfee.Date
+
+relationship de6bb01a-463c-463a-bb9a-efd5bd742dfc
+	joinOnDateBehavior: datePartOnly
+	fromColumn: 'Dimensão -Polotrial - Protocolo'.'Data: Aprova~ção pct regulatório'
+	toColumn: LocalDateTable_5efb6af4-2186-4e70-a9d3-531e3f2a186c.Date
+
+relationship bee36c1f-bda5-4bfe-be14-34a591cc90c7
+	crossFilteringBehavior: bothDirections
+	fromColumn: 'Fato - Polotrial - Participantes'.co_protocolo
+	toColumn: 'Dimensão -Polotrial - Protocolo'.id
+
+relationship 38296774-24e5-4c7b-a887-27b7137b04c1
+	joinOnDateBehavior: datePartOnly
+	fromColumn: 'Dimensão -Polotrial - Protocolo'.'Data: cadastro do protocolo'
+	toColumn: LocalDateTable_b439a498-65d3-454a-85ac-ad94a7cf5b8a.Date
+
+relationship 6b52f692-79b2-43f4-843f-2dfd3e395aba
+	crossFilteringBehavior: bothDirections
+	fromColumn: 'Fato - Polotrial - Participantes'.co_visita
+	toColumn: 'Dimensão -Polotrial - Visita'.id
+
+relationship e3c2383d-cebc-4525-ba2c-da1ef7a9fbe9
+	joinOnDateBehavior: datePartOnly
+	fromColumn: Calendario.Date
+	toColumn: LocalDateTable_997ede74-62fd-40e1-9045-4852eb98c52e.Date
+
+relationship 705f49e1-4b49-4231-a03e-83bf442e4567
+	crossFilteringBehavior: bothDirections
+	fromColumn: 'Fato - Polotrial - Participantes'.'Data: Randomização'
+	toColumn: Calendario.Date
+
+relationship 44ea0fd5-a442-4a98-b84d-8363298c0a43
+	joinOnDateBehavior: datePartOnly
+	fromColumn: 'Fato - Polotrial - Participantes'.'Data: Inclusão'
+	toColumn: LocalDateTable_27d7e629-3dc3-4e4c-bd0c-008b7e17857a.Date
+
+relationship bdca1631-201d-4bb1-a8c6-02c48ffdd68f
+	joinOnDateBehavior: datePartOnly
+	fromColumn: 'Fato - PoloTrial - Participantes Visita'.'Data: Visita realizada'
+	toColumn: LocalDateTable_776124bf-c567-43c8-aa26-f1d411a37a6f.Date
+
+relationship 1b7bf4ef-bf4b-4ab2-a2b9-0ed370fa0a31
+	joinOnDateBehavior: datePartOnly
+	fromColumn: 'Fato - PoloTrial - Participantes Visita'.'Data: Visita'
+	toColumn: LocalDateTable_f4334f03-4aa9-41a5-ad4d-788e3921376e.Date
+
+relationship 71014179-1d77-4135-b175-58b93de42533
+	joinOnDateBehavior: datePartOnly
+	fromColumn: 'Fato - PoloTrial - Participantes Visita'.'Data: Visita estimada'
+	toColumn: LocalDateTable_f6601e5d-ca66-4237-8e74-11c459e6cc6d.Date
+
+relationship 8e86473d-c064-4548-9bb0-4a5b38466dae
+	joinOnDateBehavior: datePartOnly
+	fromColumn: 'Fato - Polotrial - Participantes'.'Data: Randomização - Copiar'
+	toColumn: LocalDateTable_6908d338-2c66-4217-958b-5f8781442d5a.Date
+

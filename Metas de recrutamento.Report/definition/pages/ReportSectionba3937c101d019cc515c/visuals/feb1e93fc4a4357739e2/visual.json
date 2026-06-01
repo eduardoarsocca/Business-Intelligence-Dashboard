@@ -1,0 +1,187 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.5.0/schema.json",
+  "name": "feb1e93fc4a4357739e2",
+  "position": {
+    "x": 0,
+    "y": 480.00000000000006,
+    "z": 2000,
+    "height": 118.57142857142858,
+    "width": 210
+  },
+  "visual": {
+    "visualType": "card",
+    "autoSelectVisualType": true,
+    "query": {
+      "queryState": {
+        "Values": {
+          "projections": [
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "medidas comparativas"
+                    }
+                  },
+                  "Property": "protocoloscadastrados2024"
+                }
+              },
+              "queryRef": "medidas comparativas.protocoloscadastrados2024",
+              "nativeQueryRef": "protocoloscadastrados2024"
+            }
+          ]
+        }
+      },
+      "sortDefinition": {
+        "sort": [
+          {
+            "field": {
+              "Measure": {
+                "Expression": {
+                  "SourceRef": {
+                    "Entity": "medidas comparativas"
+                  }
+                },
+                "Property": "protocoloscadastrados2024"
+              }
+            },
+            "direction": "Descending"
+          }
+        ],
+        "isDefaultSort": true
+      }
+    },
+    "drillFilterOtherVisuals": true
+  },
+  "filterConfig": {
+    "filters": [
+      {
+        "name": "Filteraede6b653225bd8632b0",
+        "field": {
+          "GroupRef": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "Dimensão -Polotrial - Protocolo"
+              }
+            },
+            "Property": "Status do estudo (grupos)",
+            "GroupedColumns": [
+              {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Dimensão -Polotrial - Protocolo"
+                    }
+                  },
+                  "Property": "Status do estudo"
+                }
+              }
+            ]
+          }
+        },
+        "type": "Categorical",
+        "filter": {
+          "Version": 2,
+          "From": [
+            {
+              "Name": "d",
+              "Entity": "Dimensão -Polotrial - Protocolo",
+              "Type": 0
+            }
+          ],
+          "Where": [
+            {
+              "Condition": {
+                "Not": {
+                  "Expression": {
+                    "In": {
+                      "Expressions": [
+                        {
+                          "Column": {
+                            "Expression": {
+                              "SourceRef": {
+                                "Source": "d"
+                              }
+                            },
+                            "Property": "Status do estudo (grupos)"
+                          }
+                        }
+                      ],
+                      "Values": [
+                        [
+                          {
+                            "Literal": {
+                              "Value": "null"
+                            }
+                          }
+                        ],
+                        [
+                          {
+                            "Literal": {
+                              "Value": "'ACADEMY'"
+                            }
+                          }
+                        ],
+                        [
+                          {
+                            "Literal": {
+                              "Value": "'CANCELADOS'"
+                            }
+                          }
+                        ],
+                        [
+                          {
+                            "Literal": {
+                              "Value": "'DECLINADOS'"
+                            }
+                          }
+                        ],
+                        [
+                          {
+                            "Literal": {
+                              "Value": "'FINANCEIRO'"
+                            }
+                          }
+                        ],
+                        [
+                          {
+                            "Literal": {
+                              "Value": "'MATERIAIS'"
+                            }
+                          }
+                        ],
+                        [
+                          {
+                            "Literal": {
+                              "Value": "'NÃO SELECIONADO'"
+                            }
+                          }
+                        ]
+                      ]
+                    }
+                  }
+                }
+              }
+            }
+          ]
+        },
+        "howCreated": "User",
+        "objects": {
+          "general": [
+            {
+              "properties": {
+                "isInvertedSelectionMode": {
+                  "expr": {
+                    "Literal": {
+                      "Value": "true"
+                    }
+                  }
+                }
+              }
+            }
+          ]
+        }
+      }
+    ]
+  }
+}

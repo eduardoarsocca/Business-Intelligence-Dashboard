@@ -1,0 +1,278 @@
+table 'Dimensão -Polotrial - Visita'
+	lineageTag: c442c2f1-beb0-416a-8914-51d692299adb
+
+	column id
+		dataType: int64
+		formatString: 0
+		lineageTag: eb0193a1-f8d1-4440-bda3-26f7e8ad0cfb
+		summarizeBy: none
+		sourceColumn: id
+
+		annotation SummarizationSetBy = Automatic
+
+	column co_protocolo
+		dataType: int64
+		formatString: 0
+		lineageTag: 616c2a55-edce-4d9b-8334-a91bf1c6f0f8
+		summarizeBy: none
+		sourceColumn: co_protocolo
+
+		annotation SummarizationSetBy = Automatic
+
+	column nome_visita
+		dataType: string
+		lineageTag: 6d7dbb91-4c76-4ec8-9562-864e6c430448
+		summarizeBy: none
+		sourceColumn: nome_visita
+
+		annotation SummarizationSetBy = Automatic
+
+	column valor
+		dataType: double
+		formatString: #,0.00
+		lineageTag: 95f98f59-b79d-4cbf-ae84-e69794be40d7
+		summarizeBy: none
+		sourceColumn: valor
+
+		annotation SummarizationSetBy = User
+
+	column Braço
+		dataType: string
+		lineageTag: c3d42f04-f9aa-464a-8c00-8531903f8052
+		summarizeBy: none
+		sourceColumn: Braço
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Local da visita'
+		dataType: string
+		lineageTag: 619efdf4-ad11-42f9-8604-f1dc3e8c60a7
+		summarizeBy: none
+		sourceColumn: Local da visita
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Responsável pela visita'
+		dataType: string
+		lineageTag: 303accd1-df9b-43fe-ab35-34247a4ffc90
+		summarizeBy: none
+		sourceColumn: Responsável pela visita
+
+		annotation SummarizationSetBy = Automatic
+
+	column Cargo
+		dataType: string
+		lineageTag: f7e8e7a2-bda6-47dc-a487-0c3bbc603e45
+		summarizeBy: none
+		sourceColumn: Cargo
+
+		annotation SummarizationSetBy = Automatic
+
+	column intervalo
+		dataType: int64
+		formatString: 0
+		lineageTag: a50ffb6e-9d04-4943-a529-e45aefe8232a
+		summarizeBy: none
+		sourceColumn: intervalo
+
+		annotation SummarizationSetBy = Automatic
+
+	column intervalo_unidade
+		dataType: int64
+		formatString: 0
+		lineageTag: 3482a26e-4baa-42ea-8b46-e4f099552bf6
+		summarizeBy: none
+		sourceColumn: intervalo_unidade
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Intervalo - padrão dia'
+		dataType: int64
+		formatString: 0
+		lineageTag: 1427b090-c519-440d-abc7-d66b4db100eb
+		summarizeBy: none
+		sourceColumn: Intervalo - padrão dia
+
+		annotation SummarizationSetBy = User
+
+	column ordem
+		dataType: int64
+		formatString: 0
+		lineageTag: 44fd7bf6-681c-4b5a-9a83-a37b63c477c9
+		summarizeBy: none
+		sourceColumn: ordem
+
+		annotation SummarizationSetBy = Automatic
+
+	column intervalo_referencia
+		dataType: int64
+		formatString: 0
+		lineageTag: 641974b7-052d-43b5-8f8d-9e17c92cf58b
+		summarizeBy: none
+		sourceColumn: intervalo_referencia
+
+		annotation SummarizationSetBy = Automatic
+
+	column intervalo_referencia_visita
+		dataType: int64
+		formatString: 0
+		lineageTag: ccd7be66-711b-427d-9ea7-362d8ad96ca2
+		summarizeBy: none
+		sourceColumn: intervalo_referencia_visita
+
+		annotation SummarizationSetBy = Automatic
+
+	column Estudo
+		dataType: string
+		lineageTag: e99ff7be-75ec-45e6-81af-8de63069ab66
+		summarizeBy: none
+		sourceColumn: Estudo
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Status do estudo'
+		dataType: string
+		lineageTag: c5207293-be5c-48a1-afa0-16f018caffc0
+		summarizeBy: none
+		sourceColumn: Status do estudo
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation __PBI_SemanticLinks = [{"LinkTarget":{"TableName":"Dimensão -Polotrial - Visita","TableItemName":"Status do estudo (grupos)","ObjectType":4},"LinkType":"UsedInGroup"}]
+
+	column co_moeda
+		dataType: int64
+		formatString: 0
+		lineageTag: 9ec8a89e-7dce-4d75-83a8-9dc7b514d7f6
+		summarizeBy: none
+		sourceColumn: co_moeda
+
+		changedProperty = DataType
+
+		annotation SummarizationSetBy = Automatic
+
+	column Moeda
+		dataType: string
+		lineageTag: 4265dfb1-b826-44c8-a831-0d83c0a1aee0
+		summarizeBy: none
+		sourceColumn: Moeda
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Status do estudo (grupos)' =
+			SWITCH(
+				TRUE,
+				ISBLANK('Dimensão -Polotrial - Visita'[Status do estudo]),
+				"(Em branco)",
+				'Dimensão -Polotrial - Visita'[Status do estudo] IN {"Recrutamento aberto",
+					"Recrutamento Finalizado"},
+				"Ativos",
+				'Dimensão -Polotrial - Visita'[Status do estudo] IN {"Aguardando close-out",
+					"Cancelado - Orçamento não aprovado pelo patrocinador",
+					"Cancelado - Patrocinador",
+					"Cancelado - Solicitação Investigador",
+					"Concluído",
+					"Em apreciação Ética",
+					"MATERIAIS",
+					"Visita de seguimento"},
+				"Outros",
+				'Dimensão -Polotrial - Visita'[Status do estudo]
+			)
+		lineageTag: 21ad3464-640b-429b-be2c-c5c1743c1174
+		summarizeBy: none
+
+		extendedProperty GroupingMetadata =
+				{
+				  "version": 0,
+				  "groupedColumns": [
+				    {
+				      "Column": {
+				        "Expression": {
+				          "SourceRef": {
+				            "Entity": "Dimensão -Polotrial - Visita"
+				          }
+				        },
+				        "Property": "Status do estudo"
+				      }
+				    }
+				  ]
+				}
+
+		annotation GroupingDesignState = {"Version":0,"Sources":[{"Name":"p","Entity":"Dimensão -Polotrial - Visita"}],"GroupedColumns":[{"Column":{"Expression":{"SourceRef":{"Source":"p"}},"Property":"Status do estudo"}}],"GroupItems":[{"DisplayName":"(Em branco)","BlankDefaultPlaceholder":true},{"DisplayName":"Ativos","Expression":{"In":{"Expressions":[{"Column":{"Expression":{"SourceRef":{"Source":"p"}},"Property":"Status do estudo"}}],"Values":[[{"Literal":{"Value":"'Recrutamento aberto'"}}],[{"Literal":{"Value":"'Recrutamento Finalizado'"}}]]}}},{"DisplayName":"Outros","Expression":{"In":{"Expressions":[{"Column":{"Expression":{"SourceRef":{"Source":"p"}},"Property":"Status do estudo"}}],"Values":[[{"Literal":{"Value":"'Aguardando close-out'"}}],[{"Literal":{"Value":"'Cancelado - Orçamento não aprovado pelo patrocinador'"}}],[{"Literal":{"Value":"'Cancelado - Patrocinador'"}}],[{"Literal":{"Value":"'Cancelado - Solicitação Investigador'"}}],[{"Literal":{"Value":"'Concluído'"}}],[{"Literal":{"Value":"'Em apreciação Ética'"}}],[{"Literal":{"Value":"'MATERIAIS'"}}],[{"Literal":{"Value":"'Visita de seguimento'"}}]]}}}]}
+
+		annotation SummarizationSetBy = Automatic
+
+	partition 'Dimensão -Polotrial - Visita-5e101aa4-19b1-4509-bfe4-912b6524c8de' = m
+		mode: import
+		queryGroup: 'Polotrial - Protocolo'
+		source = ```
+				let
+				    Body = "{
+				                ""nome"": """&param_user&""",
+				                ""password"": """&param_senha&"""
+				    }",
+				    getToken = Json.Document(
+				       Web.Contents(
+				           param_api &"/sessions", [
+				               Headers = 
+				               [#"Content-Type"="application/json"],
+				               Content=Text.ToBinary(Body)
+				           ]
+				       )
+				    ),
+				    Token= getToken[token],
+				    AuthToken = "Bearer " & Token,
+				    urlRequest = param_api &"/visita",
+				    results = Json.Document(
+				        Web.Contents(
+				            urlRequest,
+				            [Headers = [Authorization=AuthToken]]
+				        )
+				    ),
+				    #"Convertido para Tabela" = Table.FromList(results, Splitter.SplitByNothing(), null, null, ExtraValues.Error),
+				    #"Column1 Expandido" = Table.ExpandRecordColumn(#"Convertido para Tabela", "Column1", {"id", "co_protocolo", "nome_visita", "valor", "co_braco", "local", "responsavel", "intervalo", "intervalo_unidade", "intervalo_referencia", "intervalo_referencia_visita", "ordem"}, {"id", "co_protocolo", "nome_visita", "valor", "co_braco", "local", "responsavel", "intervalo", "intervalo_unidade", "intervalo_referencia", "intervalo_referencia_visita", "ordem"}),
+				    #"Consultas Mescladas" = Table.NestedJoin(#"Column1 Expandido", {"responsavel"}, #"Dimensão -Polotrial - Pessoas", {"id"}, "Polotrial - Pessoas", JoinKind.LeftOuter),
+				    #"Colunas Removidas" = Table.RemoveColumns(#"Consultas Mescladas",{"responsavel"}),
+				    #"Polotrial - Pessoas Expandido" = Table.ExpandTableColumn(#"Colunas Removidas", "Polotrial - Pessoas", {"Nome", "Cargo"}, {"Nome", "Cargo"}),
+				    #"Colunas Renomeadas" = Table.RenameColumns(#"Polotrial - Pessoas Expandido",{{"Nome", "Responsável pela visita"}}),
+				    #"Consultas Mescladas1" = Table.NestedJoin(#"Colunas Renomeadas", {"local"}, #"Dimensão -Polotrial - Generica", {"id"}, "Polotrial - Generica", JoinKind.LeftOuter),
+				    #"Colunas Removidas1" = Table.RemoveColumns(#"Consultas Mescladas1",{"local"}),
+				    #"Colunas Reordenadas" = Table.ReorderColumns(#"Colunas Removidas1",{"id", "co_protocolo", "nome_visita", "valor", "Polotrial - Generica", "Responsável pela visita", "Cargo"}),
+				    #"Polotrial - Generica Expandido" = Table.ExpandTableColumn(#"Colunas Reordenadas", "Polotrial - Generica", {"genérica"}, {"genérica"}),
+				    #"Colunas Renomeadas1" = Table.RenameColumns(#"Polotrial - Generica Expandido",{{"genérica", "Local da visita"}}),
+				    #"Valor Substituído" = Table.ReplaceValue(#"Colunas Renomeadas1",".",",",Replacer.ReplaceText,{"valor"}),
+				    #"Tipo Alterado" = Table.TransformColumnTypes(#"Valor Substituído",{{"valor", type number}}),
+				    #"Tipo Alterado1" = Table.TransformColumnTypes(#"Tipo Alterado",{{"nome_visita", type text}}),
+				    #"Consultas Mescladas2" = Table.NestedJoin(#"Tipo Alterado1", {"co_braco"}, #"Dimensão -Polotrial - Braço", {"id"}, "Polotrial - Braço", JoinKind.LeftOuter),
+				    #"Polotrial - Braço Expandido" = Table.ExpandTableColumn(#"Consultas Mescladas2", "Polotrial - Braço", {"Braço"}, {"Braço"}),
+				    #"Colunas Reordenadas1" = Table.ReorderColumns(#"Polotrial - Braço Expandido",{"id", "co_protocolo", "nome_visita", "valor", "co_braco", "Braço", "Local da visita", "Responsável pela visita", "Cargo"}),
+				    #"Colunas Removidas2" = Table.RemoveColumns(#"Colunas Reordenadas1",{"co_braco"}),
+				    #"Tipo Alterado2" = Table.TransformColumnTypes(#"Colunas Removidas2",{{"intervalo_unidade", Int64.Type}}),
+				    #"Coluna Duplicada" = Table.DuplicateColumn(#"Tipo Alterado2", "intervalo", "intervalo - Copiar"),
+				    #"Colunas Renomeadas2" = Table.RenameColumns(#"Coluna Duplicada",{{"intervalo - Copiar", "intervalo - DIA"}}),
+				    #"Personalização Adicionada" = Table.AddColumn(#"Colunas Renomeadas2", "Intervalo - Semana", each [intervalo]*7),
+				    #"Tipo Alterado3" = Table.TransformColumnTypes(#"Personalização Adicionada",{{"Intervalo - Semana", Int64.Type}}),
+				    #"Coluna Condicional Adicionada" = Table.AddColumn(#"Tipo Alterado3", "Personalizar", each if [intervalo_unidade] = 1 then [#"intervalo - DIA"] else if [intervalo_unidade] = 2 then [#"Intervalo - Semana"] else null),
+				    #"Colunas Removidas3" = Table.RemoveColumns(#"Coluna Condicional Adicionada",{"intervalo - DIA", "Intervalo - Semana"}),
+				    #"Colunas Renomeadas3" = Table.RenameColumns(#"Colunas Removidas3",{{"Personalizar", "Intervalo - padrão dia"}}),
+				    #"Tipo Alterado4" = Table.TransformColumnTypes(#"Colunas Renomeadas3",{{"Intervalo - padrão dia", Int64.Type}, {"id", Int64.Type}}),
+				    #"Linhas Classificadas" = Table.Sort(#"Tipo Alterado4",{{"id", Order.Ascending}}),
+				    #"Tipo Alterado5" = Table.TransformColumnTypes(#"Linhas Classificadas",{{"ordem", Int64.Type}, {"co_protocolo", Int64.Type}, {"intervalo", Int64.Type}, {"intervalo_referencia", Int64.Type}, {"intervalo_referencia_visita", Int64.Type}}),
+				    #"Consultas Mescladas3" = Table.NestedJoin(#"Tipo Alterado5", {"co_protocolo"}, #"Dimensão -Polotrial - Protocolo", {"id"}, "Polotrial - Protocolo", JoinKind.LeftOuter),
+				    #"Polotrial - Protocolo Expandido" = Table.ExpandTableColumn(#"Consultas Mescladas3", "Polotrial - Protocolo", {"Acrônimo", "Status do estudo"}, {"Polotrial - Protocolo.Acrônimo", "Polotrial - Protocolo.Status do estudo"}),
+				    #"Colunas Renomeadas4" = Table.RenameColumns(#"Polotrial - Protocolo Expandido",{{"Polotrial - Protocolo.Acrônimo", "Estudo"}}),
+				    #"Colunas Reordenadas2" = Table.ReorderColumns(#"Colunas Renomeadas4",{"id", "co_protocolo", "Estudo", "nome_visita", "valor", "intervalo", "intervalo_unidade", "intervalo_referencia", "intervalo_referencia_visita", "ordem", "Braço", "Local da visita", "Responsável pela visita", "Cargo", "Intervalo - padrão dia"}),
+				    #"Colunas Renomeadas5" = Table.RenameColumns(#"Colunas Reordenadas2",{{"Polotrial - Protocolo.Status do estudo", "Status do estudo"}}),
+				    #"Consultas Mescladas4" = Table.NestedJoin(#"Colunas Renomeadas5", {"co_protocolo"}, #"Dimensão -Polotrial - Protocolo Financeiro", {"co_protocolo"}, "Polotrial - Protocolo Financeiro", JoinKind.LeftOuter),
+				    #"Polotrial - Protocolo Financeiro Expandido" = Table.ExpandTableColumn(#"Consultas Mescladas4", "Polotrial - Protocolo Financeiro", {"moeda"}, {"moeda"}),
+				    #"Consultas Mescladas5" = Table.NestedJoin(#"Polotrial - Protocolo Financeiro Expandido", {"moeda"}, #"Dimensão -Polotrial - Generica", {"id"}, "Polotrial - Generica", JoinKind.LeftOuter),
+				    #"Polotrial - Generica Expandido1" = Table.ExpandTableColumn(#"Consultas Mescladas5", "Polotrial - Generica", {"genérica"}, {"genérica"}),
+				    #"Colunas Renomeadas6" = Table.RenameColumns(#"Polotrial - Generica Expandido1",{{"moeda", "co_moeda"}, {"genérica", "Moeda"}})
+				in
+				    #"Colunas Renomeadas6"
+				```
+
+	annotation PBI_ResultType = Table
+
+	annotation PBI_NavigationStepName = Navegação
+

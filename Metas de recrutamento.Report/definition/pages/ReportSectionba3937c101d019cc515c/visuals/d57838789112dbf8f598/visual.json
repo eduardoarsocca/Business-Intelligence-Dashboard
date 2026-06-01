@@ -1,0 +1,529 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.5.0/schema.json",
+  "name": "d57838789112dbf8f598",
+  "position": {
+    "x": 0,
+    "y": 0,
+    "z": 0,
+    "height": 290.66666666666669,
+    "width": 1280
+  },
+  "visual": {
+    "visualType": "clusteredColumnChart",
+    "query": {
+      "queryState": {
+        "Category": {
+          "projections": [
+            {
+              "field": {
+                "HierarchyLevel": {
+                  "Expression": {
+                    "Hierarchy": {
+                      "Expression": {
+                        "PropertyVariationSource": {
+                          "Expression": {
+                            "SourceRef": {
+                              "Entity": "Dimensão -Polotrial - Protocolo"
+                            }
+                          },
+                          "Name": "Variation",
+                          "Property": "Data: cadastro do protocolo"
+                        }
+                      },
+                      "Hierarchy": "Hierarquia de datas"
+                    }
+                  },
+                  "Level": "Ano"
+                }
+              },
+              "queryRef": "Dimensão -Polotrial - Protocolo.Data: cadastro do protocolo.Variation.Hierarquia de datas.Ano",
+              "nativeQueryRef": "Data: cadastro do protocolo Ano",
+              "active": true
+            },
+            {
+              "field": {
+                "HierarchyLevel": {
+                  "Expression": {
+                    "Hierarchy": {
+                      "Expression": {
+                        "PropertyVariationSource": {
+                          "Expression": {
+                            "SourceRef": {
+                              "Entity": "Dimensão -Polotrial - Protocolo"
+                            }
+                          },
+                          "Name": "Variation",
+                          "Property": "Data: cadastro do protocolo"
+                        }
+                      },
+                      "Hierarchy": "Hierarquia de datas"
+                    }
+                  },
+                  "Level": "Trimestre"
+                }
+              },
+              "queryRef": "Dimensão -Polotrial - Protocolo.Data: cadastro do protocolo.Variation.Hierarquia de datas.Trimestre",
+              "nativeQueryRef": "Data: cadastro do protocolo Trimestre",
+              "active": true
+            },
+            {
+              "field": {
+                "HierarchyLevel": {
+                  "Expression": {
+                    "Hierarchy": {
+                      "Expression": {
+                        "PropertyVariationSource": {
+                          "Expression": {
+                            "SourceRef": {
+                              "Entity": "Dimensão -Polotrial - Protocolo"
+                            }
+                          },
+                          "Name": "Variation",
+                          "Property": "Data: cadastro do protocolo"
+                        }
+                      },
+                      "Hierarchy": "Hierarquia de datas"
+                    }
+                  },
+                  "Level": "Mês"
+                }
+              },
+              "queryRef": "Dimensão -Polotrial - Protocolo.Data: cadastro do protocolo.Variation.Hierarquia de datas.Mês",
+              "nativeQueryRef": "Data: cadastro do protocolo Mês",
+              "active": true
+            },
+            {
+              "field": {
+                "HierarchyLevel": {
+                  "Expression": {
+                    "Hierarchy": {
+                      "Expression": {
+                        "PropertyVariationSource": {
+                          "Expression": {
+                            "SourceRef": {
+                              "Entity": "Dimensão -Polotrial - Protocolo"
+                            }
+                          },
+                          "Name": "Variation",
+                          "Property": "Data: cadastro do protocolo"
+                        }
+                      },
+                      "Hierarchy": "Hierarquia de datas"
+                    }
+                  },
+                  "Level": "Dia"
+                }
+              },
+              "queryRef": "Dimensão -Polotrial - Protocolo.Data: cadastro do protocolo.Variation.Hierarquia de datas.Dia",
+              "nativeQueryRef": "Data: cadastro do protocolo Dia",
+              "active": false
+            }
+          ]
+        },
+        "Series": {
+          "projections": [
+            {
+              "field": {
+                "HierarchyLevel": {
+                  "Expression": {
+                    "Hierarchy": {
+                      "Expression": {
+                        "PropertyVariationSource": {
+                          "Expression": {
+                            "SourceRef": {
+                              "Entity": "Dimensão -Polotrial - Protocolo"
+                            }
+                          },
+                          "Name": "Variation",
+                          "Property": "Data: cadastro do protocolo"
+                        }
+                      },
+                      "Hierarchy": "Hierarquia de datas"
+                    }
+                  },
+                  "Level": "Ano"
+                }
+              },
+              "queryRef": "Dimensão -Polotrial - Protocolo.Data: cadastro do protocolo.Variation.Hierarquia de datas.Ano",
+              "nativeQueryRef": "Data: cadastro do protocolo Ano"
+            }
+          ]
+        },
+        "Tooltips": {
+          "projections": [
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "medidas comparativas"
+                    }
+                  },
+                  "Property": "VARIAÇÃO_PERCENTUAL_REC"
+                }
+              },
+              "queryRef": "MEDIDAS DAX.VARIAÇÃO_PERCENTUAL",
+              "nativeQueryRef": "VARIAÇÃO_PERCENTUAL_REC"
+            }
+          ]
+        },
+        "Y": {
+          "projections": [
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "medidas comparativas"
+                    }
+                  },
+                  "Property": "protocolos"
+                }
+              },
+              "queryRef": "medidas comparativas.protocolos",
+              "nativeQueryRef": "protocolos"
+            }
+          ]
+        }
+      },
+      "sortDefinition": {
+        "sort": [
+          {
+            "field": {
+              "HierarchyLevel": {
+                "Expression": {
+                  "Hierarchy": {
+                    "Expression": {
+                      "PropertyVariationSource": {
+                        "Expression": {
+                          "SourceRef": {
+                            "Entity": "Dimensão -Polotrial - Protocolo"
+                          }
+                        },
+                        "Name": "Variation",
+                        "Property": "Data: cadastro do protocolo"
+                      }
+                    },
+                    "Hierarchy": "Hierarquia de datas"
+                  }
+                },
+                "Level": "Ano"
+              }
+            },
+            "direction": "Ascending"
+          }
+        ]
+      }
+    },
+    "objects": {
+      "labels": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "categoryAxis": [
+        {
+          "properties": {
+            "innerPadding": {
+              "expr": {
+                "Literal": {
+                  "Value": "0L"
+                }
+              }
+            }
+          }
+        }
+      ]
+    },
+    "drillFilterOtherVisuals": true
+  },
+  "filterConfig": {
+    "filters": [
+      {
+        "name": "a40727bf5500609a8102",
+        "field": {
+          "HierarchyLevel": {
+            "Expression": {
+              "Hierarchy": {
+                "Expression": {
+                  "PropertyVariationSource": {
+                    "Expression": {
+                      "SourceRef": {
+                        "Entity": "Dimensão -Polotrial - Protocolo"
+                      }
+                    },
+                    "Name": "Variation",
+                    "Property": "Data: cadastro do protocolo"
+                  }
+                },
+                "Hierarchy": "Hierarquia de datas"
+              }
+            },
+            "Level": "Ano"
+          }
+        },
+        "type": "Advanced",
+        "filter": {
+          "Version": 2,
+          "From": [
+            {
+              "Name": "d",
+              "Entity": "Dimensão -Polotrial - Protocolo",
+              "Type": 0
+            }
+          ],
+          "Where": [
+            {
+              "Condition": {
+                "And": {
+                  "Left": {
+                    "Not": {
+                      "Expression": {
+                        "Comparison": {
+                          "ComparisonKind": 0,
+                          "Left": {
+                            "HierarchyLevel": {
+                              "Expression": {
+                                "Hierarchy": {
+                                  "Expression": {
+                                    "PropertyVariationSource": {
+                                      "Expression": {
+                                        "SourceRef": {
+                                          "Source": "d"
+                                        }
+                                      },
+                                      "Name": "Variation",
+                                      "Property": "Data: cadastro do protocolo"
+                                    }
+                                  },
+                                  "Hierarchy": "Hierarquia de datas"
+                                }
+                              },
+                              "Level": "Ano"
+                            }
+                          },
+                          "Right": {
+                            "Literal": {
+                              "Value": "null"
+                            }
+                          }
+                        }
+                      }
+                    }
+                  },
+                  "Right": {
+                    "Comparison": {
+                      "ComparisonKind": 1,
+                      "Left": {
+                        "HierarchyLevel": {
+                          "Expression": {
+                            "Hierarchy": {
+                              "Expression": {
+                                "PropertyVariationSource": {
+                                  "Expression": {
+                                    "SourceRef": {
+                                      "Source": "d"
+                                    }
+                                  },
+                                  "Name": "Variation",
+                                  "Property": "Data: cadastro do protocolo"
+                                }
+                              },
+                              "Hierarchy": "Hierarquia de datas"
+                            }
+                          },
+                          "Level": "Ano"
+                        }
+                      },
+                      "Right": {
+                        "Literal": {
+                          "Value": "2021L"
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          ]
+        }
+      },
+      {
+        "name": "0c580b8b7d61421c0b56",
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "medidas comparativas"
+              }
+            },
+            "Property": "protocolos"
+          }
+        },
+        "type": "Advanced",
+        "filter": {
+          "Version": 2,
+          "From": [
+            {
+              "Name": "m",
+              "Entity": "medidas comparativas",
+              "Type": 0
+            }
+          ],
+          "Where": [
+            {
+              "Condition": {
+                "Comparison": {
+                  "ComparisonKind": 1,
+                  "Left": {
+                    "Measure": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Source": "m"
+                        }
+                      },
+                      "Property": "protocolos"
+                    }
+                  },
+                  "Right": {
+                    "Literal": {
+                      "Value": "0L"
+                    }
+                  }
+                }
+              }
+            }
+          ]
+        }
+      },
+      {
+        "name": "Filtere6cd7d900cd2faedb934",
+        "field": {
+          "GroupRef": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "Dimensão -Polotrial - Protocolo"
+              }
+            },
+            "Property": "Status do estudo (grupos)",
+            "GroupedColumns": [
+              {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Dimensão -Polotrial - Protocolo"
+                    }
+                  },
+                  "Property": "Status do estudo"
+                }
+              }
+            ]
+          }
+        },
+        "type": "Categorical",
+        "filter": {
+          "Version": 2,
+          "From": [
+            {
+              "Name": "d",
+              "Entity": "Dimensão -Polotrial - Protocolo",
+              "Type": 0
+            }
+          ],
+          "Where": [
+            {
+              "Condition": {
+                "Not": {
+                  "Expression": {
+                    "In": {
+                      "Expressions": [
+                        {
+                          "Column": {
+                            "Expression": {
+                              "SourceRef": {
+                                "Source": "d"
+                              }
+                            },
+                            "Property": "Status do estudo (grupos)"
+                          }
+                        }
+                      ],
+                      "Values": [
+                        [
+                          {
+                            "Literal": {
+                              "Value": "'ACADEMY'"
+                            }
+                          }
+                        ],
+                        [
+                          {
+                            "Literal": {
+                              "Value": "'CANCELADOS'"
+                            }
+                          }
+                        ],
+                        [
+                          {
+                            "Literal": {
+                              "Value": "'DECLINADOS'"
+                            }
+                          }
+                        ],
+                        [
+                          {
+                            "Literal": {
+                              "Value": "'FINANCEIRO'"
+                            }
+                          }
+                        ],
+                        [
+                          {
+                            "Literal": {
+                              "Value": "'MATERIAIS'"
+                            }
+                          }
+                        ],
+                        [
+                          {
+                            "Literal": {
+                              "Value": "'NÃO SELECIONADO'"
+                            }
+                          }
+                        ]
+                      ]
+                    }
+                  }
+                }
+              }
+            }
+          ]
+        },
+        "howCreated": "User",
+        "objects": {
+          "general": [
+            {
+              "properties": {
+                "isInvertedSelectionMode": {
+                  "expr": {
+                    "Literal": {
+                      "Value": "true"
+                    }
+                  }
+                }
+              }
+            }
+          ]
+        }
+      }
+    ]
+  }
+}

@@ -1,0 +1,173 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/page/2.0.0/schema.json",
+  "name": "ReportSection2eff707b7cb860852f4c",
+  "displayName": "Metas de Recrutamento - IIR e Acadêmicos",
+  "displayOption": "FitToPage",
+  "height": 720,
+  "width": 1280,
+  "filterConfig": {
+    "filters": [
+      {
+        "name": "Filterad888e5e25b1c7b69f0f",
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "Dimensão -Polotrial - Protocolo"
+              }
+            },
+            "Property": "Tipo de iniciativa"
+          }
+        },
+        "type": "Categorical",
+        "filter": {
+          "Version": 2,
+          "From": [
+            {
+              "Name": "d",
+              "Entity": "Dimensão -Polotrial - Protocolo",
+              "Type": 0
+            }
+          ],
+          "Where": [
+            {
+              "Condition": {
+                "In": {
+                  "Expressions": [
+                    {
+                      "Column": {
+                        "Expression": {
+                          "SourceRef": {
+                            "Source": "d"
+                          }
+                        },
+                        "Property": "Tipo de iniciativa"
+                      }
+                    }
+                  ],
+                  "Values": [
+                    [
+                      {
+                        "Literal": {
+                          "Value": "'Acadêmico'"
+                        }
+                      }
+                    ],
+                    [
+                      {
+                        "Literal": {
+                          "Value": "'Estudo de iniciativa do Investigador'"
+                        }
+                      }
+                    ],
+                    [
+                      {
+                        "Literal": {
+                          "Value": "'Outro'"
+                        }
+                      }
+                    ]
+                  ]
+                }
+              }
+            }
+          ]
+        },
+        "howCreated": "User"
+      }
+    ]
+  },
+  "pageBinding": {
+    "name": "Pod",
+    "type": "Default",
+    "parameters": [],
+    "acceptsFilterContext": "None"
+  },
+  "objects": {
+    "background": [
+      {
+        "properties": {
+          "image": {
+            "image": {
+              "name": {
+                "expr": {
+                  "Literal": {
+                    "Value": "'Lamina Geral.png'"
+                  }
+                }
+              },
+              "url": {
+                "expr": {
+                  "ResourcePackageItem": {
+                    "PackageName": "RegisteredResources",
+                    "PackageType": 1,
+                    "ItemName": "Lamina_Geral5288159384786997.png"
+                  }
+                }
+              },
+              "scaling": {
+                "expr": {
+                  "Literal": {
+                    "Value": "'Normal'"
+                  }
+                }
+              }
+            }
+          },
+          "transparency": {
+            "expr": {
+              "Literal": {
+                "Value": "0D"
+              }
+            }
+          }
+        }
+      }
+    ],
+    "outspacePane": [
+      {
+        "properties": {
+          "width": {
+            "expr": {
+              "Literal": {
+                "Value": "298L"
+              }
+            }
+          }
+        }
+      }
+    ]
+  },
+  "visualInteractions": [
+    {
+      "source": "e3b540ba6129b1957d5b",
+      "target": "e8edfc39cab88add3509",
+      "type": "DataFilter"
+    },
+    {
+      "source": "e3b540ba6129b1957d5b",
+      "target": "9632e89611919c14808f",
+      "type": "DataFilter"
+    },
+    {
+      "source": "e8edfc39cab88add3509",
+      "target": "e3b540ba6129b1957d5b",
+      "type": "DataFilter"
+    },
+    {
+      "source": "e8edfc39cab88add3509",
+      "target": "9632e89611919c14808f",
+      "type": "DataFilter"
+    },
+    {
+      "source": "9632e89611919c14808f",
+      "target": "e3b540ba6129b1957d5b",
+      "type": "DataFilter"
+    },
+    {
+      "source": "9632e89611919c14808f",
+      "target": "e8edfc39cab88add3509",
+      "type": "DataFilter"
+    }
+  ]
+}

@@ -1,0 +1,619 @@
+table 'Dimensão -Polotrial - Protocolo'
+	lineageTag: 2393e1bd-5be8-45cb-bc6d-728b38f19a33
+
+	measure Measure = CALCULATE(SELECTEDVALUE('Dimensão -Polotrial - Protocolo'[Meta de inclusão]))
+		formatString: 0
+		lineageTag: e78b66e8-0043-447b-9f21-ef0bedaf407f
+
+		extendedProperty MeasureTemplate =
+				{
+				  "version": 0,
+				  "daxTemplateName": "NLtoDAX"
+				}
+
+		changedProperty = FormatString
+
+		annotation PBI_FormatHint = {"isCustom":true}
+
+	column id
+		dataType: int64
+		formatString: 0
+		lineageTag: e9429c21-a60f-472b-8406-452688e3aef1
+		summarizeBy: none
+		sourceColumn: id
+
+		annotation SummarizationSetBy = Automatic
+
+	column Acrônimo
+		dataType: string
+		lineageTag: 9b94f19f-c2be-4d6a-af3f-a361e07dd740
+		summarizeBy: none
+		sourceColumn: Acrônimo
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Data: cadastro do protocolo'
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: c716fee6-688b-479b-8f18-70c6919535ac
+		summarizeBy: none
+		sourceColumn: Data: cadastro do protocolo
+
+		variation Variation
+			isDefault
+			relationship: 38296774-24e5-4c7b-a887-27b7137b04c1
+			defaultHierarchy: LocalDateTable_b439a498-65d3-454a-85ac-ad94a7cf5b8a.'Hierarquia de datas'
+
+		annotation SummarizationSetBy = Automatic
+
+	column cro_contatos
+		dataType: string
+		lineageTag: cb7d42c4-af3b-4fd0-9a91-98d86a4ca337
+		summarizeBy: none
+		sourceColumn: cro_contatos
+
+		annotation SummarizationSetBy = Automatic
+
+	column doenca
+		dataType: string
+		lineageTag: f6ce6c51-bad3-49d4-9c4f-c15140c0d079
+		summarizeBy: none
+		sourceColumn: doenca
+
+		annotation SummarizationSetBy = Automatic
+
+	column intervencao
+		dataType: string
+		lineageTag: edf7ab12-1694-49df-a7fb-7669e743ab4e
+		summarizeBy: none
+		sourceColumn: intervencao
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Data: visita de seleção'
+		dataType: dateTime
+		formatString: Short Date
+		lineageTag: 74888bb9-5ee7-4c10-a14b-7b300b3416ec
+		summarizeBy: none
+		sourceColumn: Data: visita de seleção
+
+		variation Variation
+			isDefault
+			relationship: 1428edd5-e480-41d3-af4c-e22c4d0879f6
+			defaultHierarchy: LocalDateTable_6b50f9a6-738d-470e-8232-122cffb8f02c.'Hierarquia de datas'
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Data: Estimativa de início do estudo'
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: 633aac27-1f66-4681-9aec-d8b13cfc52b3
+		summarizeBy: none
+		sourceColumn: Data: Estimativa de início do estudo
+
+		variation Variation
+			isDefault
+			relationship: 784c1a19-a712-4b27-9a7e-298d1d432e14
+			defaultHierarchy: LocalDateTable_8e989ca6-ee1d-4f30-a7aa-d04b7dbb9818.'Hierarquia de datas'
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Data: Finalizaçaõ esperada'
+		dataType: dateTime
+		formatString: Short Date
+		lineageTag: 46aec178-4ded-470c-9a34-58401482bfa4
+		summarizeBy: none
+		sourceColumn: Data: Finalizaçaõ esperada
+
+		variation Variation
+			isDefault
+			relationship: 90935602-0860-43f5-85e2-930821d65aee
+			defaultHierarchy: LocalDateTable_e602ddfe-1724-4fea-b390-1824d0890c95.'Hierarquia de datas'
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Meta de inclusão'
+		dataType: int64
+		formatString: 0
+		lineageTag: efb9cc69-a206-4dad-988a-2711bb14e37f
+		summarizeBy: sum
+		sourceColumn: Meta de inclusão
+
+		changedProperty = DataType
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Data: Início do recrutamento'
+		dataType: dateTime
+		formatString: Short Date
+		lineageTag: 3dac085f-73b0-4731-968c-c1ea17aa5609
+		summarizeBy: none
+		sourceColumn: Data: Início do recrutamento
+
+		variation Variation
+			isDefault
+			relationship: 36ead315-ab02-43f1-8867-e6cab128363a
+			defaultHierarchy: LocalDateTable_c1024b34-b521-448e-9d0d-17221c2dfd5c.'Hierarquia de datas'
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Data: Fim do recrutamento'
+		dataType: dateTime
+		formatString: Short Date
+		lineageTag: 60087a36-7ba6-4897-ab60-eabaca5dc313
+		summarizeBy: none
+		sourceColumn: Data: Fim do recrutamento
+
+		variation Variation
+			isDefault
+			relationship: 98b2850a-7976-4b8a-92cc-76ff3dd78c06
+			defaultHierarchy: LocalDateTable_95d1b985-0f1b-4e75-aca4-85a918165647.'Hierarquia de datas'
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Data: aprovação ANVISA'
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: 5f681f8f-986a-408e-8996-96d7c4324eac
+		summarizeBy: none
+		sourceColumn: Data: aprovação ANVISA
+
+		variation Variation
+			isDefault
+			relationship: b567b496-e322-4bb4-9707-b2b88989d283
+			defaultHierarchy: LocalDateTable_75eeb6db-f3cd-41ae-8d02-2e69b409cdbf.'Hierarquia de datas'
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Data: aprovação CONEP'
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: 17e68407-7a90-410f-bdf4-a6d49d93272e
+		summarizeBy: none
+		sourceColumn: Data: aprovação CONEP
+
+		variation Variation
+			isDefault
+			relationship: bae1417a-315d-40f7-a097-83a68e8d209e
+			defaultHierarchy: LocalDateTable_661902ad-2640-40c9-aa50-1a17e7c5667c.'Hierarquia de datas'
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Data: aprovação CEP'
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: 01b936bf-d885-402f-a790-af075818b4aa
+		summarizeBy: none
+		sourceColumn: Data: aprovação CEP
+
+		variation Variation
+			isDefault
+			relationship: 15d5f771-9c23-4320-ab1d-c3cf9941d13d
+			defaultHierarchy: LocalDateTable_463b8a74-eb5d-43c1-96f9-4d995bd9d19a.'Hierarquia de datas'
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Data: ativação do centro'
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: b4120727-65bf-4b3d-bdf9-026a92ce0791
+		summarizeBy: none
+		sourceColumn: Data: ativação do centro
+
+		variation Variation
+			isDefault
+			relationship: 40690f84-95c1-470e-a00b-ff2e20cea836
+			defaultHierarchy: LocalDateTable_ed70a1bf-6686-46e9-9375-eb0bf3e73bc1.'Hierarquia de datas'
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Data: finalização esperada'
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: afa341d4-5473-49b9-8dd5-19679b8de196
+		summarizeBy: none
+		sourceColumn: Data: finalização esperada
+
+		variation Variation
+			isDefault
+			relationship: 37204258-1cf8-434e-8a75-2bb24af02f65
+			defaultHierarchy: LocalDateTable_1c2481ba-824b-4d5f-891a-406991a5a921.'Hierarquia de datas'
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Data: recebimento do feasibility'
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: 4396cadb-e197-4258-abcc-1e976b6f0e07
+		summarizeBy: none
+		sourceColumn: Data: recebimento do feasibility
+
+		variation Variation
+			isDefault
+			relationship: 5bc27b67-71e4-45b4-bf83-75e63aff6b93
+			defaultHierarchy: LocalDateTable_8ae74d23-4727-473e-9b1f-e541c2c2f2bd.'Hierarquia de datas'
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Data: resposta do feasibility'
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: d937fd96-ab18-4558-bd67-a796aa27e2b9
+		summarizeBy: none
+		sourceColumn: Data: resposta do feasibility
+
+		variation Variation
+			isDefault
+			relationship: b1b2df84-4ba8-41ea-8d25-60c7fef2767b
+			defaultHierarchy: LocalDateTable_356efcda-996d-490b-acdd-88ecfd447a23.'Hierarquia de datas'
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Data: Aprovação do patrocinador'
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: 4933b849-d549-4743-977b-ad3b219a80f5
+		summarizeBy: none
+		sourceColumn: Data: Aprovação do patrocinador
+
+		variation Variation
+			isDefault
+			relationship: 6ea8542b-53d1-44c6-a1de-26faf1b0c947
+			defaultHierarchy: LocalDateTable_26f4eae0-4746-468c-bda6-0bb621241a6d.'Hierarquia de datas'
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Data: recebimento do contrato'
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: 0a9bc4e4-d95e-4774-82c6-8a512cddf1ea
+		summarizeBy: none
+		sourceColumn: Data: recebimento do contrato
+
+		variation Variation
+			isDefault
+			relationship: a60ba95e-350c-4038-9a47-ead790929b2b
+			defaultHierarchy: LocalDateTable_7ccd24d7-1f70-4855-b007-fa65ef72096e.'Hierarquia de datas'
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Data: resposta do contrato'
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: c5b6bace-823e-4b11-b2cf-d1954ca560c1
+		summarizeBy: none
+		sourceColumn: Data: resposta do contrato
+
+		variation Variation
+			isDefault
+			relationship: e2a74efe-2a25-424c-9e33-dc8f8026d0b0
+			defaultHierarchy: LocalDateTable_76e52db7-43e7-4494-b51d-8e2dfa9eb38d.'Hierarquia de datas'
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Data: aprovaçao do contrato'
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: 36beabff-8cd2-47c4-b7fb-eb4fcd8dbfd5
+		summarizeBy: none
+		sourceColumn: Data: aprovaçao do contrato
+
+		variation Variation
+			isDefault
+			relationship: d20c5882-72ac-4ee7-a97e-1ab1cd9abb72
+			defaultHierarchy: LocalDateTable_1fba49ce-bd73-48b1-a682-9c238b46652e.'Hierarquia de datas'
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Data: recebimento orçamento'
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: 31cd400e-b37c-4700-a421-d0ddb39b61ac
+		summarizeBy: none
+		sourceColumn: Data: recebimento orçamento
+
+		variation Variation
+			isDefault
+			relationship: d179e9e2-5bb7-46c5-ba7d-fc73cd6eb52c
+			defaultHierarchy: LocalDateTable_87fe90b8-0cbf-44d9-b7bd-7318194ffd44.'Hierarquia de datas'
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Data: Resposta orçamento'
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: 0645a238-ae38-4231-bf0c-738c0ba4a470
+		summarizeBy: none
+		sourceColumn: Data: Resposta orçamento
+
+		variation Variation
+			isDefault
+			relationship: 62f3f35c-4f3d-4785-9c6c-9b1a44e6deb7
+			defaultHierarchy: LocalDateTable_81b8dfd9-8aa7-4fce-819a-760668ddb135.'Hierarquia de datas'
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Data: Aprovação orçamento'
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: 8f6626c6-e42b-4a47-bb7f-6dccf8ad7825
+		summarizeBy: none
+		sourceColumn: Data: Aprovação orçamento
+
+		variation Variation
+			isDefault
+			relationship: eb13ea2d-8ddb-477e-8abf-6d098cba5caa
+			defaultHierarchy: LocalDateTable_57527193-23b0-4473-88fe-609cac0417ce.'Hierarquia de datas'
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Data: Recebimento pct regulatório'
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: 07f7fc7f-d451-44c0-816c-56cb2c6c8b25
+		summarizeBy: none
+		sourceColumn: Data: Recebimento pct regulatório
+
+		variation Variation
+			isDefault
+			relationship: 2c0c8e18-7a20-420e-b22d-2ad7f4671cbb
+			defaultHierarchy: LocalDateTable_ba511fa7-a9f4-4bf0-946c-84a8c48cfcd7.'Hierarquia de datas'
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Data: Sumissão pct regulatório'
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: ba0c70a4-5177-45d7-a503-51834419af82
+		summarizeBy: none
+		sourceColumn: Data: Sumissão pct regulatório
+
+		variation Variation
+			isDefault
+			relationship: f83a9f19-b717-4913-9a7d-488e57b9f9aa
+			defaultHierarchy: LocalDateTable_7a055d24-37b3-4dbd-8c61-27bdfa4cdfee.'Hierarquia de datas'
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Data: Aprova~ção pct regulatório'
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: 436fe2f9-6cf7-434b-9b2c-ba401662201c
+		summarizeBy: none
+		sourceColumn: Data: Aprova~ção pct regulatório
+
+		variation Variation
+			isDefault
+			relationship: de6bb01a-463c-463a-bb9a-efd5bd742dfc
+			defaultHierarchy: LocalDateTable_5efb6af4-2186-4e70-a9d3-531e3f2a186c.'Hierarquia de datas'
+
+		annotation SummarizationSetBy = Automatic
+
+	column Observações
+		dataType: string
+		lineageTag: 5ed3782e-4380-4c6e-aa0c-fc83248682fc
+		summarizeBy: none
+		sourceColumn: Observações
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Investigador Principal'
+		dataType: string
+		lineageTag: 9762ee58-13b1-4c35-ae80-89474c7c8df9
+		summarizeBy: none
+		sourceColumn: Investigador Principal
+
+		annotation SummarizationSetBy = Automatic
+
+	column Fase
+		dataType: string
+		lineageTag: 36f57243-a570-4810-97ab-e9c997e22352
+		summarizeBy: none
+		sourceColumn: Fase
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Status do estudo'
+		dataType: string
+		lineageTag: d8bed163-cf1f-4cb3-8212-66e080b87edd
+		summarizeBy: none
+		sourceColumn: Status do estudo
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation __PBI_SemanticLinks = [{"LinkTarget":{"TableName":"Dimensão -Polotrial - Protocolo","TableItemName":"Status do estudo (grupos)","ObjectType":4},"LinkType":"UsedInGroup"}]
+
+	column 'Tipo de iniciativa'
+		dataType: string
+		lineageTag: fa69197a-be84-4584-b9bd-9f01fa748411
+		summarizeBy: none
+		sourceColumn: Tipo de iniciativa
+
+		annotation SummarizationSetBy = Automatic
+
+	column Patrocinador
+		dataType: string
+		lineageTag: 030d61f4-8cbc-4616-bbc5-127f690564de
+		summarizeBy: none
+		sourceColumn: Patrocinador
+
+		annotation SummarizationSetBy = Automatic
+
+	column CRO
+		dataType: string
+		lineageTag: 2cf468ed-f820-4393-83fe-126f88261ca9
+		summarizeBy: none
+		sourceColumn: CRO
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Tipo de estudo'
+		dataType: string
+		lineageTag: 4e16c105-ca62-4394-8d17-a0b58d1f4e95
+		summarizeBy: none
+		sourceColumn: Tipo de estudo
+
+		annotation SummarizationSetBy = Automatic
+
+	column Especialidade
+		dataType: string
+		lineageTag: 720fca43-c9f7-4a4a-8f86-e5ec9c7ebd85
+		summarizeBy: none
+		sourceColumn: Especialidade
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Uso produto investigacional'
+		dataType: string
+		lineageTag: a63ed088-a745-4f6d-b9c6-ad99e0803a9b
+		summarizeBy: none
+		sourceColumn: Uso produto investigacional
+
+		annotation SummarizationSetBy = Automatic
+
+	column Centro
+		dataType: string
+		lineageTag: bf883102-df16-4985-8639-10787c978204
+		summarizeBy: none
+		sourceColumn: Centro
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Período de recrutamento em meses'
+		dataType: int64
+		formatString: 0
+		lineageTag: 99c52825-2881-4fbc-9c71-8efcc692560f
+		summarizeBy: sum
+		sourceColumn: Período de recrutamento em meses
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Status do estudo (grupos)' =
+			SWITCH(
+				TRUE,
+				ISBLANK('Dimensão -Polotrial - Protocolo'[Status do estudo]),
+				"(Em branco)",
+				'Dimensão -Polotrial - Protocolo'[Status do estudo] IN {"Em Andamento"},
+				"ACADEMY",
+				'Dimensão -Polotrial - Protocolo'[Status do estudo] IN {"Cancelado",
+					"Cancelado - Orçamento não aprovado pelo patrocinador",
+					"Cancelado - Patrocinador",
+					"Cancelado - Solicitação Investigador",
+					"Cancelado pelo patrocinador",
+					"Feasibility cancelado pelo patrocinador"},
+				"CANCELADOS",
+				'Dimensão -Polotrial - Protocolo'[Status do estudo] IN {"Feasibility - declinado pela SVRI",
+					"Feasibility declinado pelo centro de pesquisa",
+					"Feasibility declinado pelo Investigador",
+					"Prospecção declinada pela SVRI",
+					"Prospecção declinada pelo centro de pesquisa",
+					"Prospecção declinada pelo Investigador",
+					"Prospecção declinada pelo patrocinador"},
+				"DECLINADOS",
+				'Dimensão -Polotrial - Protocolo'[Status do estudo] IN {"Cadastro Financeiro"},
+				"FINANCEIRO",
+				'Dimensão -Polotrial - Protocolo'[Status do estudo] IN {"MATERIAIS"},
+				"MATERIAIS",
+				'Dimensão -Polotrial - Protocolo'[Status do estudo] IN {"Feasibility centro não selecionado"},
+				"NÃO SELECIONADO",
+				'Dimensão -Polotrial - Protocolo'[Status do estudo]
+			)
+		lineageTag: 8c12e7a6-4555-4df7-a1d6-ac9dea629a37
+		summarizeBy: none
+
+		extendedProperty GroupingMetadata =
+				{
+				  "version": 0,
+				  "groupedColumns": [
+				    {
+				      "Column": {
+				        "Expression": {
+				          "SourceRef": {
+				            "Entity": "Dimensão -Polotrial - Protocolo"
+				          }
+				        },
+				        "Property": "Status do estudo"
+				      }
+				    }
+				  ]
+				}
+
+		annotation GroupingDesignState = {"Version":0,"Sources":[{"Name":"d","Entity":"Dimensão -Polotrial - Protocolo"}],"GroupedColumns":[{"Column":{"Expression":{"SourceRef":{"Source":"d"}},"Property":"Status do estudo"}}],"GroupItems":[{"DisplayName":"(Em branco)","BlankDefaultPlaceholder":true},{"DisplayName":"ACADEMY","Expression":{"In":{"Expressions":[{"Column":{"Expression":{"SourceRef":{"Source":"d"}},"Property":"Status do estudo"}}],"Values":[[{"Literal":{"Value":"'Em Andamento'"}}]]}}},{"DisplayName":"CANCELADOS","Expression":{"In":{"Expressions":[{"Column":{"Expression":{"SourceRef":{"Source":"d"}},"Property":"Status do estudo"}}],"Values":[[{"Literal":{"Value":"'Cancelado'"}}],[{"Literal":{"Value":"'Cancelado - Orçamento não aprovado pelo patrocinador'"}}],[{"Literal":{"Value":"'Cancelado - Patrocinador'"}}],[{"Literal":{"Value":"'Cancelado - Solicitação Investigador'"}}],[{"Literal":{"Value":"'Cancelado pelo patrocinador'"}}],[{"Literal":{"Value":"'Feasibility cancelado pelo patrocinador'"}}]]}}},{"DisplayName":"DECLINADOS","Expression":{"In":{"Expressions":[{"Column":{"Expression":{"SourceRef":{"Source":"d"}},"Property":"Status do estudo"}}],"Values":[[{"Literal":{"Value":"'Feasibility - declinado pela SVRI'"}}],[{"Literal":{"Value":"'Feasibility declinado pelo centro de pesquisa'"}}],[{"Literal":{"Value":"'Feasibility declinado pelo Investigador'"}}],[{"Literal":{"Value":"'Prospecção declinada pela SVRI'"}}],[{"Literal":{"Value":"'Prospecção declinada pelo centro de pesquisa'"}}],[{"Literal":{"Value":"'Prospecção declinada pelo Investigador'"}}],[{"Literal":{"Value":"'Prospecção declinada pelo patrocinador'"}}]]}}},{"DisplayName":"FINANCEIRO","Expression":{"In":{"Expressions":[{"Column":{"Expression":{"SourceRef":{"Source":"d"}},"Property":"Status do estudo"}}],"Values":[[{"Literal":{"Value":"'Cadastro Financeiro'"}}]]}}},{"DisplayName":"MATERIAIS","Expression":{"In":{"Expressions":[{"Column":{"Expression":{"SourceRef":{"Source":"d"}},"Property":"Status do estudo"}}],"Values":[[{"Literal":{"Value":"'MATERIAIS'"}}]]}}},{"DisplayName":"NÃO SELECIONADO","Expression":{"In":{"Expressions":[{"Column":{"Expression":{"SourceRef":{"Source":"d"}},"Property":"Status do estudo"}}],"Values":[[{"Literal":{"Value":"'Feasibility centro não selecionado'"}}]]}}}]}
+
+		annotation SummarizationSetBy = Automatic
+
+	partition 'Dimensão -Polotrial - Protocolo-5eaee938-c694-4dd5-88a3-1869f74ca7f6' = m
+		mode: import
+		queryGroup: 'Polotrial - Protocolo'
+		source = ```
+				let
+				    Body = "{
+				                ""nome"": """&param_user&""",
+				                ""password"": """&param_senha&"""
+				    }",
+				    getToken = Json.Document(
+				       Web.Contents(
+				           param_api &"/sessions", [
+				               Headers = 
+				               [#"Content-Type"="application/json"],
+				               Content=Text.ToBinary(Body)
+				           ]
+				       )
+				    ),
+				    Token= getToken[token],
+				    AuthToken = "Bearer " & Token,
+				    urlRequest = param_api &"/protocolo?nested=true",
+				    results = Json.Document(
+				        Web.Contents(
+				            urlRequest,
+				            [Headers = [Authorization=AuthToken]]
+				        )
+				    ),
+				    #"Convertido para Tabela" = Table.FromList(results, Splitter.SplitByNothing(), null, null, ExtraValues.Error),
+				    #"Column1 Expandido" = Table.ExpandRecordColumn(#"Convertido para Tabela", "Column1", {"id", "apelido_protocolo", "data_cadastro", "cro_contatos", "doenca", "intervencao", "data_visita_selecao", "data_estimada_inicio", "data_finalizacao_esperada", "meta_inclusao", "data_inicio_recrutamento", "data_fim_recrutamento", "aprovacao_anvisa_data", "aprovacao_conep_data", "aprovacao_cep_data", "data_ativacao_centro", "dt_finalizacao_esperada", "data_recebimento_feasibility", "data_resposta_feasibitily", "data_aprovacao_patrocinador", "data_recebimento_contrato", "data_resposta_contrato", "data_aprovacao_contrato", "data_recebimento_orcamento", "data_resposta_orcamento", "data_aprovacao_orcamento", "data_recebimento_pacote", "data_submissao_regulatorio", "data_aprovacao_regulatorio", "observacoes", "PessoaPI", "fase_pesquisa", "status", "tipo_iniciativa", "nome_patrocinador", "dados_cro_responsavel", "dados_tipo_de_estudo", "dados_especialidade", "dados_uso_do_produto_investigacional", "dados_co_centro"}, {"id", "apelido_protocolo", "data_cadastro", "cro_contatos", "doenca", "intervencao", "data_visita_selecao", "data_estimada_inicio", "data_finalizacao_esperada", "meta_inclusao", "data_inicio_recrutamento", "data_fim_recrutamento", "aprovacao_anvisa_data", "aprovacao_conep_data", "aprovacao_cep_data", "data_ativacao_centro", "dt_finalizacao_esperada", "data_recebimento_feasibility", "data_resposta_feasibitily", "data_aprovacao_patrocinador", "data_recebimento_contrato", "data_resposta_contrato", "data_aprovacao_contrato", "data_recebimento_orcamento", "data_resposta_orcamento", "data_aprovacao_orcamento", "data_recebimento_pacote", "data_submissao_regulatorio", "data_aprovacao_regulatorio", "observacoes", "PessoaPI", "fase_pesquisa", "status", "tipo_iniciativa", "nome_patrocinador", "dados_cro_responsavel", "dados_tipo_de_estudo", "dados_especialidade", "dados_uso_do_produto_investigacional", "dados_co_centro"}),
+				    #"dados_uso_do_produto_investigacional Expandido" = Table.ExpandRecordColumn(#"Column1 Expandido", "dados_uso_do_produto_investigacional", {"ds_descricao"}, {"ds_descricao"}),
+				    #"Colunas Renomeadas" = Table.RenameColumns(#"dados_uso_do_produto_investigacional Expandido",{{"ds_descricao", "Uso produto investigacional"}}),
+				    #"dados_especialidade Expandido" = Table.ExpandRecordColumn(#"Colunas Renomeadas", "dados_especialidade", {"ds_descricao"}, {"ds_descricao"}),
+				    #"Colunas Renomeadas1" = Table.RenameColumns(#"dados_especialidade Expandido",{{"ds_descricao", "Especialidade"}}),
+				    #"dados_tipo_de_estudo Expandido" = Table.ExpandRecordColumn(#"Colunas Renomeadas1", "dados_tipo_de_estudo", {"ds_descricao"}, {"ds_descricao"}),
+				    #"Colunas Renomeadas2" = Table.RenameColumns(#"dados_tipo_de_estudo Expandido",{{"ds_descricao", "Tipo de estudo"}}),
+				    #"dados_cro_responsavel Expandido" = Table.ExpandRecordColumn(#"Colunas Renomeadas2", "dados_cro_responsavel", {"ds_descricao"}, {"ds_descricao"}),
+				    #"Colunas Renomeadas3" = Table.RenameColumns(#"dados_cro_responsavel Expandido",{{"ds_descricao", "CRO"}}),
+				    #"nome_patrocinador Expandido" = Table.ExpandRecordColumn(#"Colunas Renomeadas3", "nome_patrocinador", {"ds_descricao"}, {"ds_descricao"}),
+				    #"Colunas Renomeadas4" = Table.RenameColumns(#"nome_patrocinador Expandido",{{"ds_descricao", "Patrocinador"}}),
+				    #"tipo_iniciativa Expandido" = Table.ExpandRecordColumn(#"Colunas Renomeadas4", "tipo_iniciativa", {"ds_descricao"}, {"ds_descricao"}),
+				    #"Colunas Renomeadas5" = Table.RenameColumns(#"tipo_iniciativa Expandido",{{"ds_descricao", "Tipo de iniciativa"}}),
+				    #"status Expandido" = Table.ExpandRecordColumn(#"Colunas Renomeadas5", "status", {"ds_descricao"}, {"ds_descricao"}),
+				    #"Colunas Renomeadas6" = Table.RenameColumns(#"status Expandido",{{"ds_descricao", "Status do estudo"}}),
+				    #"fase_pesquisa Expandido" = Table.ExpandRecordColumn(#"Colunas Renomeadas6", "fase_pesquisa", {"ds_descricao"}, {"ds_descricao"}),
+				    #"Colunas Renomeadas7" = Table.RenameColumns(#"fase_pesquisa Expandido",{{"ds_descricao", "Fase"}}),
+				    #"PessoaPI Expandido" = Table.ExpandRecordColumn(#"Colunas Renomeadas7", "PessoaPI", {"ds_nome"}, {"ds_nome"}),
+				    #"Colunas Renomeadas8" = Table.RenameColumns(#"PessoaPI Expandido",{{"ds_nome", "Investigador Principal"}, {"observacoes", "Observações"}, {"data_aprovacao_regulatorio", "Data: Aprova~ção pct regulatório"}, {"data_submissao_regulatorio", "Data: Sumissão pct regulatório"}, {"data_recebimento_pacote", "Data: Recebimento pct regulatório"}, {"data_aprovacao_orcamento", "Data: Aprovação orçamento"}, {"data_resposta_orcamento", "Data: Resposta orçamento"}, {"data_recebimento_orcamento", "Data: recebimento orçamento"}, {"data_aprovacao_contrato", "Data: aprovaçao do contrato"}, {"data_resposta_contrato", "Data: resposta do contrato"}, {"data_recebimento_contrato", "Data: recebimento do contrato"}, {"data_aprovacao_patrocinador", "Data: Aprovação do patrocinador"}, {"data_resposta_feasibitily", "Data: resposta do feasibility"}, {"data_recebimento_feasibility", "Data: recebimento do feasibility"}, {"dt_finalizacao_esperada", "Data: finalização esperada"}, {"data_ativacao_centro", "Data: ativação do centro"}, {"aprovacao_cep_data", "Data: aprovação CEP"}, {"aprovacao_conep_data", "Data: aprovação CONEP"}, {"aprovacao_anvisa_data", "Data: aprovação ANVISA"}, {"data_fim_recrutamento", "Data: Fim do recrutamento"}, {"data_inicio_recrutamento", "Data: Início do recrutamento"}, {"meta_inclusao", "Meta de inclusão"}, {"data_finalizacao_esperada", "Data: Finalizaçaõ esperada"}, {"data_estimada_inicio", "Data: Estimativa de início do estudo"}, {"data_visita_selecao", "Data: visita de seleção"}, {"data_cadastro", "Data: cadastro do protocolo"}, {"apelido_protocolo", "Acrônimo"}}),
+				    #"dados_co_centro Expandido" = Table.ExpandRecordColumn(#"Colunas Renomeadas8", "dados_co_centro", {"descricao"}, {"descricao"}),
+				    #"Colunas Renomeadas9" = Table.RenameColumns(#"dados_co_centro Expandido",{{"descricao", "Centro"}}),
+				    #"Tipo Alterado" = Table.TransformColumnTypes(#"Colunas Renomeadas9",{{"Data: cadastro do protocolo", type datetimezone}}),
+				    #"Tipo Alterado com Localidade" = Table.TransformColumnTypes(#"Tipo Alterado", {{"Data: cadastro do protocolo", type text}}, "pt-BR"),
+				    #"Valor Substituído" = Table.ReplaceValue(#"Tipo Alterado com Localidade",".000Z","",Replacer.ReplaceText,{"Data: Início do recrutamento"}),
+				    #"Tipo Alterado1" = Table.TransformColumnTypes(#"Valor Substituído",{{"Data: Início do recrutamento", type datetimezone}, {"Data: Fim do recrutamento", type datetimezone}, {"Data: aprovação ANVISA", type datetimezone}, {"Data: aprovação CONEP", type datetimezone}, {"Data: aprovação CEP", type datetimezone}, {"Data: ativação do centro", type datetimezone}}),
+				    #"Valor Substituído1" = Table.ReplaceValue(#"Tipo Alterado1",".000Z","",Replacer.ReplaceText,{"Data: finalização esperada"}),
+				    #"Tipo Alterado2" = Table.TransformColumnTypes(#"Valor Substituído1",{{"Data: finalização esperada", type datetimezone}, {"Data: recebimento do feasibility", type datetimezone}, {"Data: resposta do feasibility", type datetimezone}, {"Data: Aprovação do patrocinador", type datetimezone}, {"Data: recebimento do contrato", type datetimezone}, {"Data: resposta do contrato", type datetimezone}, {"Data: aprovaçao do contrato", type datetimezone}, {"Data: recebimento orçamento", type datetimezone}, {"Data: Resposta orçamento", type datetimezone}, {"Data: Aprovação orçamento", type datetimezone}, {"Data: Recebimento pct regulatório", type datetimezone}, {"Data: Sumissão pct regulatório", type datetimezone}, {"Data: Aprova~ção pct regulatório", type datetimezone}}),
+				    #"Valor Substituído2" = Table.ReplaceValue(#"Tipo Alterado2",".000Z","",Replacer.ReplaceText,{"Data: visita de seleção"}),
+				    #"Valor Substituído3" = Table.ReplaceValue(#"Valor Substituído2",".000Z","",Replacer.ReplaceText,{"Data: Estimativa de início do estudo"}),
+				    #"Valor Substituído4" = Table.ReplaceValue(#"Valor Substituído3",".000Z","",Replacer.ReplaceText,{"Data: Finalizaçaõ esperada"}),
+				    #"Tipo Alterado3" = Table.TransformColumnTypes(#"Valor Substituído4",{{"Data: visita de seleção", type datetimezone}, {"Data: Estimativa de início do estudo", type datetimezone}, {"Data: Finalizaçaõ esperada", type datetimezone}}),
+				    #"Valor Substituído5" = Table.ReplaceValue(#"Tipo Alterado3","+00:00","",Replacer.ReplaceText,{"Data: cadastro do protocolo"}),
+				    #"Tipo Alterado4" = Table.TransformColumnTypes(#"Valor Substituído5",{{"Data: cadastro do protocolo", type datetimezone}}),
+				    #"Personalização Adicionada" = Table.AddColumn(#"Tipo Alterado4", "Período de recrutamento em meses", each Duration.TotalDays([#"Data: Finalizaçaõ esperada"]-[#"Data: Início do recrutamento"])/30.41666666666667),
+				    #"Tipo Alterado5" = Table.TransformColumnTypes(#"Personalização Adicionada",{{"Período de recrutamento em meses", Int64.Type}}),
+				    #"Texto Aparado" = Table.TransformColumns(#"Tipo Alterado5",{{"doenca", Text.Trim, type text}}),
+				    #"Texto Limpo" = Table.TransformColumns(#"Texto Aparado",{{"doenca", Text.Clean, type text}}),
+				    #"Tipo Alterado6" = Table.TransformColumnTypes(#"Texto Limpo",{{"id", Int64.Type}}),
+				    #"Linhas Classificadas" = Table.Sort(#"Tipo Alterado6",{{"id", Order.Ascending}})
+				in
+				    #"Linhas Classificadas"
+				```
+
+	annotation PBI_ResultType = Table
+
+	annotation PBI_NavigationStepName = Navegação
+

@@ -1,0 +1,70 @@
+model Model
+	culture: pt-BR
+	defaultPowerBIDataSourceVersion: powerBI_V3
+	sourceQueryCulture: pt-BR
+	dataAccessOptions
+		fastCombine
+		legacyRedirects
+		returnErrorValuesAsNull
+
+queryGroup 'PoloTrial - Gerais'
+
+	annotation PBI_QueryGroupOrder = 0
+
+queryGroup 'Polotrial - Participantes'
+
+	annotation PBI_QueryGroupOrder = 1
+
+queryGroup 'Polotrial - Protocolo'
+
+	annotation PBI_QueryGroupOrder = 2
+
+annotation PBI_QueryOrder = ["Dimensão -Polotrial - Generica","Dimensão -Polotrial - Pessoas","Dimensão -Polotrial - Centro","Dimensão -Polotrial - Braço","Fato - Polotrial - Participantes","Fato - PoloTrial - Participantes Visita","Dimensão -Polotrial - Protocolo","Dimensão -Polotrial - Protocolo Procedimento","Dimensão -Polotrial - Protocolo Financeiro","Dimensão -Polotrial - Visita","Fato - Polotrial - Participante Visita Procedimento Executor","Dimensão -Polotrial - Procedimentos","param_api","param_user","param_senha"]
+
+annotation __PBI_TimeIntelligenceEnabled = 1
+
+annotation PBI_ProTooling = ["DevMode"]
+
+ref table DateTableTemplate_db097491-7258-4486-8bd5-ddceb6bc19b7
+ref table 'Fato - Polotrial - Participantes'
+ref table LocalDateTable_1e1e268a-1bcf-4c9c-8b77-cde31431de8f
+ref table LocalDateTable_b77724fa-6af8-49c3-ae01-24a30b87048d
+ref table LocalDateTable_6f3d4023-07cb-4bfa-a245-de2e21798925
+ref table 'Dimensão -Polotrial - Protocolo'
+ref table LocalDateTable_6b50f9a6-738d-470e-8232-122cffb8f02c
+ref table LocalDateTable_8e989ca6-ee1d-4f30-a7aa-d04b7dbb9818
+ref table LocalDateTable_e602ddfe-1724-4fea-b390-1824d0890c95
+ref table LocalDateTable_c1024b34-b521-448e-9d0d-17221c2dfd5c
+ref table LocalDateTable_95d1b985-0f1b-4e75-aca4-85a918165647
+ref table LocalDateTable_75eeb6db-f3cd-41ae-8d02-2e69b409cdbf
+ref table LocalDateTable_661902ad-2640-40c9-aa50-1a17e7c5667c
+ref table LocalDateTable_463b8a74-eb5d-43c1-96f9-4d995bd9d19a
+ref table LocalDateTable_ed70a1bf-6686-46e9-9375-eb0bf3e73bc1
+ref table LocalDateTable_1c2481ba-824b-4d5f-891a-406991a5a921
+ref table LocalDateTable_8ae74d23-4727-473e-9b1f-e541c2c2f2bd
+ref table LocalDateTable_356efcda-996d-490b-acdd-88ecfd447a23
+ref table LocalDateTable_26f4eae0-4746-468c-bda6-0bb621241a6d
+ref table LocalDateTable_7ccd24d7-1f70-4855-b007-fa65ef72096e
+ref table LocalDateTable_76e52db7-43e7-4494-b51d-8e2dfa9eb38d
+ref table LocalDateTable_1fba49ce-bd73-48b1-a682-9c238b46652e
+ref table LocalDateTable_87fe90b8-0cbf-44d9-b7bd-7318194ffd44
+ref table LocalDateTable_81b8dfd9-8aa7-4fce-819a-760668ddb135
+ref table LocalDateTable_57527193-23b0-4473-88fe-609cac0417ce
+ref table LocalDateTable_ba511fa7-a9f4-4bf0-946c-84a8c48cfcd7
+ref table LocalDateTable_7a055d24-37b3-4dbd-8c61-27bdfa4cdfee
+ref table LocalDateTable_5efb6af4-2186-4e70-a9d3-531e3f2a186c
+ref table 'Dimensão -Polotrial - Visita'
+ref table 'MEDIDAS DAX'
+ref table LocalDateTable_b439a498-65d3-454a-85ac-ad94a7cf5b8a
+ref table Calendario
+ref table LocalDateTable_997ede74-62fd-40e1-9045-4852eb98c52e
+ref table LocalDateTable_27d7e629-3dc3-4e4c-bd0c-008b7e17857a
+ref table 'medidas comparativas'
+ref table 'Fato - PoloTrial - Participantes Visita'
+ref table LocalDateTable_776124bf-c567-43c8-aa26-f1d411a37a6f
+ref table LocalDateTable_f4334f03-4aa9-41a5-ad4d-788e3921376e
+ref table LocalDateTable_f6601e5d-ca66-4237-8e74-11c459e6cc6d
+ref table LocalDateTable_6908d338-2c66-4217-958b-5f8781442d5a
+
+ref cultureInfo pt-BR
+

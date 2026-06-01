@@ -1,0 +1,121 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.5.0/schema.json",
+  "name": "f99eee83c5c5d9fb03d6",
+  "position": {
+    "x": 515,
+    "y": 430,
+    "z": 3000,
+    "height": 290,
+    "width": 685,
+    "tabOrder": 1000
+  },
+  "visual": {
+    "visualType": "tableEx",
+    "query": {
+      "queryState": {
+        "Values": {
+          "projections": [
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Dimensão -Polotrial - Protocolo"
+                    }
+                  },
+                  "Property": "Acrônimo"
+                }
+              },
+              "queryRef": "Dimensão -Polotrial - Protocolo.Acrônimo",
+              "nativeQueryRef": "Acrônimo"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "MEDIDAS DAX"
+                    }
+                  },
+                  "Property": "Contagem: participantes randomizados"
+                }
+              },
+              "queryRef": "MEDIDAS DAX.Contagem: participantes randomizados",
+              "nativeQueryRef": "Contagem: participantes randomizados"
+            }
+          ]
+        }
+      },
+      "sortDefinition": {
+        "sort": [
+          {
+            "field": {
+              "Measure": {
+                "Expression": {
+                  "SourceRef": {
+                    "Entity": "MEDIDAS DAX"
+                  }
+                },
+                "Property": "Contagem: participantes randomizados"
+              }
+            },
+            "direction": "Descending"
+          }
+        ]
+      }
+    },
+    "drillFilterOtherVisuals": true
+  },
+  "filterConfig": {
+    "filters": [
+      {
+        "name": "1189c24a3abb6487d0b0",
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "MEDIDAS DAX"
+              }
+            },
+            "Property": "Contagem: participantes randomizados"
+          }
+        },
+        "type": "Advanced",
+        "filter": {
+          "Version": 2,
+          "From": [
+            {
+              "Name": "m",
+              "Entity": "MEDIDAS DAX",
+              "Type": 0
+            }
+          ],
+          "Where": [
+            {
+              "Condition": {
+                "Comparison": {
+                  "ComparisonKind": 1,
+                  "Left": {
+                    "Measure": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Source": "m"
+                        }
+                      },
+                      "Property": "Contagem: participantes randomizados"
+                    }
+                  },
+                  "Right": {
+                    "Literal": {
+                      "Value": "0L"
+                    }
+                  }
+                }
+              }
+            }
+          ]
+        }
+      }
+    ]
+  }
+}

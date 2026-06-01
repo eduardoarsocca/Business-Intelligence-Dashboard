@@ -1,0 +1,305 @@
+table 'Fato - Polotrial - Participantes'
+	lineageTag: 0c0fe50a-5908-4191-ba4b-ec1bea6e39d9
+
+	column id
+		dataType: int64
+		formatString: 0
+		lineageTag: d1820f37-aca1-4fc2-9a46-161334babb8a
+		summarizeBy: sum
+		sourceColumn: id
+
+		annotation SummarizationSetBy = Automatic
+
+	column co_protocolo
+		dataType: int64
+		formatString: 0
+		lineageTag: 88de915f-4587-4861-a7db-2d3ad5586dfe
+		summarizeBy: none
+		sourceColumn: co_protocolo
+
+		annotation SummarizationSetBy = Automatic
+
+	column id_participante
+		dataType: string
+		lineageTag: ae8e1976-2500-441e-a614-a2170021cc64
+		summarizeBy: none
+		sourceColumn: id_participante
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Data: Randomização'
+		dataType: dateTime
+		formatString: Short Date
+		lineageTag: ce0e9a0c-0cc7-4d8d-bc5b-dbf198e6b607
+		summarizeBy: none
+		sourceColumn: Data: Randomização
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Número de randomização'
+		dataType: string
+		lineageTag: 7681b08a-9721-417e-bcbb-9c330dee9d15
+		summarizeBy: none
+		sourceColumn: Número de randomização
+
+		annotation SummarizationSetBy = Automatic
+
+	column Braço
+		dataType: string
+		lineageTag: 27a5df1a-4143-4615-a563-d52028bab192
+		summarizeBy: none
+		sourceColumn: Braço
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Data: Fim do tratamento'
+		dataType: dateTime
+		formatString: Long Date
+		lineageTag: 3a59de61-8da9-4c91-a625-5476efbd0e07
+		summarizeBy: none
+		sourceColumn: Data: Fim do tratamento
+
+		variation Variation
+			isDefault
+			relationship: b36f113f-b807-4605-a08a-5222c98edbeb
+			defaultHierarchy: LocalDateTable_1e1e268a-1bcf-4c9c-8b77-cde31431de8f.'Hierarquia de datas'
+
+		annotation SummarizationSetBy = Automatic
+
+	column co_participante
+		dataType: int64
+		formatString: 0
+		lineageTag: bb0cf02e-ace0-43b6-84de-adb29cd81b37
+		summarizeBy: sum
+		sourceColumn: co_participante
+
+		annotation SummarizationSetBy = Automatic
+
+	column Protocolo
+		dataType: string
+		lineageTag: 8a7a78c8-2a00-4fe4-ad21-b676b3131449
+		summarizeBy: none
+		sourceColumn: Protocolo
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Status do participante'
+		dataType: string
+		lineageTag: 5558d55c-9a33-470f-b98a-0df9e3e64350
+		summarizeBy: none
+		sourceColumn: Status do participante
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'id participante_visita'
+		dataType: int64
+		formatString: 0
+		lineageTag: 01300ac6-1229-4673-84d5-5aea792f4942
+		summarizeBy: sum
+		sourceColumn: id participante_visita
+
+		annotation SummarizationSetBy = Automatic
+
+	column co_visita
+		dataType: int64
+		formatString: 0
+		lineageTag: d5ec347c-b30d-495d-88cf-b9f28dd52158
+		summarizeBy: none
+		sourceColumn: co_visita
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Status da visita'
+		dataType: string
+		lineageTag: 7f6652e4-b584-45d9-9de9-0d9079370163
+		summarizeBy: none
+		sourceColumn: Status da visita
+
+		annotation SummarizationSetBy = Automatic
+
+	column visita
+		dataType: string
+		lineageTag: a500e72a-8356-4286-b16d-e3c3d3cd1d52
+		summarizeBy: none
+		sourceColumn: visita
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Data: Visita estimada'
+		dataType: dateTime
+		formatString: Short Date
+		lineageTag: d589ee6e-3d9e-4dca-9fd5-641c8331d78f
+		summarizeBy: none
+		sourceColumn: Data: Visita estimada
+
+		variation Variation
+			isDefault
+			relationship: 7c9ffd2f-e419-4b74-8454-8af6f528283c
+			defaultHierarchy: LocalDateTable_b77724fa-6af8-49c3-ae01-24a30b87048d.'Hierarquia de datas'
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column 'Data: Visita realizada'
+		dataType: dateTime
+		formatString: Long Date
+		lineageTag: a2f12b04-ab77-438c-977e-53a6d901b3c5
+		summarizeBy: none
+		sourceColumn: Data: Visita realizada
+
+		variation Variation
+			isDefault
+			relationship: 2a802122-e214-4089-9a3a-c37c4b84a9c9
+			defaultHierarchy: LocalDateTable_6f3d4023-07cb-4bfa-a245-de2e21798925.'Hierarquia de datas'
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column 'Valor previsto da visita'
+		dataType: decimal
+		formatString: "R$"\ #,0.###############;-"R$"\ #,0.###############;"R$"\ #,0.###############
+		lineageTag: c5f11e6c-e4bf-4436-9807-213de23ab3f7
+		summarizeBy: sum
+		sourceColumn: Valor previsto da visita
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"currencyCulture":"pt-BR"}
+
+	column 'Polotrial - Visita.Intervalo - padrão dia'
+		dataType: int64
+		formatString: 0
+		lineageTag: 33cf9654-7f2b-4dfb-af36-2de70d584a48
+		summarizeBy: sum
+		sourceColumn: Polotrial - Visita.Intervalo - padrão dia
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Data: Inclusão'
+		dataType: dateTime
+		formatString: Long Date
+		lineageTag: a8094983-55a6-4e8c-a6a4-350b9fe18ee0
+		summarizeBy: none
+		sourceColumn: Data: Inclusão
+
+		variation Variation
+			isDefault
+			relationship: 44ea0fd5-a442-4a98-b84d-8363298c0a43
+			defaultHierarchy: LocalDateTable_27d7e629-3dc3-4e4c-bd0c-008b7e17857a.'Hierarquia de datas'
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Data: Randomização - Copiar'
+		dataType: dateTime
+		formatString: Long Date
+		lineageTag: 6ec73b19-2c6a-455a-932f-8f39c4fcaf9e
+		summarizeBy: none
+		sourceColumn: Data: Randomização - Copiar
+
+		variation Variation
+			isDefault
+			relationship: 8e86473d-c064-4548-9bb0-4a5b38466dae
+			defaultHierarchy: LocalDateTable_6908d338-2c66-4217-958b-5f8781442d5a.'Hierarquia de datas'
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	partition 'Fato - Polotrial - Participantes-511ba65c-0bdf-46ee-9cbe-32041f4cef06' = m
+		mode: import
+		queryGroup: 'Polotrial - Participantes'
+		source = ```
+				let
+				    Body = "{
+				                ""nome"": """&param_user&""",
+				                ""password"": """&param_senha&"""
+				    }",
+				    getToken = Json.Document(
+				       Web.Contents(
+				           param_api &"/sessions", [
+				               Headers = 
+				               [#"Content-Type"="application/json"],
+				               Content=Text.ToBinary(Body)
+				           ]
+				       )
+				    ),
+				    Token= getToken[token],
+				    AuthToken = "Bearer " & Token,
+				    urlRequest = param_api &"/participantes?nested=true",
+				    results = Json.Document(
+				        Web.Contents(
+				            urlRequest,
+				            [Headers = [Authorization=AuthToken]]
+				        )
+				    ),
+				    #"Convertido para Tabela" = Table.FromList(results, Splitter.SplitByNothing(), null, null, ExtraValues.Error),
+				    #"Column1 Expandido" = Table.ExpandRecordColumn(#"Convertido para Tabela", "Column1", {"id", "co_protocolo", "id_participante", "iniciais", "data_nascimento", "data_inclusao", "data_randomizacao", "numero_de_screening", "numero_de_randomizacao", "co_braco", "data_fim_tratamento", "co_participante", "dados_protocolo", "Status", "ParticipantesVisita", "ParticipanteUltimaVisita"}, {"id", "co_protocolo", "id_participante", "iniciais", "data_nascimento", "data_inclusao", "data_randomizacao", "numero_de_screening", "numero_de_randomizacao", "co_braco", "data_fim_tratamento", "co_participante", "dados_protocolo", "Status", "ParticipantesVisita", "ParticipanteUltimaVisita"}),
+				    #"Status Expandido" = Table.ExpandRecordColumn(#"Column1 Expandido", "Status", {"ds_descricao"}, {"ds_descricao"}),
+				    #"Colunas Renomeadas" = Table.RenameColumns(#"Status Expandido",{{"ds_descricao", "Status do participante"}}),
+				    #"dados_protocolo Expandido" = Table.ExpandRecordColumn(#"Colunas Renomeadas", "dados_protocolo", {"apelido_protocolo"}, {"apelido_protocolo"}),
+				    #"Colunas Renomeadas1" = Table.RenameColumns(#"dados_protocolo Expandido",{{"apelido_protocolo", "Protocolo"}}),
+				    #"ParticipantesVisita Expandido" = Table.ExpandListColumn(#"Colunas Renomeadas1", "ParticipantesVisita"),
+				    #"ParticipantesVisita Expandido1" = Table.ExpandRecordColumn(#"ParticipantesVisita Expandido", "ParticipantesVisita", {"id", "co_visita", "status_participante_visita", "nome_tarefa", "data_estimada", "data_estimada_fim", "data_realizada", "observacoes", "valor_previsto", "co_nota_fiscal", "local", "responsavel", "co_externo", "data_preenchimento_visita", "data_preenchimento_crf"}, {"id.1", "co_visita", "status_participante_visita", "nome_tarefa", "data_estimada", "data_estimada_fim", "data_realizada", "observacoes", "valor_previsto", "co_nota_fiscal", "local", "responsavel", "co_externo", "data_preenchimento_visita", "data_preenchimento_crf"}),
+				    #"Colunas Renomeadas2" = Table.RenameColumns(#"ParticipantesVisita Expandido1",{{"id.1", "id participante_visita"}}),
+				    #"Consultas Mescladas" = Table.NestedJoin(#"Colunas Renomeadas2", {"status_participante_visita"}, #"Dimensão -Polotrial - Generica", {"id"}, "Polotrial - Generica", JoinKind.LeftOuter),
+				    #"Colunas Reordenadas" = Table.ReorderColumns(#"Consultas Mescladas",{"id", "co_protocolo", "id_participante", "data_nascimento", "data_inclusao", "data_randomizacao", "numero_de_screening", "numero_de_randomizacao", "data_fim_tratamento", "co_participante", "Protocolo", "Status do participante", "id participante_visita", "co_visita", "status_participante_visita", "Polotrial - Generica", "nome_tarefa", "data_estimada", "data_estimada_fim", "data_realizada", "observacoes", "valor_previsto", "co_nota_fiscal", "local", "responsavel", "co_externo", "data_preenchimento_visita", "data_preenchimento_crf", "ParticipanteUltimaVisita"}),
+				    #"Polotrial - generica Expandido" = Table.ExpandTableColumn(#"Colunas Reordenadas", "Polotrial - Generica", {"ds_descricao"}, {"ds_descricao"}),
+				    #"Colunas Removidas" = Table.RemoveColumns(#"Polotrial - generica Expandido",{"status_participante_visita"}),
+				    #"Colunas Renomeadas3" = Table.RenameColumns(#"Colunas Removidas",{{"ds_descricao", "Status da visita"}, {"nome_tarefa", "visita"}, {"data_estimada", "data estimada da visita"}}),
+				    #"Colunas Removidas1" = Table.RemoveColumns(#"Colunas Renomeadas3",{"data_estimada_fim"}),
+				    #"Colunas Renomeadas4" = Table.RenameColumns(#"Colunas Removidas1",{{"data_realizada", "Data: Visita realizada"}, {"data estimada da visita", "Data: Visita estimada"}}),
+				    #"Colunas Removidas2" = Table.RemoveColumns(#"Colunas Renomeadas4",{"observacoes"}),
+				    #"Colunas Renomeadas5" = Table.RenameColumns(#"Colunas Removidas2",{{"valor_previsto", "Valor previsto da visita"}}),
+				    #"Valor Substituído" = Table.ReplaceValue(#"Colunas Renomeadas5",".",",",Replacer.ReplaceText,{"Valor previsto da visita"}),
+				    #"Tipo Alterado" = Table.TransformColumnTypes(#"Valor Substituído",{{"Valor previsto da visita", Currency.Type}}),
+				    #"Colunas Removidas3" = Table.RemoveColumns(#"Tipo Alterado",{"co_nota_fiscal", "local"}),
+				    #"Consultas Mescladas1" = Table.NestedJoin(#"Colunas Removidas3", {"responsavel"}, #"Dimensão -Polotrial - Pessoas", {"id"}, "Polotrial - Pessoas", JoinKind.LeftOuter),
+				    #"Polotrial - pessoas Expandido" = Table.ExpandTableColumn(#"Consultas Mescladas1", "Polotrial - Pessoas", {"Nome", "Cargo"}, {"Nome", "Cargo"}),
+				    #"Colunas Renomeadas6" = Table.RenameColumns(#"Polotrial - pessoas Expandido",{{"Nome", "Responsável pela visita"}, {"Cargo", "Cargo do responsável pela visita"}}),
+				    #"Colunas Reordenadas1" = Table.ReorderColumns(#"Colunas Renomeadas6",{"id", "co_protocolo", "id_participante", "data_nascimento", "data_inclusao", "data_randomizacao", "numero_de_screening", "numero_de_randomizacao", "data_fim_tratamento", "co_participante", "Protocolo", "Status do participante", "id participante_visita", "co_visita", "Status da visita", "visita", "Data: Visita estimada", "Data: Visita realizada", "Valor previsto da visita", "responsavel", "Cargo do responsável pela visita", "Responsável pela visita", "co_externo", "data_preenchimento_visita", "data_preenchimento_crf", "ParticipanteUltimaVisita"}),
+				    #"Colunas Removidas4" = Table.RemoveColumns(#"Colunas Reordenadas1",{"responsavel", "co_externo"}),
+				    #"Colunas Renomeadas7" = Table.RenameColumns(#"Colunas Removidas4",{{"data_preenchimento_visita", "Data: Preenchimento da visita"}, {"data_preenchimento_crf", "Data: Preenchimento da CRF"}}),
+				    #"Colunas Removidas5" = Table.RemoveColumns(#"Colunas Renomeadas7",{"ParticipanteUltimaVisita"}),
+				    #"Tipo Alterado1" = Table.TransformColumnTypes(#"Colunas Removidas5",{{"id", Int64.Type}, {"co_protocolo", Int64.Type}}),
+				    #"Colunas Removidas6" = Table.RemoveColumns(#"Tipo Alterado1",{"data_nascimento"}),
+				    #"Valor Substituído5" = Table.ReplaceValue(#"Colunas Removidas6","Z","-03:00",Replacer.ReplaceText,{"data_inclusao"}),
+				    #"Tipo Alterado5" = Table.TransformColumnTypes(#"Valor Substituído5",{{"data_inclusao", type datetimezone}}),
+				    #"Valor Substituído6" = Table.ReplaceValue(#"Tipo Alterado5","Z","-03:00",Replacer.ReplaceText,{"data_randomizacao"}),
+				    #"Tipo Alterado6" = Table.TransformColumnTypes(#"Valor Substituído6",{{"data_randomizacao", type datetimezone}}),
+				    #"Valor Substituído7" = Table.ReplaceValue(#"Tipo Alterado6","Z","-03:00",Replacer.ReplaceText,{"Data: Visita estimada", "Data: Visita realizada"}),
+				    #"Tipo Alterado7" = Table.TransformColumnTypes(#"Valor Substituído7",{{"Data: Visita estimada", type datetimezone}, {"Data: Visita realizada", type datetimezone}}),
+				    #"Tipo Alterado2" = Table.TransformColumnTypes(#"Tipo Alterado7",{{"data_inclusao", type datetime}, {"data_randomizacao", type datetime}, {"data_fim_tratamento", type datetime}, {"co_participante", Int64.Type}, {"Protocolo", type text}, {"Status do participante", type text}, {"id participante_visita", Int64.Type}, {"co_visita", Int64.Type}, {"Status da visita", type text}, {"visita", type text}, {"Data: Visita estimada", type datetimezone}, {"Data: Visita realizada", type datetimezone}}),
+				    #"Colunas Reordenadas2" = Table.ReorderColumns(#"Tipo Alterado2",{"id", "co_protocolo", "id_participante", "data_inclusao", "data_randomizacao", "numero_de_screening", "numero_de_randomizacao", "data_fim_tratamento", "co_participante", "Protocolo", "Status do participante", "id participante_visita", "co_visita", "Status da visita", "visita", "Data: Visita estimada", "Data: Visita realizada", "Valor previsto da visita", "Responsável pela visita", "Cargo do responsável pela visita", "Data: Preenchimento da visita", "Data: Preenchimento da CRF"}),
+				    #"Tipo Alterado3" = Table.TransformColumnTypes(#"Colunas Reordenadas2",{{"id_participante", type text}, {"numero_de_screening", type text}, {"numero_de_randomizacao", type text}}),
+				    #"Linhas Classificadas" = Table.Sort(#"Tipo Alterado3",{{"numero_de_randomizacao", Order.Descending}}),
+				    #"Valor Substituído1" = Table.ReplaceValue(#"Linhas Classificadas","screening failure",null,Replacer.ReplaceValue,{"numero_de_randomizacao"}),
+				    #"Valor Substituído2" = Table.ReplaceValue(#"Valor Substituído1","retirou o consentimento",null,Replacer.ReplaceValue,{"numero_de_randomizacao"}),
+				    #"Colunas Renomeadas8" = Table.RenameColumns(#"Valor Substituído2",{{"data_inclusao", "Data: Inclusão"}, {"data_randomizacao", "Data: Randomização"}, {"numero_de_screening", "Número de screening"}, {"numero_de_randomizacao", "Número de randomização"}, {"data_fim_tratamento", "Data: Fim do tratamento"}}),
+				    #"Linhas Classificadas1" = Table.Sort(#"Colunas Renomeadas8",{{"Número de screening", Order.Ascending}, {"Número de randomização", Order.Ascending}}),
+				    #"Valor Substituído3" = Table.ReplaceValue(#"Linhas Classificadas1","CLEAR Santa Casa","CLEAR ",Replacer.ReplaceText,{"Protocolo"}),
+				    #"Valor Substituído4" = Table.ReplaceValue(#"Valor Substituído3","CLEAR Liberdade","CLEAR ",Replacer.ReplaceText,{"Protocolo"}),
+				    #"Texto Aparado" = Table.TransformColumns(#"Valor Substituído4",{{"Protocolo", Text.Trim, type text}}),
+				    #"Texto Limpo" = Table.TransformColumns(#"Texto Aparado",{{"Protocolo", Text.Clean, type text}}),
+				    #"Consultas Mescladas2" = Table.NestedJoin(#"Texto Limpo", {"co_braco"}, #"Dimensão -Polotrial - Braço", {"id"}, "Polotrial - Braço", JoinKind.LeftOuter),
+				    #"Colunas Reordenadas3" = Table.ReorderColumns(#"Consultas Mescladas2",{"id", "co_protocolo", "id_participante", "Data: Inclusão", "Data: Randomização", "Número de screening", "Número de randomização", "co_braco", "Polotrial - Braço", "Data: Fim do tratamento", "co_participante", "Protocolo", "Status do participante", "id participante_visita", "co_visita", "Status da visita", "visita", "Data: Visita estimada", "Data: Visita realizada", "Valor previsto da visita", "Responsável pela visita", "Cargo do responsável pela visita", "Data: Preenchimento da visita", "Data: Preenchimento da CRF"}),
+				    #"Colunas Removidas7" = Table.RemoveColumns(#"Colunas Reordenadas3",{"co_braco"}),
+				    #"Polotrial - Braço Expandido" = Table.ExpandTableColumn(#"Colunas Removidas7", "Polotrial - Braço", {"Braço"}, {"Braço"}),
+				    #"Texto Aparado1" = Table.TransformColumns(#"Polotrial - Braço Expandido",{{"Braço", Text.Trim, type text}}),
+				    #"Texto Limpo1" = Table.TransformColumns(#"Texto Aparado1",{{"Braço", Text.Clean, type text}}),
+				    #"Consultas Mescladas3" = Table.NestedJoin(#"Texto Limpo1", {"co_visita"}, #"Dimensão -Polotrial - Visita", {"id"}, "Polotrial - Visita", JoinKind.LeftOuter),
+				    #"Polotrial - Visita Expandido" = Table.ExpandTableColumn(#"Consultas Mescladas3", "Polotrial - Visita", {"Intervalo - padrão dia"}, {"Polotrial - Visita.Intervalo - padrão dia"}),
+				    #"Tipo Alterado4" = Table.TransformColumnTypes(#"Polotrial - Visita Expandido",{{"Data: Visita estimada", type date}, {"Data: Visita realizada", type date}}),
+				    #"Colunas Removidas8" = Table.RemoveColumns(#"Tipo Alterado4",{"iniciais", "Número de screening", "Responsável pela visita", "Cargo do responsável pela visita", "Data: Preenchimento da visita", "Data: Preenchimento da CRF"}),
+				    #"Duplicatas Removidas" = Table.Distinct(#"Colunas Removidas8", {"id"}),
+				    #"Coluna Duplicada" = Table.DuplicateColumn(#"Duplicatas Removidas", "Data: Randomização", "Data: Randomização - Copiar"),
+				    #"Tipo Alterado8" = Table.TransformColumnTypes(#"Coluna Duplicada",{{"Data: Randomização - Copiar", type date}})
+				in
+				    #"Tipo Alterado8"
+				```
+
+	annotation PBI_ResultType = Table
+
+	annotation PBI_NavigationStepName = Navegação
+

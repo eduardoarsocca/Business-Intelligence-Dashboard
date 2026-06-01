@@ -1,0 +1,53 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.5.0/schema.json",
+  "name": "ba811b1830b34a77f648",
+  "position": {
+    "x": 281.4545454545455,
+    "y": 3.9272727272727277,
+    "z": 5000,
+    "height": 60.218181818181819,
+    "width": 815.56363636363642,
+    "tabOrder": 5000
+  },
+  "visual": {
+    "visualType": "textbox",
+    "objects": {
+      "general": [
+        {
+          "properties": {
+            "paragraphs": [
+              {
+                "textRuns": [
+                  {
+                    "value": "METAS DE RECRUTAMENTO - ESTUDOS PATROCINADOS",
+                    "textStyle": {
+                      "fontWeight": "bold",
+                      "fontSize": "20pt",
+                      "color": "#ffffff"
+                    }
+                  }
+                ]
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "visualContainerObjects": {
+      "background": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            }
+          }
+        }
+      ]
+    },
+    "drillFilterOtherVisuals": true
+  }
+}

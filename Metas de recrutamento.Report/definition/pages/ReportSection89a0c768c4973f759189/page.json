@@ -1,0 +1,21 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/page/2.0.0/schema.json",
+  "name": "ReportSection89a0c768c4973f759189",
+  "displayName": "Página 1",
+  "displayOption": "FitToPage",
+  "height": 720,
+  "width": 1280,
+  "visibility": "HiddenInViewMode",
+  "visualInteractions": [
+    {
+      "source": "7d0b00e361f49d5e08f0",
+      "target": "8922a219dce1b1d1fd4c",
+      "type": "NoFilter"
+    },
+    {
+      "source": "8f5bf830e75e3e4b9bac",
+      "target": "7d0b00e361f49d5e08f0",
+      "type": "DataFilter"
+    }
+  ]
+}

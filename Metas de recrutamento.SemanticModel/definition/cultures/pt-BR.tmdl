@@ -1,0 +1,136 @@
+cultureInfo pt-BR
+
+	linguisticMetadata =
+			{
+			  "Version": "2.0.0",
+			  "Language": "en-US",
+			  "Entities": {
+			    "medidas_dax.meta_feasibility_70": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "MEDIDAS DAX",
+			          "ConceptualProperty": "Meta: Feasibility 70%"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "Meta": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "medidas_dax.meta_feasibility": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "MEDIDAS DAX",
+			          "ConceptualProperty": "Meta: Feasibility"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "Ideal": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "medidas_dax.número_de_participantes_para_atingir_a_meta_ideal_mês": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "MEDIDAS DAX",
+			          "ConceptualProperty": "Número de participantes para atingir a meta ideal/mês"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "Ideal": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "medidas_dax.contagem_participantes_randomizados": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "MEDIDAS DAX",
+			          "ConceptualProperty": "Contagem: participantes randomizados"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "Total de participantes incluídos": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        },
+			        {
+			          "Total de participantes randomizados": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "medidas_dax.contagem_participante_incluídos": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "MEDIDAS DAX",
+			          "ConceptualProperty": "Contagem: participante incluídos"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "Total de participantes randomizados": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        },
+			        {
+			          "Total de participantes incluídos": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    }
+			  }
+			}
+		contentType: json
+

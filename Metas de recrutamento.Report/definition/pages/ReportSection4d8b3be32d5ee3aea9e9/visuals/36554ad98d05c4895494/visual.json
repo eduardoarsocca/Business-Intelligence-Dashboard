@@ -1,0 +1,674 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.5.0/schema.json",
+  "name": "36554ad98d05c4895494",
+  "position": {
+    "x": 31.390504066726752,
+    "y": 76.779811520001,
+    "z": 4000,
+    "height": 201.67202572347267,
+    "width": 397.17041800643085,
+    "tabOrder": 3000
+  },
+  "visual": {
+    "visualType": "Tachometer1474636471549",
+    "query": {
+      "queryState": {
+        "Y": {
+          "projections": [
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "MEDIDAS DAX"
+                    }
+                  },
+                  "Property": "Contagem: participante 2024"
+                }
+              },
+              "queryRef": "MEDIDAS DAX.contagem de participante 2023",
+              "nativeQueryRef": "contagem de participante 2023"
+            }
+          ]
+        },
+        "EndValue": {
+          "projections": [
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "MEDIDAS DAX"
+                    }
+                  },
+                  "Property": "Número de participantes para atingir a meta ideal/mês"
+                }
+              },
+              "queryRef": "MEDIDAS DAX.Número de participantes para atingir a meta ideal/mês",
+              "nativeQueryRef": "Número de participantes para atingir a meta ideal/mês"
+            }
+          ]
+        },
+        "TargetValue": {
+          "projections": [
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "MEDIDAS DAX"
+                    }
+                  },
+                  "Property": "Número de participantes para atingir a meta ideal/mês"
+                }
+              },
+              "queryRef": "MEDIDAS DAX.Número de participantes para atingir a meta ideal/mês",
+              "nativeQueryRef": "Número de participantes para atingir a meta ideal/mês"
+            }
+          ]
+        },
+        "Range3StartValue": {
+          "projections": [
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "MEDIDAS DAX"
+                    }
+                  },
+                  "Property": "Meta Ideal mensal (faltam) velocimetro"
+                }
+              },
+              "queryRef": "MEDIDAS DAX.Meta Ideal mensal (faltam) velocimetro",
+              "nativeQueryRef": "Meta Ideal mensal (faltam) velocimetro"
+            }
+          ]
+        },
+        "Range2StartValue": {
+          "projections": [
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "MEDIDAS DAX"
+                    }
+                  },
+                  "Property": "Meta: Mínima mensal (faltam) velocimetro"
+                }
+              },
+              "queryRef": "MEDIDAS DAX.Meta: Mínima mensal (faltam) velocimetro",
+              "nativeQueryRef": "Meta: Mínima mensal (faltam) velocimetro"
+            }
+          ]
+        }
+      },
+      "sortDefinition": {
+        "sort": [
+          {
+            "field": {
+              "Measure": {
+                "Expression": {
+                  "SourceRef": {
+                    "Entity": "MEDIDAS DAX"
+                  }
+                },
+                "Property": "Contagem: participante 2024"
+              }
+            },
+            "direction": "Descending"
+          }
+        ],
+        "isDefaultSort": true
+      }
+    },
+    "objects": {
+      "calloutValue": [
+        {
+          "properties": {
+            "labelDisplayUnits": {
+              "expr": {
+                "Literal": {
+                  "Value": "1D"
+                }
+              }
+            },
+            "labelPrecision": {
+              "expr": {
+                "Literal": {
+                  "Value": "0D"
+                }
+              }
+            },
+            "xOffset": {
+              "expr": {
+                "Literal": {
+                  "Value": "0D"
+                }
+              }
+            },
+            "fontSize": {
+              "expr": {
+                "Literal": {
+                  "Value": "10D"
+                }
+              }
+            },
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "labels": [
+        {
+          "properties": {
+            "labelDisplayUnits": {
+              "expr": {
+                "Literal": {
+                  "Value": "1D"
+                }
+              }
+            },
+            "labelPrecision": {
+              "expr": {
+                "Literal": {
+                  "Value": "0D"
+                }
+              }
+            },
+            "fontSize": {
+              "expr": {
+                "Literal": {
+                  "Value": "8D"
+                }
+              }
+            },
+            "round": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            },
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
+            "count": {
+              "expr": {
+                "Literal": {
+                  "Value": "400D"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "target": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            },
+            "fontSize": {
+              "expr": {
+                "Literal": {
+                  "Value": "15D"
+                }
+              }
+            },
+            "textColor": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "ThemeDataColor": {
+                      "ColorId": 3,
+                      "Percent": 0
+                    }
+                  }
+                }
+              }
+            },
+            "lineColor": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "ThemeDataColor": {
+                      "ColorId": 3,
+                      "Percent": 0
+                    }
+                  }
+                }
+              }
+            },
+            "innerRadiusRatio": {
+              "expr": {
+                "Literal": {
+                  "Value": "0D"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "calloutPercent": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            },
+            "labelPrecision": {
+              "expr": {
+                "Literal": {
+                  "Value": "1D"
+                }
+              }
+            },
+            "invert": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            },
+            "fontSize": {
+              "expr": {
+                "Literal": {
+                  "Value": "10D"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "range1": [
+        {
+          "properties": {
+            "rangeColor": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "Literal": {
+                      "Value": "'#B90015'"
+                    }
+                  }
+                }
+              }
+            },
+            "thickness": {
+              "expr": {
+                "Literal": {
+                  "Value": "0D"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "range3": [
+        {
+          "properties": {
+            "rangeColor": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "Literal": {
+                      "Value": "'#09CD09'"
+                    }
+                  }
+                }
+              }
+            },
+            "thickness": {
+              "expr": {
+                "Literal": {
+                  "Value": "0D"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "indicator": [
+        {
+          "properties": {
+            "pointerColor": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "Literal": {
+                      "Value": "'#666666'"
+                    }
+                  }
+                }
+              }
+            },
+            "pointerSizeFactor": {
+              "expr": {
+                "Literal": {
+                  "Value": "100D"
+                }
+              }
+            },
+            "baseThicknessFactor": {
+              "expr": {
+                "Literal": {
+                  "Value": "39D"
+                }
+              }
+            },
+            "baseColor": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "Literal": {
+                      "Value": "'#666666'"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      ],
+      "range2": [
+        {
+          "properties": {
+            "rangeColor": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "Literal": {
+                      "Value": "'#F6CB00'"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      ],
+      "axis": [
+        {
+          "properties": {
+            "endAngle": {
+              "expr": {
+                "Literal": {
+                  "Value": "120D"
+                }
+              }
+            },
+            "startValue": {
+              "expr": {
+                "Literal": {
+                  "Value": "1D"
+                }
+              }
+            },
+            "axisScaleType": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Linear'"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "margins": [
+        {
+          "properties": {
+            "top": {
+              "expr": {
+                "Literal": {
+                  "Value": "0D"
+                }
+              }
+            },
+            "left": {
+              "expr": {
+                "Literal": {
+                  "Value": "0D"
+                }
+              }
+            },
+            "right": {
+              "expr": {
+                "Literal": {
+                  "Value": "0D"
+                }
+              }
+            },
+            "bottom": {
+              "expr": {
+                "Literal": {
+                  "Value": "0D"
+                }
+              }
+            }
+          }
+        }
+      ]
+    },
+    "visualContainerObjects": {
+      "visualHeader": [
+        {
+          "properties": {
+            "showVisualErrorButton": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
+            "showDrillUpButton": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "border": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
+            "radius": {
+              "expr": {
+                "Literal": {
+                  "Value": "30D"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "background": [
+        {
+          "properties": {
+            "transparency": {
+              "expr": {
+                "Literal": {
+                  "Value": "20D"
+                }
+              }
+            },
+            "color": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "ThemeDataColor": {
+                      "ColorId": 0,
+                      "Percent": 0
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      ],
+      "title": [
+        {
+          "properties": {
+            "alignment": {
+              "expr": {
+                "Literal": {
+                  "Value": "'center'"
+                }
+              }
+            },
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
+            "text": {
+              "expr": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "MEDIDAS DAX"
+                    }
+                  },
+                  "Property": "Título: Mes atual (texto)"
+                }
+              }
+            },
+            "bold": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
+            "fontSize": {
+              "expr": {
+                "Literal": {
+                  "Value": "14D"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "general": [
+        {
+          "properties": {
+            "keepLayerOrder": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "lockAspect": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            }
+          }
+        }
+      ]
+    },
+    "drillFilterOtherVisuals": true
+  },
+  "filterConfig": {
+    "filters": [
+      {
+        "name": "Filterbcfc004a79d3a00e4eb4",
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "Fato - Polotrial - Participantes"
+              }
+            },
+            "Property": "Data: Randomização"
+          }
+        },
+        "type": "RelativeDate",
+        "filter": {
+          "Version": 2,
+          "From": [
+            {
+              "Name": "p",
+              "Entity": "Fato - Polotrial - Participantes",
+              "Type": 0
+            }
+          ],
+          "Where": [
+            {
+              "Condition": {
+                "Comparison": {
+                  "ComparisonKind": 0,
+                  "Left": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Source": "p"
+                        }
+                      },
+                      "Property": "Data: Randomização"
+                    }
+                  },
+                  "Right": {
+                    "DateSpan": {
+                      "Expression": {
+                        "Now": {}
+                      },
+                      "TimeUnit": 2
+                    }
+                  }
+                }
+              }
+            }
+          ]
+        },
+        "howCreated": "User"
+      }
+    ]
+  }
+}

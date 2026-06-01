@@ -1,0 +1,396 @@
+expression 'Fato - Polotrial - Participante Visita Procedimento Executor' = ```
+		let
+		    Body = "{
+		                ""nome"": """&param_user&""",
+		                ""password"": """&param_senha&"""
+		    }",
+		    getToken = Json.Document(
+		       Web.Contents(
+		           param_api &"/sessions", [
+		               Headers = 
+		               [#"Content-Type"="application/json"],
+		               Content=Text.ToBinary(Body)
+		           ]
+		       )
+		    ),
+		    Token= getToken[token],
+		    AuthToken = "Bearer " & Token,
+		    urlRequest = param_api &"/participante_visita_procedimento_executor?nested=true",
+		    results = Json.Document(
+		        Web.Contents(
+		            urlRequest,
+		            [Headers = [Authorization=AuthToken]]
+		        )
+		    ),
+		    #"Convertido para Tabela" = Table.FromList(results, Splitter.SplitByNothing(), null, null, ExtraValues.Error),
+		    #"Column1 Expandido" = Table.ExpandRecordColumn(#"Convertido para Tabela", "Column1", {"id", "co_participante_visita_procedimento", "executor", "data_realizada", "data_previsto_pagamento", "data_realizado_pagamento", "valor", "valor_total_procedimento", "co_nota_fiscal", "co_externo", "observacoes", "descricao", "co_objeto", "tipo_objeto"}, {"id", "co_participante_visita_procedimento", "executor", "data_realizada", "data_previsto_pagamento", "data_realizado_pagamento", "valor", "valor_total_procedimento", "co_nota_fiscal", "co_externo", "observacoes", "descricao", "co_objeto", "tipo_objeto"}),
+		    #"Tipo Alterado" = Table.TransformColumnTypes(#"Column1 Expandido",{{"id", Int64.Type}})
+		in
+		    #"Tipo Alterado"
+		```
+	lineageTag: d56b1b46-2e58-4930-9515-53c0b065a2c9
+	queryGroup: 'Polotrial - Participantes'
+
+	annotation PBI_NavigationStepName = Navegação
+
+	annotation PBI_ResultType = Table
+
+expression 'Dimensão -Polotrial - Procedimentos' = ```
+		let
+		    Body = "{
+		                ""nome"": """&param_user&""",
+		                ""password"": """&param_senha&"""
+		    }",
+		    getToken = Json.Document(
+		       Web.Contents(
+		           param_api &"/sessions", [
+		               Headers = 
+		               [#"Content-Type"="application/json"],
+		               Content=Text.ToBinary(Body)
+		           ]
+		       )
+		    ),
+		    Token= getToken[token],
+		    AuthToken = "Bearer " & Token,
+		    urlRequest = param_api &"/procedimentos?nested=true",
+		    results = Json.Document(
+		        Web.Contents(
+		            urlRequest,
+		            [Headers = [Authorization=AuthToken]]
+		        )
+		    ),
+		    #"Convertido para Tabela" = Table.FromList(results, Splitter.SplitByNothing(), null, null, ExtraValues.Error),
+		    #"Column1 Expandido" = Table.ExpandRecordColumn(#"Convertido para Tabela", "Column1", {"id", "nome_procedimento", "descricao_procedimento", "custo_procedimento", "co_centro", "co_externo"}, {"id", "nome_procedimento", "descricao_procedimento", "custo_procedimento", "co_centro", "co_externo"}),
+		    #"Tipo Alterado" = Table.TransformColumnTypes(#"Column1 Expandido",{{"id", Int64.Type}})
+		in
+		    #"Tipo Alterado"
+		```
+	lineageTag: 581a9b63-03bb-4bd4-b46e-72b6b214474b
+	queryGroup: 'Polotrial - Protocolo'
+
+	annotation PBI_NavigationStepName = Navegação
+
+	annotation PBI_ResultType = Table
+
+expression 'Dimensão -Polotrial - Generica' = ```
+		let
+		    Body = "{
+		        ""nome"": """&param_user&""",
+		        ""password"": """&param_senha&"""
+		        }",
+		    getToken = Json.Document(
+		       Web.Contents(
+		           param_api & "/sessions", [
+		               Headers = 
+		               [#"Content-Type"="application/json"],
+		               Content=Text.ToBinary(Body)
+		           ]
+		       )
+		    ),
+		    Token= getToken[token],
+		    AuthToken = "Bearer " & Token,
+		    urlRequest = param_api & "/generica?nested=true",
+		    results = Json.Document(
+		        Web.Contents(
+		            urlRequest,
+		            [Headers = [Authorization=AuthToken]]
+		        )
+		    ),
+		    #"Convertido para Tabela" = Table.FromList(results, Splitter.SplitByNothing(), null, null, ExtraValues.Error),
+		    #"Column1 Expandido" = Table.ExpandRecordColumn(#"Convertido para Tabela", "Column1", {"id", "ds_descricao"}, {"id", "ds_descricao"}),
+		    #"Colunas Renomeadas" = Table.RenameColumns(#"Column1 Expandido",{{"ds_descricao", "genérica"}})
+		in
+		    #"Colunas Renomeadas"
+		```
+	lineageTag: eac400b8-a9db-4b23-a26e-5413cf56b436
+	queryGroup: 'PoloTrial - Gerais'
+
+	annotation PBI_NavigationStepName = Navegação
+
+	annotation PBI_ResultType = Table
+
+expression 'Dimensão -Polotrial - Braço' = ```
+		let
+		    Body = "{
+		                ""nome"": """&param_user&""",
+		                ""password"": """&param_senha&"""
+		    }",
+		    getToken = Json.Document(
+		       Web.Contents(
+		           param_api &"/sessions", [
+		               Headers = 
+		               [#"Content-Type"="application/json"],
+		               Content=Text.ToBinary(Body)
+		           ]
+		       )
+		    ),
+		    Token= getToken[token],
+		    AuthToken = "Bearer " & Token,
+		    urlRequest = param_api &"/braco?nested=true",
+		    results = Json.Document(
+		        Web.Contents(
+		            urlRequest,
+		            [Headers = [Authorization=AuthToken]]
+		        )
+		    ),
+		    #"Convertido para Tabela" = Table.FromList(results, Splitter.SplitByNothing(), null, null, ExtraValues.Error),
+		    #"Column1 Expandido" = Table.ExpandRecordColumn(#"Convertido para Tabela", "Column1", {"id", "co_protocolo", "nome"}, {"id", "co_protocolo", "nome"}),
+		    #"Colunas Renomeadas" = Table.RenameColumns(#"Column1 Expandido",{{"nome", "Braço"}}),
+		    #"Tipo Alterado" = Table.TransformColumnTypes(#"Colunas Renomeadas",{{"id", Int64.Type}, {"co_protocolo", Int64.Type}, {"Braço", type text}})
+		in
+		    #"Tipo Alterado"
+		```
+	lineageTag: 3e361d78-8436-47b7-b566-cc2771845bd3
+	queryGroup: 'PoloTrial - Gerais'
+
+	annotation PBI_NavigationStepName = Navegação
+
+	annotation PBI_ResultType = Table
+
+expression 'Dimensão -Polotrial - Pessoas' = ```
+		let
+		    Body = "{
+		        ""nome"": """&param_user&""",
+		        ""password"": """&param_senha&"""
+		        }",
+		    getToken = Json.Document(
+		       Web.Contents(
+		           param_api &"/sessions", [
+		               Headers = 
+		               [#"Content-Type"="application/json"],
+		               Content=Text.ToBinary(Body)
+		           ]
+		       )
+		    ),
+		    Token= getToken[token],
+		    AuthToken = "Bearer " & Token,
+		    urlRequest = param_api &"/pessoas?nested=true",
+		    results = Json.Document(
+		        Web.Contents(
+		            urlRequest,
+		            [Headers = [Authorization=AuthToken]]
+		        )
+		    ),
+		    #"Convertido para Tabela" = Table.FromList(results, Splitter.SplitByNothing(), null, null, ExtraValues.Error),
+		    #"Column1 Expandido" = Table.ExpandRecordColumn(#"Convertido para Tabela", "Column1", {"id", "ds_nome", "co_tipo_gn"}, {"id", "ds_nome", "co_tipo_gn"}),
+		    #"Consultas Mescladas" = Table.NestedJoin(#"Column1 Expandido", {"co_tipo_gn"}, #"Dimensão -Polotrial - Generica", {"id"}, "Polotrial - Generica", JoinKind.LeftOuter),
+		    #"Polotrial - Generica Expandido" = Table.ExpandTableColumn(#"Consultas Mescladas", "Polotrial - Generica", {"genérica"}, {"genérica"}),
+		    #"Colunas Removidas" = Table.RemoveColumns(#"Polotrial - Generica Expandido",{"co_tipo_gn"}),
+		    #"Colunas Renomeadas" = Table.RenameColumns(#"Colunas Removidas",{{"genérica", "Cargo"}, {"ds_nome", "Nome"}}),
+		    #"Linhas Filtradas" = Table.SelectRows(#"Colunas Renomeadas", each ([Cargo] <> null and [Cargo] <> "Participante")),
+		    #"Tipo Alterado" = Table.TransformColumnTypes(#"Linhas Filtradas",{{"Cargo", type text}, {"Nome", type text}, {"id", Int64.Type}}),
+		    #"Linhas Filtradas1" = Table.SelectRows(#"Tipo Alterado", each [id] = 256 or [id] = 258 or [id] = 2504 or [id] = 2700 or [id] = 2513 or [id] = 297 or [id] = 255 or [id] = 260)
+		in
+		    #"Linhas Filtradas1"
+		```
+	lineageTag: 81d934cf-b9f6-4120-a620-114eb0f48acf
+	queryGroup: 'PoloTrial - Gerais'
+
+	annotation PBI_NavigationStepName = Navegação
+
+	annotation PBI_ResultType = Table
+
+expression 'Dimensão -Polotrial - Centro' = ```
+		let
+		    Body = "{
+		                ""nome"": """&param_user&""",
+		                ""password"": """&param_senha&"""
+		    }",
+		    getToken = Json.Document(
+		       Web.Contents(
+		           param_api &"/sessions", [
+		               Headers = 
+		               [#"Content-Type"="application/json"],
+		               Content=Text.ToBinary(Body)
+		           ]
+		       )
+		    ),
+		    Token= getToken[token],
+		    AuthToken = "Bearer " & Token,
+		    urlRequest = param_api &"/centro?nested=true",
+		    results = Json.Document(
+		        Web.Contents(
+		            urlRequest,
+		            [Headers = [Authorization=AuthToken]]
+		        )
+		    ),
+		    #"Convertido para Tabela" = Table.FromList(results, Splitter.SplitByNothing(), null, null, ExtraValues.Error),
+		    #"Column1 Expandido" = Table.ExpandRecordColumn(#"Convertido para Tabela", "Column1", {"id", "descricao", "observacoes"}, {"id", "descricao", "observacoes"}),
+		    #"Colunas Renomeadas" = Table.RenameColumns(#"Column1 Expandido",{{"descricao", "Centro"}}),
+		    #"Texto Aparado" = Table.TransformColumns(#"Colunas Renomeadas",{{"Centro", Text.Trim, type text}}),
+		    #"Texto Limpo" = Table.TransformColumns(#"Texto Aparado",{{"Centro", Text.Clean, type text}}),
+		    #"Colocar Cada Palavra Em Maiúscula" = Table.TransformColumns(#"Texto Limpo",{{"Centro", Text.Proper, type text}}),
+		    #"Valor Substituído" = Table.ReplaceValue(#"Colocar Cada Palavra Em Maiúscula"," De "," de ",Replacer.ReplaceText,{"Centro"}),
+		    #"Valor Substituído1" = Table.ReplaceValue(#"Valor Substituído"," E "," e ",Replacer.ReplaceText,{"Centro"}),
+		    #"Valor Substituído2" = Table.ReplaceValue(#"Valor Substituído1","Leforte Hmcg","Leforte HMCG",Replacer.ReplaceText,{"Centro"}),
+		    #"Valor Substituído3" = Table.ReplaceValue(#"Valor Substituído2","Avenida José Bonifácio, 569, Centro - Araraquara, São Paulo - CEP: 14801-150, Brasil","Avenida José Bonifácio; 569; Centro - Araraquara; São Paulo - CEP: 14801-150; Brasil",Replacer.ReplaceText,{"observacoes"}),
+		    #"Valor Substituído4" = Table.ReplaceValue(#"Valor Substituído3",",",";",Replacer.ReplaceText,{"observacoes"}),
+		    #"Dividir Coluna por Delimitador" = Table.SplitColumn(#"Valor Substituído4", "observacoes", Splitter.SplitTextByEachDelimiter({";"}, QuoteStyle.Csv, false), {"observacoes.1", "observacoes.2"}),
+		    #"Tipo Alterado" = Table.TransformColumnTypes(#"Dividir Coluna por Delimitador",{{"observacoes.1", type text}, {"observacoes.2", type text}}),
+		    #"Colunas Renomeadas1" = Table.RenameColumns(#"Tipo Alterado",{{"observacoes.1", "Rua"}}),
+		    #"Valor Substituído5" = Table.ReplaceValue(#"Colunas Renomeadas1"," 4614; Sala 1102 e 1103; Belo Horizonte; MG; 30110-028"," 4614 -  Sala 1102 e 1103; Belo Horizonte; MG; 30110-028",Replacer.ReplaceText,{"observacoes.2"}),
+		    #"Valor Substituído6" = Table.ReplaceValue(#"Valor Substituído5"," 4614 -  Sala 1102 e 1103; Belo Horizonte; MG; 30110-028","4614 -  Sala 1102 e 1103; ;Belo Horizonte; MG; 30110-028",Replacer.ReplaceText,{"observacoes.2"}),
+		    #"Valor Substituído7" = Table.ReplaceValue(#"Valor Substituído6"," 500; Centro - Fortaleza; Ceará - CEP: 60140-060; Brasil"," 500; Centro; Fortaleza; Ceará - CEP: 60140-060; Brasil",Replacer.ReplaceText,{"observacoes.2"}),
+		    #"Valor Substituído8" = Table.ReplaceValue(#"Valor Substituído7"," 256; Centro - Balneário Camboriu; Santa Catarina - CEP: 88330-786; Brasil"," 256; Centro; Balneário Camboriu; Santa Catarina - CEP: 88330-786; Brasil",Replacer.ReplaceText,{"observacoes.2"}),
+		    #"Valor Substituído9" = Table.ReplaceValue(#"Valor Substituído8"," 569; Centro - Araraquara; São Paulo - CEP: 14801-150; Brasil"," 569; Centro; Araraquara; São Paulo - CEP: 14801-150; Brasil",Replacer.ReplaceText,{"observacoes.2"}),
+		    #"Dividir Coluna por Delimitador1" = Table.SplitColumn(#"Valor Substituído9", "observacoes.2", Splitter.SplitTextByEachDelimiter({";"}, QuoteStyle.Csv, false), {"observacoes.2.1", "observacoes.2.2"}),
+		    #"Tipo Alterado1" = Table.TransformColumnTypes(#"Dividir Coluna por Delimitador1",{{"observacoes.2.1", type text}, {"observacoes.2.2", type text}}),
+		    #"Colunas Renomeadas2" = Table.RenameColumns(#"Tipo Alterado1",{{"observacoes.2.1", "Número"}}),
+		    #"Dividir Coluna por Delimitador2" = Table.SplitColumn(#"Colunas Renomeadas2", "observacoes.2.2", Splitter.SplitTextByEachDelimiter({";"}, QuoteStyle.Csv, false), {"observacoes.2.2.1", "observacoes.2.2.2"}),
+		    #"Tipo Alterado2" = Table.TransformColumnTypes(#"Dividir Coluna por Delimitador2",{{"observacoes.2.2.1", type text}, {"observacoes.2.2.2", type text}}),
+		    #"Colunas Renomeadas3" = Table.RenameColumns(#"Tipo Alterado2",{{"observacoes.2.2.1", "Bairro"}}),
+		    #"Dividir Coluna por Delimitador3" = Table.SplitColumn(#"Colunas Renomeadas3", "observacoes.2.2.2", Splitter.SplitTextByEachDelimiter({";"}, QuoteStyle.Csv, false), {"observacoes.2.2.2.1", "observacoes.2.2.2.2"}),
+		    #"Tipo Alterado3" = Table.TransformColumnTypes(#"Dividir Coluna por Delimitador3",{{"observacoes.2.2.2.1", type text}, {"observacoes.2.2.2.2", type text}}),
+		    #"Colunas Renomeadas4" = Table.RenameColumns(#"Tipo Alterado3",{{"observacoes.2.2.2.1", "Cidade"}}),
+		    #"Valor Substituído10" = Table.ReplaceValue(#"Colunas Renomeadas4"," Ceará - CEP: 60140-060; Brasil"," Ceará; CEP: 60140-060; Brasil",Replacer.ReplaceText,{"observacoes.2.2.2.2"}),
+		    #"Valor Substituído11" = Table.ReplaceValue(#"Valor Substituído10"," Santa Catarina - CEP: 88330-786; Brasil"," Santa Catarina; CEP: 88330-786; Brasil",Replacer.ReplaceText,{"observacoes.2.2.2.2"}),
+		    #"Valor Substituído12" = Table.ReplaceValue(#"Valor Substituído11"," São Paulo - CEP: 14801-150; Brasil"," São Paulo; CEP: 14801-150; Brasil",Replacer.ReplaceText,{"observacoes.2.2.2.2"}),
+		    #"Dividir Coluna por Delimitador4" = Table.SplitColumn(#"Valor Substituído12", "observacoes.2.2.2.2", Splitter.SplitTextByEachDelimiter({";"}, QuoteStyle.Csv, false), {"observacoes.2.2.2.2.1", "observacoes.2.2.2.2.2"}),
+		    #"Tipo Alterado4" = Table.TransformColumnTypes(#"Dividir Coluna por Delimitador4",{{"observacoes.2.2.2.2.1", type text}, {"observacoes.2.2.2.2.2", type text}}),
+		    #"Valor Substituído13" = Table.ReplaceValue(#"Tipo Alterado4"," CEP: ","",Replacer.ReplaceText,{"observacoes.2.2.2.2.2"}),
+		    #"Valor Substituído14" = Table.ReplaceValue(#"Valor Substituído13","; Brasil","",Replacer.ReplaceText,{"observacoes.2.2.2.2.2"}),
+		    #"Texto Aparado1" = Table.TransformColumns(Table.TransformColumnTypes(#"Valor Substituído14", {{"id", type text}}, "pt-BR"),{{"id", Text.Trim, type text}, {"Centro", Text.Trim, type text}, {"Rua", Text.Trim, type text}, {"Número", Text.Trim, type text}, {"Bairro", Text.Trim, type text}, {"Cidade", Text.Trim, type text}, {"observacoes.2.2.2.2.1", Text.Trim, type text}, {"observacoes.2.2.2.2.2", Text.Trim, type text}}),
+		    #"Texto Limpo1" = Table.TransformColumns(#"Texto Aparado1",{{"id", Text.Clean, type text}, {"Centro", Text.Clean, type text}, {"Rua", Text.Clean, type text}, {"Número", Text.Clean, type text}, {"Bairro", Text.Clean, type text}, {"Cidade", Text.Clean, type text}, {"observacoes.2.2.2.2.1", Text.Clean, type text}, {"observacoes.2.2.2.2.2", Text.Clean, type text}}),
+		    #"Valor Substituído15" = Table.ReplaceValue(#"Texto Limpo1","Minas Gerais","MG",Replacer.ReplaceText,{"observacoes.2.2.2.2.1"}),
+		    #"Valor Substituído16" = Table.ReplaceValue(#"Valor Substituído15","Bahia","BA",Replacer.ReplaceText,{"observacoes.2.2.2.2.1"}),
+		    #"Valor Substituído17" = Table.ReplaceValue(#"Valor Substituído16","São Paulo","SP",Replacer.ReplaceText,{"observacoes.2.2.2.2.1"}),
+		    #"Valor Substituído18" = Table.ReplaceValue(#"Valor Substituído17","Ceará","CE",Replacer.ReplaceText,{"observacoes.2.2.2.2.1"}),
+		    #"Valor Substituído19" = Table.ReplaceValue(#"Valor Substituído18","Santa Catarina","SC",Replacer.ReplaceText,{"observacoes.2.2.2.2.1"}),
+		    #"Colunas Renomeadas5" = Table.RenameColumns(#"Valor Substituído19",{{"observacoes.2.2.2.2.1", "UF"}, {"observacoes.2.2.2.2.2", "CEP"}}),
+		    #"Valor Substituído20" = Table.ReplaceValue(#"Colunas Renomeadas5","SP","São Paulo",Replacer.ReplaceText,{"UF"}),
+		    #"Valor Substituído21" = Table.ReplaceValue(#"Valor Substituído20","PR","Paraná",Replacer.ReplaceText,{"UF"}),
+		    #"Valor Substituído22" = Table.ReplaceValue(#"Valor Substituído21","CE","Ceará",Replacer.ReplaceText,{"UF"}),
+		    #"Valor Substituído23" = Table.ReplaceValue(#"Valor Substituído22","MG","Minas Gerais",Replacer.ReplaceText,{"UF"}),
+		    #"Valor Substituído24" = Table.ReplaceValue(#"Valor Substituído23","MT","Mato Grosso",Replacer.ReplaceText,{"UF"}),
+		    #"Valor Substituído25" = Table.ReplaceValue(#"Valor Substituído24","PE","Pernambuco",Replacer.ReplaceText,{"UF"}),
+		    #"Valor Substituído26" = Table.ReplaceValue(#"Valor Substituído25","PA","Pará",Replacer.ReplaceText,{"UF"}),
+		    #"Valor Substituído27" = Table.ReplaceValue(#"Valor Substituído26","BA","Bahia",Replacer.ReplaceText,{"UF"}),
+		    #"Valor Substituído28" = Table.ReplaceValue(#"Valor Substituído27","SC","Santa Catarina",Replacer.ReplaceText,{"UF"})
+		in
+		    #"Valor Substituído28"
+		```
+	lineageTag: 01b9d9fa-06fc-4380-9b93-d9f0ed8f1403
+	queryGroup: 'PoloTrial - Gerais'
+
+	annotation PBI_NavigationStepName = Navegação
+
+	annotation PBI_ResultType = Table
+
+expression param_api = "https://api.polotrial.com" meta [IsParameterQuery=true, Type="Any", IsParameterQueryRequired=true]
+	lineageTag: 9d818b76-7728-42c7-8632-6dc604f16e87
+
+	annotation PBI_ResultType = Text
+
+expression param_user = "ti@svriglobal.com" meta [IsParameterQuery=true, Type="Any", IsParameterQueryRequired=true]
+	lineageTag: bee0fdfc-8fb2-44ab-ab55-da5a317f2ef6
+
+	annotation PBI_ResultType = Text
+
+expression param_senha = "Valley@2024" meta [IsParameterQuery=true, Type="Any", IsParameterQueryRequired=true]
+	lineageTag: 084f18dd-e536-405c-b9db-47c7aaf5898f
+
+	annotation PBI_ResultType = Text
+
+expression 'Dimensão -Polotrial - Protocolo Financeiro' = ```
+		let
+		    Body = "{
+		                ""nome"": """&param_user&""",
+		                ""password"": """&param_senha&"""
+		    }",
+		    getToken = Json.Document(
+		       Web.Contents(
+		           param_api &"/sessions", [
+		               Headers = 
+		               [#"Content-Type"="application/json"],
+		               Content=Text.ToBinary(Body)
+		           ]
+		       )
+		    ),
+		    Token= getToken[token],
+		    AuthToken = "Bearer " & Token,
+		    urlRequest = param_api &"/protocolo_financeiro?nested=true",
+		    results = Json.Document(
+		        Web.Contents(
+		            urlRequest,
+		            [Headers = [Authorization=AuthToken]]
+		        )
+		    ),
+		    #"Convertido para Tabela" = Table.FromList(results, Splitter.SplitByNothing(), null, null, ExtraValues.Error),
+		    #"Column1 Expandido" = Table.ExpandRecordColumn(#"Convertido para Tabela", "Column1", {"id", "co_protocolo", "moeda", "valor_total_estimado_protocolo", "st_taxa_overhead_acordada", "vl_taxa_overhead", "valor_base_ressarcimento", "valor_por_participante", "periodicidade_de_pagamento", "co_externo", "dados_protocolo", "dados_moeda"}, {"id", "co_protocolo", "moeda", "valor_total_estimado_protocolo", "st_taxa_overhead_acordada", "vl_taxa_overhead", "valor_base_ressarcimento", "valor_por_participante", "periodicidade_de_pagamento", "co_externo", "dados_protocolo", "dados_moeda"}),
+		    #"dados_protocolo Expandido" = Table.ExpandRecordColumn(#"Column1 Expandido", "dados_protocolo", {"apelido_protocolo"}, {"apelido_protocolo"}),
+		    #"dados_moeda Expandido" = Table.ExpandRecordColumn(#"dados_protocolo Expandido", "dados_moeda", {"id", "ds_descricao"}, {"id.1", "ds_descricao"}),
+		    #"Valor Substituído" = Table.ReplaceValue(#"dados_moeda Expandido",".",",",Replacer.ReplaceText,{"valor_total_estimado_protocolo"}),
+		    #"Tipo Alterado" = Table.TransformColumnTypes(#"Valor Substituído",{{"valor_total_estimado_protocolo", Currency.Type}}),
+		    #"Valor Substituído1" = Table.ReplaceValue(#"Tipo Alterado","%","",Replacer.ReplaceText,{"vl_taxa_overhead"}),
+		    #"Tipo Alterado1" = Table.TransformColumnTypes(#"Valor Substituído1",{{"vl_taxa_overhead", type number}}),
+		    #"Coluna dividida" = Table.TransformColumns(#"Tipo Alterado1", {{"vl_taxa_overhead", each _ / 100, type number}}),
+		    #"Valor Substituído2" = Table.ReplaceValue(#"Coluna dividida",".",",",Replacer.ReplaceText,{"valor_base_ressarcimento"}),
+		    #"Valor Substituído3" = Table.ReplaceValue(#"Valor Substituído2",".",",",Replacer.ReplaceText,{"valor_por_participante"}),
+		    #"Tipo Alterado2" = Table.TransformColumnTypes(#"Valor Substituído3",{{"valor_base_ressarcimento", Currency.Type}, {"valor_por_participante", Currency.Type}, {"periodicidade_de_pagamento", Int64.Type}}),
+		    #"Colunas Renomeadas" = Table.RenameColumns(#"Tipo Alterado2",{{"apelido_protocolo", "Acrônimo"}}),
+		    #"Colunas Reordenadas" = Table.ReorderColumns(#"Colunas Renomeadas",{"id", "co_protocolo", "Acrônimo", "moeda", "id.1", "ds_descricao", "valor_total_estimado_protocolo", "st_taxa_overhead_acordada", "vl_taxa_overhead", "valor_base_ressarcimento", "valor_por_participante", "periodicidade_de_pagamento", "co_externo"}),
+		    #"Colunas Renomeadas1" = Table.RenameColumns(#"Colunas Reordenadas",{{"id.1", "co_moeda"}}),
+		    #"Tipo Alterado3" = Table.TransformColumnTypes(#"Colunas Renomeadas1",{{"co_moeda", Int64.Type}}),
+		    #"Linhas Classificadas" = Table.Sort(#"Tipo Alterado3",{{"co_protocolo", Order.Ascending}}),
+		    #"Tipo Alterado4" = Table.TransformColumnTypes(#"Linhas Classificadas",{{"co_protocolo", Int64.Type}, {"id", Int64.Type}}),
+		    #"Linhas Classificadas1" = Table.Sort(#"Tipo Alterado4",{{"co_protocolo", Order.Ascending}, {"Acrônimo", Order.Ascending}}),
+		    #"Colunas Removidas" = Table.RemoveColumns(#"Linhas Classificadas1",{"valor_total_estimado_protocolo", "st_taxa_overhead_acordada", "vl_taxa_overhead", "valor_base_ressarcimento", "valor_por_participante", "periodicidade_de_pagamento", "co_externo"})
+		in
+		    #"Colunas Removidas"
+		```
+	lineageTag: f6c78caf-7578-4152-a9e3-889f3dcafadf
+	queryGroup: 'Polotrial - Protocolo'
+
+	annotation PBI_ResultType = Table
+
+expression 'Dimensão -Polotrial - Protocolo Procedimento' = ```
+		let
+		    Body = "{
+		                ""nome"": """&param_user&""",
+		                ""password"": """&param_senha&"""
+		    }",
+		    getToken = Json.Document(
+		       Web.Contents(
+		           param_api &"/sessions", [
+		               Headers = 
+		               [#"Content-Type"="application/json"],
+		               Content=Text.ToBinary(Body)
+		           ]
+		       )
+		    ),
+		    Token= getToken[token],
+		    AuthToken = "Bearer " & Token,
+		    urlRequest = param_api &"/protocoloprocedimento?nested=true",
+		    results = Json.Document(
+		        Web.Contents(
+		            urlRequest,
+		            [Headers = [Authorization=AuthToken]]
+		        )
+		    ),
+		    #"Convertido para Tabela" = Table.FromList(results, Splitter.SplitByNothing(), null, null, ExtraValues.Error),
+		    #"Column1 Expandido" = Table.ExpandRecordColumn(#"Convertido para Tabela", "Column1", {"id", "co_protocolo", "co_procedimento", "valor", "nome_procedimento_estudo"}, {"id", "co_protocolo", "co_procedimento", "valor", "nome_procedimento_estudo"}),
+		    #"Colunas Reordenadas" = Table.ReorderColumns(#"Column1 Expandido",{"id", "co_protocolo", "co_procedimento", "nome_procedimento_estudo", "valor"}),
+		    #"Colunas Renomeadas" = Table.RenameColumns(#"Colunas Reordenadas",{{"valor", "Valor do procedimento"}}),
+		    #"Valor Substituído" = Table.ReplaceValue(#"Colunas Renomeadas",".",",",Replacer.ReplaceText,{"Valor do procedimento"}),
+		    #"Tipo Alterado" = Table.TransformColumnTypes(#"Valor Substituído",{{"Valor do procedimento", type number}, {"nome_procedimento_estudo", type text}}),
+		    #"Colunas Renomeadas1" = Table.RenameColumns(#"Tipo Alterado",{{"nome_procedimento_estudo", "Nome do procedimento"}}),
+		    #"Valor Substituído1" = Table.ReplaceValue(#"Colunas Renomeadas1","Consulta Médica / Investigador ","Consulta médica",Replacer.ReplaceText,{"Nome do procedimento"}),
+		    #"Valor Substituído2" = Table.ReplaceValue(#"Valor Substituído1","Consulta medica","Consulta médica",Replacer.ReplaceText,{"Nome do procedimento"}),
+		    #"Valor Substituído3" = Table.ReplaceValue(#"Valor Substituído2","Consulta Médica","Consulta médica",Replacer.ReplaceText,{"Nome do procedimento"}),
+		    #"Valor Substituído4" = Table.ReplaceValue(#"Valor Substituído3","Consulta médica","Consulta médica",Replacer.ReplaceText,{"Nome do procedimento"}),
+		    #"Valor Substituído5" = Table.ReplaceValue(#"Valor Substituído4","Consulta médica ","Consulta médica",Replacer.ReplaceText,{"Nome do procedimento"}),
+		    #"Texto Aparado" = Table.TransformColumns(#"Valor Substituído5",{{"Nome do procedimento", Text.Trim, type text}}),
+		    #"Texto Limpo" = Table.TransformColumns(#"Texto Aparado",{{"Nome do procedimento", Text.Clean, type text}}),
+		    #"Valor Substituído6" = Table.ReplaceValue(#"Texto Limpo","Análise de Hemograma Completo e Linfócitos","Hemograma",Replacer.ReplaceText,{"Nome do procedimento"}),
+		    #"Valor Substituído7" = Table.ReplaceValue(#"Valor Substituído6","Hemograma Completo","Hemograma",Replacer.ReplaceText,{"Nome do procedimento"}),
+		    #"Linhas Filtradas" = Table.SelectRows(#"Valor Substituído7", each ([Nome do procedimento] = "Consulta Medica" or [Nome do procedimento] = "Consulta médica"))
+		in
+		    #"Linhas Filtradas"
+		```
+	lineageTag: 24c8e49e-3392-4fe7-a94e-5e99ccdf0162
+	queryGroup: 'Polotrial - Protocolo'
+
+	annotation PBI_NavigationStepName = Navegação
+
+	annotation PBI_ResultType = Table
+
