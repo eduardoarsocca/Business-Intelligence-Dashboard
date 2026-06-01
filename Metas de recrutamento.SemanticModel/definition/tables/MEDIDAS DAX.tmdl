@@ -1,0 +1,287 @@
+table 'MEDIDAS DAX'
+	lineageTag: 91bcc86c-5959-40f9-8668-df1df7cf0657
+
+	measure 'Meta: Ideal (valor $)' = 11300000
+		formatString: 0
+		lineageTag: aabada5b-ea1c-460c-bce8-fb4adb1dc2c0
+
+	measure 'Meta: Mínima (valor $)' = 7200000
+		formatString: 0
+		lineageTag: 53e20c34-56cb-468f-bb98-2b26daf4b033
+
+	measure 'Contagem: participante incluídos' =
+			
+			CALCULATE(
+			    DISTINCTCOUNT(
+			        'Fato - Polotrial - Participantes'[id]),
+			        NOT(ISBLANK('Fato - Polotrial - Participantes'[Data: Inclusão])
+			        )
+			)
+			+0
+		formatString: 0
+		lineageTag: ca12ace1-cbca-4053-b4e1-2cacc071e36a
+
+	measure 'Valor: jornada do participante' = SUM('Dimensão -Polotrial - Visita'[valor])
+		formatString: #,0.00
+		lineageTag: d166a8f3-1a5d-49f8-a1b7-5c340a43c12c
+
+	measure 'número de participantes para atingir a meta mínima/mês' = ```
+			
+			VAR MesesRestantes = DATEDIFF(
+			TODAY(),
+			DATE(YEAR(TODAY()), 12, 31),
+			MONTH
+			) + 1
+			VAR DataInicioAno = DATE(YEAR(TODAY()), 1, 1)
+			VAR MesesDesdeInicio = DATEDIFF(
+			DataInicioAno,
+			TODAY(),
+			MONTH
+			) + 1
+			VAR MetaMinimaMensal = [Meta: Mínima (valor $)] / ([Valor: Maior valor de participante (FIXO)]) / (MesesRestantes + MesesDesdeInicio)
+			RETURN MetaMinimaMensal
+			
+			```
+		lineageTag: 65aac221-499a-406a-9538-612bf67878c0
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Número de participantes para atingir a meta ideal/mês' =
+			
+			VAR MesesRestantes = DATEDIFF(
+			TODAY(),
+			DATE(YEAR(TODAY()), 12, 31),
+			MONTH
+			) + 1
+			VAR DataInicioAno = DATE(YEAR(TODAY()), 1, 1)
+			VAR MesesDesdeInicio = DATEDIFF(
+			DataInicioAno,
+			TODAY(),
+			MONTH
+			) + 1
+			VAR MetaMinimaMensal = [Meta: Ideal (valor $)] / ([Valor: Maior valor de participante (FIXO)]) / (MesesRestantes + MesesDesdeInicio)
+			RETURN MetaMinimaMensal
+		lineageTag: ef2af65d-3d58-484e-a2cc-97da115f6cea
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Valor: Maior valor de participante (FIXO)' = 34709.90
+		lineageTag: 877716fb-e469-4b9c-aefc-6d6c1ef974b2
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Meta: Mínima mensal (faltam)' = ```
+			
+			VAR meta = ROUND([número de participantes para atingir a meta mínima/mês]-CALCULATE([Contagem: participante 2024], FILTER('Fato - PoloTrial - Participantes Visita', MONTH('Fato - PoloTrial - Participantes Visita'[Data: Visita]) = MONTH(TODAY()))),0)
+			VAR rec = CALCULATE([Contagem: participante 2024], FILTER('Fato - PoloTrial - Participantes Visita', MONTH('Fato - PoloTrial - Participantes Visita'[Data: Visita]) = MONTH(TODAY())))
+			RETURN IF(
+			    meta > 0, 
+			    "Faltam " & UNICHAR(10) & meta & " participantes totais.", 
+			    "Parabéns a todos." & UNICHAR(10) & rec & " participantes recrutados no mês.")
+			```
+		lineageTag: c859765f-2c7e-4f28-94ff-a397e80be012
+
+	measure 'Meta: Ideal mensal (faltam)' = ```
+			
+			VAR ideal = ROUND([Número de participantes para atingir a meta ideal/mês]-CALCULATE([Contagem: participante 2024], FILTER('Fato - PoloTrial - Participantes Visita', MONTH('Fato - PoloTrial - Participantes Visita'[Data: Visita]) = MONTH(TODAY()))),0)
+			VAR rec_ideal = ROUND(CALCULATE([Contagem: participante 2024], FILTER('Fato - PoloTrial - Participantes Visita', MONTH('Fato - PoloTrial - Participantes Visita'[Data: Visita]) = MONTH(TODAY()))),0)
+			
+			RETURN IF(
+			    ideal > 0, 
+			    "Faltam " & UNICHAR(10)  & ideal & " participantes totais.", 
+			    "Parabéns time, superamos a meta estabelecida.")
+			```
+		lineageTag: 906a4411-353e-4ff4-9890-898cd38494c5
+
+	measure 'Contagem: visitas dos participantes' = DISTINCTCOUNT('Fato - PoloTrial - Participantes Visita'[id])
+		formatString: 0
+		lineageTag: cc1816eb-5a32-4351-b7ff-4a0ac82d63e8
+
+	measure 'Valor: Acumulado previsto' = ```
+			SUMX(
+			    FILTER('Fato - PoloTrial - Participantes Visita', YEAR('Fato - PoloTrial - Participantes Visita'[Data: Visita]) = YEAR(TODAY())),
+			    'Fato - PoloTrial - Participantes Visita'[Valor previsto corrigido]
+			)
+			
+			```
+		formatString: "R$"\ #,0.###############;-"R$"\ #,0.###############;"R$"\ #,0.###############
+		lineageTag: f5adad95-371c-49f6-b7d5-39a2849d06b3
+
+		annotation PBI_FormatHint = {"currencyCulture":"pt-BR"}
+
+	measure 'Valor: percentual acumulado' = [Valor: Acumulado previsto]/[Meta: Mínima (valor $)]
+		formatString: #,0.00%;-#,0.00%;#,0.00%
+		lineageTag: 70227879-3d79-4ae3-9140-5e008f2ac211
+
+	measure 'valor previsto da visita corrigido' =
+			
+			var valor = SELECTEDVALUE('Fato - PoloTrial - Participantes Visita'[Valor previsto da visita])
+			var cotacao = SELECTEDVALUE('Cotação2'[Valor cotação'])
+			
+			return IF(SELECTEDVALUE('Fato - PoloTrial - Participantes Visita'[co_moeda], 568) = 568, valor *1, valor *cotacao)
+		formatString: "R$"#,0.00;-"R$"#,0.00;"R$"#,0.00
+		lineageTag: d1b4388a-d284-48cc-9624-92c647e257ec
+
+		annotation PBI_FormatHint = {"currencyCulture":"es-BR"}
+
+	measure 'valor previsto da visita (corrigido) acumulado' = [valor previsto da visita corrigido]*[Contagem: visitas dos participantes]
+		formatString: "R$"#,0.00;-"R$"#,0.00;"R$"#,0.00
+		lineageTag: 30df2306-5e04-4a86-95e7-87056bc7322b
+
+		annotation PBI_FormatHint = {"currencyCulture":"es-BR"}
+
+	measure 'Valor: Soma dos valores previstos das visitas (corrigido1)' =
+			
+			var valor_pendente = SUM('Fato - PoloTrial - Participantes Visita'[Valor previsto da visita])
+			var cotacao2 = SELECTEDVALUE('Cotação2'[Valor cotação])
+			
+			return IF(SELECTEDVALUE('Fato - PoloTrial - Participantes Visita'[co_moeda], 568) = 568, valor_pendente *1, valor_pendente *cotacao2)
+		lineageTag: 5c86a368-4fe2-4d6d-9196-ac4c5f04470e
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Número de participantes para atingir a meta ideal/ano' = [Meta: Ideal (valor $)]/([Valor: Maior valor de participante (FIXO)])
+		formatString: 0
+		lineageTag: be692add-6022-4ad2-b742-c1b4c4896dae
+
+	measure 'número de participantes para atingir a meta mínima/ano' = [Meta: Mínima (valor $)]/([Valor: Maior valor de participante (FIXO)])
+		formatString: 0
+		lineageTag: 9d15275b-dd50-4d14-a5f2-786439e5ec43
+
+	measure 'Meta: Ideal anual (faltam)' =
+			VAR AnoAtual = YEAR(TODAY())
+			RETURN
+			    CALCULATE(
+			        [Número de participantes para atingir a meta ideal/ano] - [Contagem: participante incluídos],
+			        FILTER(Calendario, Calendario[Ano] = AnoAtual))
+		formatString: 0
+		lineageTag: 40ca474d-b002-4e9f-9ca6-9ee3c190238a
+
+	measure 'Meta: Mínima anual (faltam)' = ```
+			
+			VAR ParticipantesAno = CALCULATE(DISTINCTCOUNT('Fato - Polotrial - Participantes'[id]), DATESYTD(Calendario[Date]))
+			VAR MetaMinima = [Número de participantes para atingir a meta mínima/ano]
+			RETURN IF(MetaMinima > ParticipantesAno, MetaMinima - ParticipantesAno, 0)
+			
+			```
+		formatString: 0
+		lineageTag: 85f3ee18-b320-4e26-9b70-1d221b4b6dfe
+
+	measure 'Contagem: participante 2024' = ```
+			CALCULATE(
+			    DISTINCTCOUNT('Fato - Polotrial - Participantes'[id]),
+			    MONTH('Fato - Polotrial - Participantes'[Data: Randomização]) = MONTH(TODAY())
+			)+0
+			
+			```
+		formatString: 0
+		lineageTag: acede94f-6868-4c68-a525-32f357490e69
+
+	measure 'Mensagem: Atualização' = "Atualizado em " & UTCTODAY()
+		lineageTag: aed52afb-0ac7-42ac-b007-1a2371c7b9ee
+
+	measure 'Meta: Feasibility' = SUM('Dimensão -Polotrial - Protocolo'[Meta de inclusão])+0
+		formatString: 0
+		lineageTag: 6e89e4e4-1bf0-41cc-a21b-5abed36b0a33
+
+	measure 'Meta: Feasibility 70%' = 0.637*[Meta: Feasibility]
+		formatString: 0
+		lineageTag: 8706006f-cc6a-428e-99d1-c36899b22a2a
+
+	measure 'Título: Mes atual (texto)' = ```
+			UPPER(LEFT(FORMAT(TODAY(), "MMMM"), 1)) & LOWER(RIGHT(FORMAT(TODAY(), "MMMM"), LEN(FORMAT(TODAY(), "MMMM"))-1)) & ", " & YEAR(TODAY())
+			
+			
+			```
+		lineageTag: 6faf16f6-274a-4da1-9e94-79798152c1c0
+
+	measure 'Título: Ano atual (Visitas)' = "Visitas em "&FORMAT(YEAR(TODAY()), "####")
+		lineageTag: 46600e3c-5780-4f80-ba68-93ee04cd368c
+
+	measure 'Título: Ano atual (receita mensal)' = "Receita mensal por status: "&FORMAT(YEAR(TODAY()), "####")
+		lineageTag: cb18f6f0-d6ae-41c4-bf10-c4edc4b26577
+
+	measure 'Título: Ano atual (Recrutamento)' = "Recrutamento em "&FORMAT(YEAR(TODAY()), "####")
+		lineageTag: 262c9179-3bfc-4974-a240-68ff567fda7f
+
+	measure 'Título: Ano atual (receita anual)' = "Receita em "&FORMAT(YEAR(TODAY()), "####")
+		lineageTag: 3f94f296-8900-49e8-a9aa-ea8163d5efaa
+
+	measure 'Valor: Soma dos valores previstos das visitas (valor corrigido)' = SUM('Fato - PoloTrial - Participantes Visita'[Valor previsto corrigido])
+		lineageTag: 2b779e39-f11a-4203-acc5-0e8fa468162c
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure Hoje = TODAY()
+		formatString: Short Date
+		lineageTag: 7f07e107-316b-48d9-a7d7-9964a50b0ebd
+
+	measure 'DELTA DE PARTICIPANTES' = [Meta: Feasibility]-[Contagem: participante incluídos]
+		formatString: 0
+		lineageTag: 735949ff-a828-4b0b-b0f5-746bee450160
+
+	measure 'Título: recrutamento Mes atual (texto)' = " Recrutamento por estudo em " & UPPER(LEFT(FORMAT(TODAY(), "MMMM"), 1)) & LOWER(RIGHT(FORMAT(TODAY(), "MMMM"), LEN(FORMAT(TODAY(), "MMMM"))-1)) & ", " & YEAR(TODAY())
+		lineageTag: b038b8d3-0e05-4852-b1ac-453ddc68a17b
+
+	measure 'Título: recrutamento Mes anterior (-1) (texto)' =
+			" Recrutamento por estudo em " &
+			UPPER(LEFT(FORMAT(EOMONTH(TODAY(), -1), "MMMM"), 1)) &
+			LOWER(RIGHT(FORMAT(EOMONTH(TODAY(), -1), "MMMM"), LEN(FORMAT(EOMONTH(TODAY(), -1), "MMMM"))-1)) &
+			", " & YEAR(EOMONTH(TODAY(), -1))
+		lineageTag: b206cdb3-1a59-4371-b49d-51c95ba5dbbd
+
+	measure 'Título: recrutamento Mes anterior (-2) (texto)' =
+			"Recrutamento por estudo em " &
+			UPPER(LEFT(FORMAT(EOMONTH(TODAY(), -2), "MMMM"), 1)) &
+			LOWER(RIGHT(FORMAT(EOMONTH(TODAY(), -2), "MMMM"), LEN(FORMAT(EOMONTH(TODAY(), -1), "MMMM"))-1)) &
+			", " & YEAR(EOMONTH(TODAY(), -1))
+		lineageTag: e4d366d5-6019-42fd-b48b-99517a94a755
+
+	measure 'Meta Ideal mensal (faltam) velocimetro' =
+			
+			ROUND([Número de participantes para atingir a meta ideal/mês]-CALCULATE([Contagem: participante 2024], FILTER('Fato - PoloTrial - Participantes Visita', MONTH('Fato - PoloTrial - Participantes Visita'[Data: Visita]) = MONTH(TODAY()))),0)
+		lineageTag: 6bb43156-c33d-4444-aa5f-a7d7f0df7f29
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Meta: Mínima mensal (faltam) velocimetro' =
+			
+			[número de participantes para atingir a meta mínima/mês]-CALCULATE([Contagem: participante 2024], FILTER('Fato - PoloTrial - Participantes Visita', MONTH('Fato - PoloTrial - Participantes Visita'[Data: Visita]) = MONTH(TODAY())))
+		lineageTag: 61f1f925-1acb-477e-86f8-0aced3c84260
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Contagem: participantes randomizados' =
+			
+			CALCULATE(
+			    DISTINCTCOUNT(
+			        'Fato - Polotrial - Participantes'[id]),
+			        NOT(ISBLANK('Fato - Polotrial - Participantes'[Data: Randomização])
+			        )
+			)
+			+0
+		formatString: 0
+		lineageTag: c6b3e209-94b8-465c-bb06-3a377f18409f
+
+	measure 'taxa de conversão' = DIVIDE([Contagem: participantes randomizados],[Contagem: participante incluídos],  0)
+		formatString: 0.0%;-0.0%;0.0%
+		lineageTag: 322498db-1d25-41cc-9180-28328904ec87
+
+	column Coluna
+		isHidden
+		formatString: 0
+		lineageTag: ffacfd4c-3a2b-4492-96b3-9d24e0f9f93f
+		summarizeBy: sum
+		isNameInferred
+		sourceColumn: [Coluna]
+
+		annotation SummarizationSetBy = Automatic
+
+	partition 'MEDIDAS DAX-b9af84a2-df60-46dc-a57e-39f95034363a' = calculated
+		mode: import
+		source = Row("Coluna", BLANK())
+
+	annotation PBI_Id = 20dd635d6f494656a44130d16c664844
+
+	annotation 436ba87b-9c83-4389-a31b-ebd06a36be98 = {"Expression":""}
+

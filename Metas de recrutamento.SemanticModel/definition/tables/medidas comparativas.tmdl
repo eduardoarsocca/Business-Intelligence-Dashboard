@@ -1,0 +1,166 @@
+table 'medidas comparativas'
+	lineageTag: 72df9554-7ae4-4f33-9aef-b4ec055638a2
+
+	measure protocolos = DISTINCTCOUNT('Dimensão -Polotrial - Protocolo'[id])
+		formatString: 0
+		lineageTag: 4dc13887-a1f4-4179-a02d-84bca64e6792
+
+	measure VARIAÇÃO_PERCENTUAL_REC =
+			
+			IF(
+			    ISBLANK([rec2023]) || [rec2023] = 0,
+			    BLANK(),
+			    ([rec2024] - [rec2023]) / [rec2023]
+			)+0
+		formatString: 0.00%;-0.00%;0.00%
+		lineageTag: 5d0ab060-a9c8-43e9-9086-de7c6c20aefd
+
+	measure rec2023 = ```
+			
+			CALCULATE(
+			    DISTINCTCOUNT('Fato - Polotrial - Participantes'[id]), 
+			    FILTER(
+			        Calendario, 
+			        Calendario[Date] >= DATE(2022, 3, 1) && 
+			        Calendario[Date] < DATE(2023, 3, 1)
+			    )
+			)
+			
+			```
+		formatString: 0
+		lineageTag: fbb244c9-e4c9-4455-8d3d-0f52aab422c9
+
+	measure rec2024 = ```
+			
+			CALCULATE(
+			    DISTINCTCOUNT('Fato - Polotrial - Participantes'[id]), 
+			    FILTER(
+			        Calendario, 
+			        Calendario[Date] >= DATE(2023, 3, 1) && 
+			        Calendario[Date] < DATE(2024, 3, 1)
+			    )
+			)
+			```
+		formatString: 0
+		lineageTag: 1399099c-226d-4126-a3a5-9f2453268fbc
+
+	measure protocoloscadastrados2023 = ```
+			
+			CALCULATE(
+			    DISTINCTCOUNT('Dimensão -Polotrial - Protocolo'[id]), 
+			    FILTER(
+			        'Dimensão -Polotrial - Protocolo', 
+			        'Dimensão -Polotrial - Protocolo'[Data: cadastro do protocolo] >= DATE(2022, 3, 1) && 
+			        'Dimensão -Polotrial - Protocolo'[Data: cadastro do protocolo] < DATE(2023, 3, 1)
+			    )
+			)
+			```
+		formatString: 0
+		lineageTag: 93fb8981-511d-4e62-90b6-64ccbf539d6f
+
+	measure protocoloscadastrados2024 = ```
+			
+			CALCULATE(
+			    DISTINCTCOUNT('Dimensão -Polotrial - Protocolo'[id]), 
+			    FILTER(
+			        'Dimensão -Polotrial - Protocolo', 
+			        'Dimensão -Polotrial - Protocolo'[Data: cadastro do protocolo] >= DATE(2023, 3, 1) && 
+			        'Dimensão -Polotrial - Protocolo'[Data: cadastro do protocolo] < DATE(2024, 3, 1)
+			    )
+			)
+			```
+		formatString: 0
+		lineageTag: 0b760b45-a270-4cb8-9bb2-c557f157615b
+
+	measure VARIAÇÃO_PERCENTUAL_FEASI =
+			
+			IF(
+			    ISBLANK([protocoloscadastrados2023]) || [protocoloscadastrados2023] = 0,
+			    BLANK(),
+			    ([protocoloscadastrados2024] - [protocoloscadastrados2023]) / [protocoloscadastrados2023]
+			)+0
+		formatString: 0.00%;-0.00%;0.00%
+		lineageTag: db07bbfd-bab4-46ae-a7fe-46ed04a38408
+
+	measure conversao2023 = ```
+			
+			var cadastro2023 = CALCULATE(
+			    DISTINCTCOUNT('Dimensão -Polotrial - Protocolo'[id]), 
+			    FILTER(
+			        'Dimensão -Polotrial - Protocolo', 
+			        'Dimensão -Polotrial - Protocolo'[Data: cadastro do protocolo] >= DATE(2022, 3, 1) && 
+			        'Dimensão -Polotrial - Protocolo'[Data: cadastro do protocolo] < DATE(2023, 3, 1)
+			    ), 'Dimensão -Polotrial - Protocolo'[Status do estudo (grupos)]<>"DECLINADOS" && 'Dimensão -Polotrial - Protocolo'[Status do estudo (grupos)]<> "CANCELADOS" && 'Dimensão -Polotrial - Protocolo'[Status do estudo (grupos)]<> "ACADEMY" && 'Dimensão -Polotrial - Protocolo'[Status do estudo (grupos)]<> "FINANCEIRO" && 'Dimensão -Polotrial - Protocolo'[Status do estudo (grupos)]<>"MATERIAIS" && 'Dimensão -Polotrial - Protocolo'[Status do estudo (grupos)]<>"NÃO SELECIONADO"
+			)
+			
+			var convertidos2023 = CALCULATE(
+			    DISTINCTCOUNT('Dimensão -Polotrial - Protocolo'[id]), 
+			    FILTER(
+			        'Dimensão -Polotrial - Protocolo', 
+			        'Dimensão -Polotrial - Protocolo'[Data: cadastro do protocolo] >= DATE(2022, 3, 1) && 
+			        'Dimensão -Polotrial - Protocolo'[Data: cadastro do protocolo] < DATE(2023, 3, 1)
+			    ), 'Dimensão -Polotrial - Protocolo'[Status do estudo (grupos)]<>"DECLINADOS" && 'Dimensão -Polotrial - Protocolo'[Status do estudo (grupos)]<> "CANCELADOS" && 'Dimensão -Polotrial - Protocolo'[Status do estudo (grupos)]<> "ACADEMY" && 'Dimensão -Polotrial - Protocolo'[Status do estudo (grupos)]<> "FINANCEIRO" && 'Dimensão -Polotrial - Protocolo'[Status do estudo (grupos)]<>"MATERIAIS" && 'Dimensão -Polotrial - Protocolo'[Status do estudo (grupos)]<>"NÃO SELECIONADO" && 'Dimensão -Polotrial - Protocolo'[Status do estudo (grupos)]<>"Centro backup" && 'Dimensão -Polotrial - Protocolo'[Status do estudo (grupos)]<>"Em qualificação" && 'Dimensão -Polotrial - Protocolo'[Status do estudo (grupos)]<>"Estudo em On hold" && 'Dimensão -Polotrial - Protocolo'[Status do estudo (grupos)]<>"Feasibility" && 'Dimensão -Polotrial - Protocolo'[Status do estudo (grupos)]<>"Prospecção de estudo"&& 'Dimensão -Polotrial - Protocolo'[Status do estudo (grupos)]<>"Protocolo adiado"
+			)
+			
+			
+			
+			return DIVIDE(convertidos2023, cadastro2023, 0) 
+			```
+		formatString: 0%;-0%;0%
+		lineageTag: 94847caa-66d4-4a66-a29b-1b5cf2666ccc
+
+	measure conversao2024 = ```
+			
+			var cadastro2024 = CALCULATE(
+			    DISTINCTCOUNT('Dimensão -Polotrial - Protocolo'[id]), 
+			    FILTER(
+			        'Dimensão -Polotrial - Protocolo', 
+			        'Dimensão -Polotrial - Protocolo'[Data: cadastro do protocolo] >= DATE(2023, 3, 1) && 
+			        'Dimensão -Polotrial - Protocolo'[Data: cadastro do protocolo] < DATE(2024, 3, 1)
+			    ), 'Dimensão -Polotrial - Protocolo'[Status do estudo (grupos)]<>"DECLINADOS" && 'Dimensão -Polotrial - Protocolo'[Status do estudo (grupos)]<> "CANCELADOS" && 'Dimensão -Polotrial - Protocolo'[Status do estudo (grupos)]<> "ACADEMY" && 'Dimensão -Polotrial - Protocolo'[Status do estudo (grupos)]<> "FINANCEIRO" && 'Dimensão -Polotrial - Protocolo'[Status do estudo (grupos)]<>"MATERIAIS" && 'Dimensão -Polotrial - Protocolo'[Status do estudo (grupos)]<>"NÃO SELECIONADO"
+			)
+			
+			var convertidos2024 = CALCULATE(
+			    DISTINCTCOUNT('Dimensão -Polotrial - Protocolo'[id]), 
+			    FILTER(
+			        'Dimensão -Polotrial - Protocolo', 
+			        'Dimensão -Polotrial - Protocolo'[Data: cadastro do protocolo] >= DATE(2023, 3, 1) && 
+			        'Dimensão -Polotrial - Protocolo'[Data: cadastro do protocolo] < DATE(2024, 3, 1)
+			    ), 'Dimensão -Polotrial - Protocolo'[Status do estudo (grupos)]<>"DECLINADOS" && 'Dimensão -Polotrial - Protocolo'[Status do estudo (grupos)]<> "CANCELADOS" && 'Dimensão -Polotrial - Protocolo'[Status do estudo (grupos)]<> "ACADEMY" && 'Dimensão -Polotrial - Protocolo'[Status do estudo (grupos)]<> "FINANCEIRO" && 'Dimensão -Polotrial - Protocolo'[Status do estudo (grupos)]<>"MATERIAIS" && 'Dimensão -Polotrial - Protocolo'[Status do estudo (grupos)]<>"NÃO SELECIONADO" && 'Dimensão -Polotrial - Protocolo'[Status do estudo (grupos)]<>"Centro backup" && 'Dimensão -Polotrial - Protocolo'[Status do estudo (grupos)]<>"Em qualificação" && 'Dimensão -Polotrial - Protocolo'[Status do estudo (grupos)]<>"Estudo em On hold" && 'Dimensão -Polotrial - Protocolo'[Status do estudo (grupos)]<>"Feasibility" && 'Dimensão -Polotrial - Protocolo'[Status do estudo (grupos)]<>"Prospecção de estudo"&& 'Dimensão -Polotrial - Protocolo'[Status do estudo (grupos)]<>"Protocolo adiado"
+			)
+			
+			
+			
+			return DIVIDE(convertidos2024, cadastro2024, 0) 
+			```
+		formatString: 0.00%;-0.00%;0.00%
+		lineageTag: dedd96c0-a8bd-4481-891d-2d295066d0cd
+
+	measure VARIAÇÃO_PERCENTUAL_CONVERSAO = ```
+			
+			IF(
+			    [conversao2023] = 0, 
+			    BLANK(), 
+			    ([conversao2024] - [conversao2023]) / [conversao2023]
+			)
+			```
+		formatString: 0.00%;-0.00%;0.00%
+		lineageTag: f9a53d35-2203-4097-8a76-c90a51db8973
+
+	column Column
+		formatString: 0
+		lineageTag: 54392710-a81a-44bd-ab0b-6f5e36a7ebf1
+		summarizeBy: sum
+		isNameInferred
+		sourceColumn: [Column]
+
+		annotation SummarizationSetBy = Automatic
+
+	partition 'medidas comparativas' = calculated
+		mode: import
+		source = Row("Column", BLANK())
+
+	annotation PBI_Id = da0af7727d9944899ade30c888696273
+
+	annotation 436ba87b-9c83-4389-a31b-ebd06a36be98 = {"Expression":""}
+
